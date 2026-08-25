@@ -5,20 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- SEO & Social -->
-  <title>James Greer | Journalist, Web Designer & Video Producer</title>
-  <meta name="description"
-        content="Portfolio of James Greer — published journalism, web design projects, and video production work.">
+  <title>James Greer | Digital Communications &amp; Video Specialist</title>
+  <meta name="description" content="Portfolio of James Greer — Video production for public bodies (Audit Scotland, Accounts Commission), digital web redesigns, and published journalism.">
   <meta name="author" content="James Greer">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="James Greer | Portfolio & CV">
-  <meta property="og:description"
-        content="Selected articles, web design projects, and video productions by James Greer.">
+  <meta property="og:title" content="James Greer | Digital Communications Portfolio">
+  <meta property="og:description" content="Video production, website redesigns, and press writing by James Greer.">
   <meta property="og:type" content="website">
 
-  <!-- Favicon (inline SVG, no external file needed) -->
-  <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>JG</text></svg>">
+  <!-- Inline SVG Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>JG</text></svg>">
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -26,16 +23,15 @@
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "James Greer",
-    "jobTitle": "Journalist, Web Designer, Video Producer",
-    "url": "",
+    "jobTitle": "Digital Communications & Video Production Specialist",
     "sameAs": [
-      "https://muckrack.com/james-greer-5/portfolio"
+      "https://muckrack.com/james-greer-5/portfolio",
+      "https://www.intelligensconsulting.com/"
     ]
   }
   </script>
 
   <style>
-    /* ---------- Design Tokens ---------- */
     :root {
       --primary: #1a1a1a;
       --secondary: #555;
@@ -48,7 +44,7 @@
       --radius: 8px;
       --shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
       --shadow-hover: 0 6px 20px rgba(0, 0, 0, 0.12);
-      --max-width: 900px;
+      --max-width: 1050px;
     }
 
     @media (prefers-color-scheme: dark) {
@@ -65,10 +61,9 @@
       }
     }
 
-    /* ---------- Reset & Base ---------- */
     * { box-sizing: border-box; }
     body {
-      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
       line-height: 1.6;
       color: var(--primary);
       background-color: var(--bg);
@@ -78,14 +73,12 @@
     a { color: var(--accent); }
     a:hover { color: var(--accent-hover); }
 
-    /* Visible focus for keyboard users */
-    a:focus-visible, .btn:focus-visible {
+    a:focus-visible, button:focus-visible {
       outline: none;
       box-shadow: var(--focus-ring);
     }
 
-    /* ---------- Layout ---------- */
-    header, section, footer {
+    header, main, footer {
       max-width: var(--max-width);
       margin: 0 auto;
       padding: 2rem 1rem;
@@ -93,58 +86,85 @@
     header {
       border-bottom: 1px solid var(--border);
     }
-    h1 { margin-bottom: 0.25rem; font-size: clamp(1.75rem, 5vw, 2.5rem); }
-    h2 { font-size: clamp(1.4rem, 3vw, 1.8rem); }
+    h1 { margin-bottom: 0.25rem; font-size: clamp(1.8rem, 5vw, 2.6rem); }
     .subtitle {
       color: var(--secondary);
-      font-size: 1.15rem;
+      font-size: 1.2rem;
+      font-weight: 500;
       margin-top: 0;
     }
+    .bio { max-width: 750px; color: var(--secondary); margin-bottom: 1.5rem; }
 
-    /* ---------- Skip Link ---------- */
-    .skip-link {
-      position: absolute;
-      left: -999px;
-      top: 0;
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* Filters */
+    .filter-bar {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .filter-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      color: var(--primary);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+    .filter-btn:hover, .filter-btn.active {
       background: var(--accent);
       color: #fff;
-      padding: 0.5rem 1rem;
-      z-index: 100;
-    }
-    .skip-link:focus {
-      left: 1rem;
-      top: 1rem;
+      border-color: var(--accent);
     }
 
-    /* ---------- Grid & Cards ---------- */
+    /* Grid layout */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
       gap: 1.5rem;
-      margin-top: 1.5rem;
     }
     .card {
       background: var(--card-bg);
       border-radius: var(--radius);
-      padding: 1.5rem;
+      padding: 1.25rem;
       box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       transition: box-shadow 0.2s ease, transform 0.2s ease;
     }
     .card:hover {
       box-shadow: var(--shadow-hover);
       transform: translateY(-2px);
     }
-    .card h3 { margin-top: 0; }
-    .card p { margin-bottom: 0.75rem; }
+    .card h3 { margin-top: 0; margin-bottom: 0.5rem; font-size: 1.15rem; }
+    .card p { margin-bottom: 0.75rem; font-size: 0.95rem; color: var(--secondary); }
+    .tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
 
-    /* ---------- Responsive Video ---------- */
     .video-container {
       position: relative;
-      padding-bottom: 56.25%; /* 16:9 */
+      padding-bottom: 56.25%;
       height: 0;
       overflow: hidden;
       border-radius: 6px;
-      margin-top: 0.5rem;
+      margin-top: 0.75rem;
       background: #000;
     }
     .video-container iframe {
@@ -154,21 +174,23 @@
       border: 0;
     }
 
-    /* ---------- Button ---------- */
     .btn {
       display: inline-block;
       background: var(--accent);
-      color: #fff;
+      color: #fff !important;
       text-decoration: none;
-      padding: 0.6rem 1.25rem;
+      padding: 0.5rem 1rem;
       border-radius: 4px;
-      margin-top: 0.5rem;
       font-weight: 600;
-      transition: background 0.2s ease;
+      font-size: 0.9rem;
+      text-align: center;
     }
-    .btn:hover { background: var(--accent-hover); color: #fff; }
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--accent);
+      color: var(--accent) !important;
+    }
 
-    /* ---------- Footer ---------- */
     footer {
       border-top: 1px solid var(--border);
       color: var(--secondary);
@@ -176,116 +198,208 @@
       text-align: center;
     }
 
-    /* ---------- Reduced Motion ---------- */
     @media (prefers-reduced-motion: reduce) {
       .card { transition: none; }
       .card:hover { transform: none; }
-    }
-
-    /* ---------- Print ---------- */
-    @media print {
-      .video-container, .btn { display: none; }
-      body { background: #fff; color: #000; }
-      .card { box-shadow: none; border: 1px solid #ccc; }
     }
   </style>
 </head>
 <body>
 
-  <a href="#main" class="skip-link">Skip to content</a>
-
-  <!-- HEADER / BIO -->
   <header>
     <h1>James Greer</h1>
-    <p class="subtitle">Journalist | Web Designer | Video Producer</p>
-    <p>Welcome to my work portfolio. Below you'll find selected articles, web design projects, and video productions.</p>
-    <a href="https://muckrack.com/james-greer-5/portfolio"
-       target="_blank" rel="noopener noreferrer"
-       class="btn">View Full Muck Rack Index</a>
+    <p class="subtitle">Digital Media Specialist | Video Producer | Journalist</p>
+    <p class="bio">
+      Specialising in digital communications for public sector bodies and corporate clients. Experienced in producing executive video summaries, full-site web redesigns, and press journalism.
+    </p>
+    <div class="nav-links">
+      <a href="https://muckrack.com/james-greer-5/portfolio" target="_blank" rel="noopener noreferrer" class="btn">Muck Rack Portfolio Index</a>
+      <a href="https://www.intelligensconsulting.com/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Featured Client Site</a>
+    </div>
   </header>
 
   <main id="main">
-    <!-- WRITING & ARTICLES -->
-    <section aria-labelledby="articles-heading">
-      <h2 id="articles-heading">Published Articles &amp; Press</h2>
-      <div class="grid">
-        <article class="card">
-          <h3>Stirling Graduates Open The Book Nook</h3>
+
+    <!-- Interactive Filter Buttons -->
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterCategory('all')">All Work</button>
+      <button class="filter-btn" onclick="filterCategory('video')">Video Production</button>
+      <button class="filter-btn" onclick="filterCategory('web')">Web &amp; Digital</button>
+      <button class="filter-btn" onclick="filterCategory('press')">Journalism</button>
+    </div>
+
+    <div class="grid" id="portfolio-grid">
+
+      <!-- WEB & DIGITAL -->
+      <article class="card" data-category="web">
+        <div>
+          <span class="tag">Web Redesign</span>
+          <h3>Intelligens Consulting Website</h3>
+          <p>Delivered a full website redesign for a strategic tech consultancy, modernizing UX/UI and content structure.</p>
+        </div>
+        <a href="https://www.intelligensconsulting.com/" target="_blank" rel="noopener noreferrer" class="btn">View Live Site &rarr;</a>
+      </article>
+
+      <!-- JOURNALISM -->
+      <article class="card" data-category="press">
+        <div>
+          <span class="tag">Journalism</span>
+          <h3>The Book Nook Opening (Stirling)</h3>
           <p><strong>Publication:</strong> Brig News</p>
-          <p>Coverage on the launch of Stirling city centre's novel bookstore and café concept by local graduates.</p>
-          <a href="https://brignews.com/2020/09/19/stirling-graduates-open-bookstore-and-cafe-the-book-nook-in-stirling-city-centre/"
-             target="_blank" rel="noopener noreferrer">Read Article &rarr;</a>
-        </article>
-      </div>
-    </section>
+          <p>Feature article covering Stirling University graduates opening a local bookstore and cafe concept.</p>
+        </div>
+        <a href="https://brignews.com/2020/09/19/stirling-graduates-open-bookstore-and-cafe-the-book-nook-in-stirling-city-centre/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Read Article &rarr;</a>
+      </article>
 
-    <!-- WEB DESIGN -->
-    <section aria-labelledby="web-heading">
-      <h2 id="web-heading">Web Design &amp; Digital Projects</h2>
-      <div class="grid">
-        <article class="card">
-          <h3>Intelligens Consulting Website Redesign</h3>
-          <p>Led full site redesign to streamline navigation, modernise brand aesthetic, and improve user engagement for strategic tech consulting.</p>
-          <a href="https://www.intelligensconsulting.com/"
-             target="_blank" rel="noopener noreferrer"
-             class="btn">Visit Live Site</a>
-        </article>
-      </div>
-    </section>
-
-    <!-- VIDEO PRODUCTION -->
-    <section aria-labelledby="video-heading">
-      <h2 id="video-heading">Video &amp; Broadcast Production</h2>
-      <div class="grid">
-
-        <article class="card">
-          <h3>Featured Video Showcase</h3>
-          <p>Key editorial piece detailing [Brief Video Subject].</p>
+      <!-- VIDEO PRODUCTIONS (Audit Scotland / Accounts Commission) -->
+      <article class="card" data-category="video">
+        <div>
+          <span class="tag">Audit Scotland Video</span>
+          <h3>Ferguson Marine Shipyard Audit</h3>
+          <p>Video overview of the Auditor General for Scotland's 2023/24 governance and financial report on Port Glasgow Shipyard.</p>
           <div class="video-container">
-            <iframe src="https://www.youtube-nocookie.com/embed/Crp00oLZ3EI"
-                    title="Featured Video Showcase by James Greer"
-                    loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
+            <iframe src="https://www.youtube-nocookie.com/embed/OFDMasSM9uU" title="Ferguson Marine Shipyard Audit Video" loading="lazy" allowfullscreen></iframe>
           </div>
-        </article>
+        </div>
+      </article>
 
-        <article class="card">
-          <h3>Production Project #2</h3>
-          <p>[Add a short description of video content/role].</p>
+      <article class="card" data-category="video">
+        <div>
+          <span class="tag">Accounts Commission Video</span>
+          <h3>Spring 2025 Reporting Outlook</h3>
+          <p>Executive update detailing public service audits including council finances, car use reduction, and ASL needs.</p>
           <div class="video-container">
-            <iframe src="https://www.youtube-nocookie.com/embed/OFDMasSM9uU"
-                    title="Production Project #2 by James Greer"
-                    loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
+            <iframe src="https://www.youtube-nocookie.com/embed/Crp00oLZ3EI" title="Accounts Commission Spring 2025 Video" loading="lazy" allowfullscreen></iframe>
           </div>
-        </article>
+        </div>
+      </article>
 
-        <article class="card">
-          <h3>Production Project #3</h3>
-          <p>[Add a short description of video content/role].</p>
+      <article class="card" data-category="video">
+        <div>
+          <span class="tag">Accounts Commission Video</span>
+          <h3>Workforce Innovation Report</h3>
+          <p>Public sector video report examining workforce planning, digital technology adoption, and staff retention across councils.</p>
           <div class="video-container">
-            <iframe src="https://www.youtube-nocookie.com/embed/MIj_7V-9LOE"
-                    title="Production Project #3 by James Greer"
-                    loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
+            <iframe src="https://www.youtube-nocookie.com/embed/mBxElVrUQsc" title="Workforce Innovation Report Video" loading="lazy" allowfullscreen></iframe>
           </div>
-        </article>
+        </div>
+      </article>
 
-      </div>
-    </section>
+      <article class="card" data-category="video">
+        <div>
+          <span class="tag">Audit Scotland Video</span>
+          <h3>Audit Scotland Work Outlook 2025</h3>
+          <p>Summary video outlining major reports on sustainable transport, general medical practice, and educational support.</p>
+          <div class="video-container">
+            <iframe src="https://www.youtube-nocookie.com/embed/MIj_7V-9LOE" title="Audit Scotland Work Outlook Video" loading="lazy" allowfullscreen></iframe>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-category="video">
+        <div>
+          <span class="tag">Accounts Commission Video</span>
+          <h3>Accounts Commission Update: March 2025</h3>
+          <p>Briefing covering Argyll and Bute Council reports, DEI strategy planning, and Best Value performance themes.</p>
+          <div class="video-container">
+            <iframe src="https://www.youtube-nocookie.com/embed/gmEc3d6Gi_Q" title="Accounts Commission March 2025 Video" loading="lazy" allowfullscreen></iframe>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-category="video">
+        <div>
+          <span class="tag">Accounts Commission Video</span>
+          <h3>Accounts Commission Update: April 2025</h3>
+          <p>Meeting summary discussing Highland Council finances, health/social care funding, and local service performance.</p>
+          <div class="video-container">
+            <iframe src="https://www.youtube-nocookie.com/embed/dFk4UFSq4hc" title="Accounts Commission April 2025 Video" loading="lazy" allowfullscreen></iframe>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-category="video">
+        <div>
+          <span class="tag">Accounts Commission Video</span>
+          <h3>Accounts Commission Update: May 2025</h3>
+          <p>Briefing on Renfrewshire Council's Best Value report, local government budget climate, and community engagement.</p>
+          <div class="video-container">
+            <iframe src="https://www.youtube-nocookie.com/embed/5Pc1Yea5OOI" title="Accounts Commission May 2025 Video" loading="lazy" allowfullscreen></iframe>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-category="video">
+        <div>
+          <span class="tag">Accounts Commission Video</span>
+          <h3>Accounts Commission Update: June 2025</h3>
+          <p>Coverage on East Lothian Council challenges and nation-wide council workforce management strategies.</p>
+          <div class="video-container">
+            <iframe src="https://www.youtube-nocookie.com/embed/UwXyo2PGIDI" title="Accounts Commission June 2025 Video" loading="lazy" allowfullscreen></iframe>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-category="video">
+        <div>
+          <span class="tag">Accounts Commission Video</span>
+          <h3>Accounts Commission Update: Dec 2024</h3>
+          <p>Year-end summary reviewing Aberdeen City Council audit findings and upcoming educational support reports.</p>
+          <div class="video-container">
+            <iframe src="https://www.youtube-nocookie.com/embed/RN1DBIdenXg" title="Accounts Commission Dec 2024 Video" loading="lazy" allowfullscreen></iframe>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-category="video">
+        <div>
+          <span class="tag">Accounts Commission Video</span>
+          <h3>Accounts Commission Update: Oct 2024</h3>
+          <p>Briefing on City of Edinburgh Council performance and local authority digital transformation strategies.</p>
+          <div class="video-container">
+            <iframe src="https://www.youtube-nocookie.com/embed/BhCHk3fsN_4" title="Accounts Commission Oct 2024 Video" loading="lazy" allowfullscreen></iframe>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-category="video">
+        <div>
+          <span class="tag">Accounts Commission Video</span>
+          <h3>Accounts Commission Update: Sept 2024</h3>
+          <p>Report summary on Clackmannanshire Council and urgent public sector transformation initiatives.</p>
+          <div class="video-container">
+            <iframe src="https://www.youtube-nocookie.com/embed/MpxZL1O2BKM" title="Accounts Commission Sept 2024 Video" loading="lazy" allowfullscreen></iframe>
+          </div>
+        </div>
+      </article>
+
+    </div>
   </main>
 
-  <!-- FOOTER -->
   <footer>
     <p>&copy; <span id="year">2026</span> James Greer. All rights reserved.</p>
   </footer>
 
   <script>
-    // Auto-update copyright year
+    // Auto-update year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Category Filter function
+    function filterCategory(category) {
+      const cards = document.querySelectorAll('.card');
+      const buttons = document.querySelectorAll('.filter-btn');
+
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
   </script>
 
 </body>
