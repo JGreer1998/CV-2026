@@ -1,406 +1,410 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- SEO & Social -->
-  <title>James Greer | Digital Communications &amp; Video Specialist</title>
-  <meta name="description" content="Portfolio of James Greer — Video production for public bodies (Audit Scotland, Accounts Commission), digital web redesigns, and published journalism.">
-  <meta name="author" content="James Greer">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="James Greer | Digital Communications Portfolio">
-  <meta property="og:description" content="Video production, website redesigns, and press writing by James Greer.">
-  <meta property="og:type" content="website">
-
-  <!-- Inline SVG Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>JG</text></svg>">
-
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "James Greer",
-    "jobTitle": "Digital Communications & Video Production Specialist",
-    "sameAs": [
-      "https://muckrack.com/james-greer-5/portfolio",
-      "https://www.intelligensconsulting.com/"
-    ]
-  }
-  </script>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>James Greer | Digital Communications & Video Specialist</title>
+  <meta name="description" content="Portfolio of James Greer: digital
+    communications, video production and copywriting for public sector,
+    corporate and engineering clients." />
   <style>
     :root {
-      --primary: #1a1a1a;
-      --secondary: #555;
-      --accent: #0066cc;
-      --accent-hover: #004d99;
-      --bg: #f8f9fa;
-      --card-bg: #ffffff;
-      --border: #e0e0e0;
-      --focus-ring: 0 0 0 3px rgba(0, 102, 204, 0.4);
-      --radius: 8px;
-      --shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-      --shadow-hover: 0 6px 20px rgba(0, 0, 0, 0.12);
-      --max-width: 1050px;
+      --bg: #f7f8fa;
+      --card: #ffffff;
+      --ink: #1c2430;
+      --muted: #5b6572;
+      --accent: #0f62fe;
+      --accent-ink: #ffffff;
+      --tag-bg: #e8f0fe;
+      --radius: 12px;
     }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --primary: #e8e8e8;
-        --secondary: #aaa;
-        --accent: #4da6ff;
-        --accent-hover: #7ab8ff;
-        --bg: #121212;
-        --card-bg: #1e1e1e;
-        --border: #333;
-        --shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-        --shadow-hover: 0 6px 20px rgba(0, 0, 0, 0.5);
-      }
-    }
-
     * { box-sizing: border-box; }
     body {
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-      line-height: 1.6;
-      color: var(--primary);
-      background-color: var(--bg);
       margin: 0;
-      padding: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.55;
     }
-    a { color: var(--accent); }
-    a:hover { color: var(--accent-hover); }
-
-    a:focus-visible, button:focus-visible {
-      outline: none;
-      box-shadow: var(--focus-ring);
+    .skip-link {
+      position: absolute;
+      left: -999px;
     }
-
-    header, main, footer {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 2rem 1rem;
+    .skip-link:focus {
+      left: 1rem;
+      top: 1rem;
+      background: var(--accent);
+      color: var(--accent-ink);
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      z-index: 10;
     }
     header {
-      border-bottom: 1px solid var(--border);
+      background: var(--ink);
+      color: #fff;
+      padding: 3rem 1.5rem 2.5rem;
+      text-align: center;
     }
-    h1 { margin-bottom: 0.25rem; font-size: clamp(1.8rem, 5vw, 2.6rem); }
-    .subtitle {
-      color: var(--secondary);
-      font-size: 1.2rem;
-      font-weight: 500;
-      margin-top: 0;
-    }
-    .bio { max-width: 750px; color: var(--secondary); margin-bottom: 1.5rem; }
-
-    .nav-links {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    /* Filters */
-    .filter-bar {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      margin-top: 1.5rem;
-      margin-bottom: 1rem;
-    }
-    .filter-btn {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      color: var(--primary);
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      cursor: pointer;
-      font-weight: 500;
-      transition: all 0.2s ease;
-    }
-    .filter-btn:hover, .filter-btn.active {
+    .avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
       background: var(--accent);
       color: #fff;
-      border-color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
     }
-
-    /* Grid layout */
+    header h1 { margin: 0 0 0.25rem; font-size: 2rem; }
+    header .role { color: #aab4c2; font-weight: 600; margin: 0 0 1rem; }
+    header .intro { max-width: 46rem; margin: 0 auto 1.25rem; color: #d4dae2; }
+    .ext-links a {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.12);
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      text-decoration: none;
+      margin: 0.25rem;
+      display: inline-block;
+      font-size: 0.9rem;
+    }
+    .ext-links a:hover,
+    .ext-links a:focus-visible { background: var(--accent); }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      padding: 1.25rem 1rem;
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      border-bottom: 1px solid #e2e6eb;
+      z-index: 5;
+    }
+    nav button {
+      border: 1px solid #cdd4dc;
+      background: var(--card);
+      color: var(--ink);
+      padding: 0.45rem 1rem;
+      border-radius: 999px;
+      cursor: pointer;
+      font: inherit;
+      font-size: 0.9rem;
+    }
+    nav button[aria-pressed="true"] {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--accent-ink);
+    }
+    main { max-width: 72rem; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+    .count { color: var(--muted); margin: 0 0 1.25rem; font-size: 0.9rem; }
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+      gap: 1.25rem;
     }
     .card {
-      background: var(--card-bg);
+      background: var(--card);
+      border: 1px solid #e2e6eb;
       border-radius: var(--radius);
       padding: 1.25rem;
-      box-shadow: var(--shadow);
-      border: 1px solid var(--border);
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      transition: box-shadow 0.2s ease, transform 0.2s ease;
+      gap: 0.5rem;
     }
-    .card:hover {
-      box-shadow: var(--shadow-hover);
-      transform: translateY(-2px);
-    }
-    .card h3 { margin-top: 0; margin-bottom: 0.5rem; font-size: 1.15rem; }
-    .card p { margin-bottom: 0.75rem; font-size: 0.95rem; color: var(--secondary); }
-    .tag {
-      display: inline-block;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      font-weight: 700;
+    .card .tag {
+      align-self: flex-start;
+      background: var(--tag-bg);
       color: var(--accent);
-      margin-bottom: 0.4rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
     }
-
-    .video-container {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      overflow: hidden;
-      border-radius: 6px;
-      margin-top: 0.75rem;
-      background: #000;
-    }
-    .video-container iframe {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      border: 0;
-    }
-
-    .btn {
-      display: inline-block;
-      background: var(--accent);
-      color: #fff !important;
-      text-decoration: none;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
+    .card h2 { font-size: 1.05rem; margin: 0; }
+    .card p { margin: 0; color: var(--muted); font-size: 0.92rem; flex: 1; }
+    .card a {
+      color: var(--accent);
       font-weight: 600;
-      font-size: 0.9rem;
-      text-align: center;
+      text-decoration: none;
+      font-size: 0.92rem;
     }
-    .btn-outline {
-      background: transparent;
-      border: 1px solid var(--accent);
-      color: var(--accent) !important;
-    }
-
+    .card a:hover, .card a:focus-visible { text-decoration: underline; }
     footer {
-      border-top: 1px solid var(--border);
-      color: var(--secondary);
-      font-size: 0.9rem;
       text-align: center;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .card { transition: none; }
-      .card:hover { transform: none; }
+      color: var(--muted);
+      padding: 2rem 1rem;
+      border-top: 1px solid #e2e6eb;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#work">Skip to portfolio</a>
 
   <header>
+    <div class="avatar" aria-hidden="true">JG</div>
     <h1>James Greer</h1>
-    <p class="subtitle">Digital Media Specialist | Video Producer | Journalist</p>
-    <p class="bio">
-      Specialising in digital communications for public sector bodies and corporate clients. Experienced in producing executive video summaries, full-site web redesigns, and press journalism.
+    <p class="role">Digital Communications | Video Producer | Copywriter</p>
+    <p class="intro">
+      Specialising in digital communications for public sector bodies,
+      corporate clients, and engineering organisations. Experienced in
+      executive video production, corporate PR campaigns, site redesigns,
+      graphic collateral, and policy analysis.
     </p>
-    <div class="nav-links">
-      <a href="https://muckrack.com/james-greer-5/portfolio" target="_blank" rel="noopener noreferrer" class="btn">Muck Rack Portfolio Index</a>
-      <a href="https://www.intelligensconsulting.com/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Featured Client Site</a>
+    <div class="ext-links">
+      <a href="#">Muck Rack Portfolio Index</a>
+      <a href="#">Academic &amp; Writing Blog</a>
+      <a href="https://www.intelligensconsulting.com" target="_blank"
+         rel="noopener">Featured Client Site</a>
     </div>
   </header>
 
-  <main id="main">
+  <nav aria-label="Filter portfolio by category">
+    <button data-filter="all" aria-pressed="true">All Work</button>
+    <button data-filter="intelligens" aria-pressed="false">Intelligens Consulting</button>
+    <button data-filter="video" aria-pressed="false">Video Production</button>
+    <button data-filter="web" aria-pressed="false">Web &amp; Case Studies</button>
+    <button data-filter="pr" aria-pressed="false">Corporate PR &amp; LinkedIn</button>
+    <button data-filter="journalism" aria-pressed="false">Journalism &amp; Policy</button>
+    <button data-filter="indesign" aria-pressed="false">InDesign &amp; Editorial</button>
+  </nav>
 
-    <!-- Interactive Filter Buttons -->
-    <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterCategory('all')">All Work</button>
-      <button class="filter-btn" onclick="filterCategory('video')">Video Production</button>
-      <button class="filter-btn" onclick="filterCategory('web')">Web &amp; Digital</button>
-      <button class="filter-btn" onclick="filterCategory('press')">Journalism</button>
-    </div>
-
-    <div class="grid" id="portfolio-grid">
-
-      <!-- WEB & DIGITAL -->
-      <article class="card" data-category="web">
-        <div>
-          <span class="tag">Web Redesign</span>
-          <h3>Intelligens Consulting Website</h3>
-          <p>Delivered a full website redesign for a strategic tech consultancy, modernizing UX/UI and content structure.</p>
-        </div>
-        <a href="https://www.intelligensconsulting.com/" target="_blank" rel="noopener noreferrer" class="btn">View Live Site &rarr;</a>
-      </article>
-
-      <!-- JOURNALISM -->
-      <article class="card" data-category="press">
-        <div>
-          <span class="tag">Journalism</span>
-          <h3>The Book Nook Opening (Stirling)</h3>
-          <p><strong>Publication:</strong> Brig News</p>
-          <p>Feature article covering Stirling University graduates opening a local bookstore and cafe concept.</p>
-        </div>
-        <a href="https://brignews.com/2020/09/19/stirling-graduates-open-bookstore-and-cafe-the-book-nook-in-stirling-city-centre/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Read Article &rarr;</a>
-      </article>
-
-      <!-- VIDEO PRODUCTIONS (Audit Scotland / Accounts Commission) -->
-      <article class="card" data-category="video">
-        <div>
-          <span class="tag">Audit Scotland Video</span>
-          <h3>Ferguson Marine Shipyard Audit</h3>
-          <p>Video overview of the Auditor General for Scotland's 2023/24 governance and financial report on Port Glasgow Shipyard.</p>
-          <div class="video-container">
-            <iframe src="https://www.youtube-nocookie.com/embed/OFDMasSM9uU" title="Ferguson Marine Shipyard Audit Video" loading="lazy" allowfullscreen></iframe>
-          </div>
-        </div>
-      </article>
-
-      <article class="card" data-category="video">
-        <div>
-          <span class="tag">Accounts Commission Video</span>
-          <h3>Spring 2025 Reporting Outlook</h3>
-          <p>Executive update detailing public service audits including council finances, car use reduction, and ASL needs.</p>
-          <div class="video-container">
-            <iframe src="https://www.youtube-nocookie.com/embed/Crp00oLZ3EI" title="Accounts Commission Spring 2025 Video" loading="lazy" allowfullscreen></iframe>
-          </div>
-        </div>
-      </article>
-
-      <article class="card" data-category="video">
-        <div>
-          <span class="tag">Accounts Commission Video</span>
-          <h3>Workforce Innovation Report</h3>
-          <p>Public sector video report examining workforce planning, digital technology adoption, and staff retention across councils.</p>
-          <div class="video-container">
-            <iframe src="https://www.youtube-nocookie.com/embed/mBxElVrUQsc" title="Workforce Innovation Report Video" loading="lazy" allowfullscreen></iframe>
-          </div>
-        </div>
-      </article>
-
-      <article class="card" data-category="video">
-        <div>
-          <span class="tag">Audit Scotland Video</span>
-          <h3>Audit Scotland Work Outlook 2025</h3>
-          <p>Summary video outlining major reports on sustainable transport, general medical practice, and educational support.</p>
-          <div class="video-container">
-            <iframe src="https://www.youtube-nocookie.com/embed/MIj_7V-9LOE" title="Audit Scotland Work Outlook Video" loading="lazy" allowfullscreen></iframe>
-          </div>
-        </div>
-      </article>
-
-      <article class="card" data-category="video">
-        <div>
-          <span class="tag">Accounts Commission Video</span>
-          <h3>Accounts Commission Update: March 2025</h3>
-          <p>Briefing covering Argyll and Bute Council reports, DEI strategy planning, and Best Value performance themes.</p>
-          <div class="video-container">
-            <iframe src="https://www.youtube-nocookie.com/embed/gmEc3d6Gi_Q" title="Accounts Commission March 2025 Video" loading="lazy" allowfullscreen></iframe>
-          </div>
-        </div>
-      </article>
-
-      <article class="card" data-category="video">
-        <div>
-          <span class="tag">Accounts Commission Video</span>
-          <h3>Accounts Commission Update: April 2025</h3>
-          <p>Meeting summary discussing Highland Council finances, health/social care funding, and local service performance.</p>
-          <div class="video-container">
-            <iframe src="https://www.youtube-nocookie.com/embed/dFk4UFSq4hc" title="Accounts Commission April 2025 Video" loading="lazy" allowfullscreen></iframe>
-          </div>
-        </div>
-      </article>
-
-      <article class="card" data-category="video">
-        <div>
-          <span class="tag">Accounts Commission Video</span>
-          <h3>Accounts Commission Update: May 2025</h3>
-          <p>Briefing on Renfrewshire Council's Best Value report, local government budget climate, and community engagement.</p>
-          <div class="video-container">
-            <iframe src="https://www.youtube-nocookie.com/embed/5Pc1Yea5OOI" title="Accounts Commission May 2025 Video" loading="lazy" allowfullscreen></iframe>
-          </div>
-        </div>
-      </article>
-
-      <article class="card" data-category="video">
-        <div>
-          <span class="tag">Accounts Commission Video</span>
-          <h3>Accounts Commission Update: June 2025</h3>
-          <p>Coverage on East Lothian Council challenges and nation-wide council workforce management strategies.</p>
-          <div class="video-container">
-            <iframe src="https://www.youtube-nocookie.com/embed/UwXyo2PGIDI" title="Accounts Commission June 2025 Video" loading="lazy" allowfullscreen></iframe>
-          </div>
-        </div>
-      </article>
-
-      <article class="card" data-category="video">
-        <div>
-          <span class="tag">Accounts Commission Video</span>
-          <h3>Accounts Commission Update: Dec 2024</h3>
-          <p>Year-end summary reviewing Aberdeen City Council audit findings and upcoming educational support reports.</p>
-          <div class="video-container">
-            <iframe src="https://www.youtube-nocookie.com/embed/RN1DBIdenXg" title="Accounts Commission Dec 2024 Video" loading="lazy" allowfullscreen></iframe>
-          </div>
-        </div>
-      </article>
-
-      <article class="card" data-category="video">
-        <div>
-          <span class="tag">Accounts Commission Video</span>
-          <h3>Accounts Commission Update: Oct 2024</h3>
-          <p>Briefing on City of Edinburgh Council performance and local authority digital transformation strategies.</p>
-          <div class="video-container">
-            <iframe src="https://www.youtube-nocookie.com/embed/BhCHk3fsN_4" title="Accounts Commission Oct 2024 Video" loading="lazy" allowfullscreen></iframe>
-          </div>
-        </div>
-      </article>
-
-      <article class="card" data-category="video">
-        <div>
-          <span class="tag">Accounts Commission Video</span>
-          <h3>Accounts Commission Update: Sept 2024</h3>
-          <p>Report summary on Clackmannanshire Council and urgent public sector transformation initiatives.</p>
-          <div class="video-container">
-            <iframe src="https://www.youtube-nocookie.com/embed/MpxZL1O2BKM" title="Accounts Commission Sept 2024 Video" loading="lazy" allowfullscreen></iframe>
-          </div>
-        </div>
-      </article>
-
-    </div>
+  <main id="work">
+    <p class="count" id="count" aria-live="polite"></p>
+    <div class="grid" id="grid"></div>
   </main>
 
-  <footer>
-    <p>&copy; <span id="year">2026</span> James Greer. All rights reserved.</p>
-  </footer>
+  <footer>&copy; 2026 James Greer. All rights reserved.</footer>
 
   <script>
-    // Auto-update year
-    document.getElementById('year').textContent = new Date().getFullYear();
+    const items = [
+      // ---- Intelligens Consulting ----
+      { cat: "intelligens", tag: "Industry Report",
+        title: "State of the UK Fibre Market 2025",
+        desc: "Co-authored industry report analysing altnet growth to ~16m premises, slowing build rates, take-up divergence and the sector's shift from expansion to rationalisation.",
+        cta: "Read Report",
+        href: "https://www.intelligensconsulting.com/post/state-of-the-uk-fibre-market-2025-growth-slowdown-and-a-sector-at-a-crossroads" },
+      { cat: "intelligens", tag: "Industry Report",
+        title: "State of the UK Connectivity Report 2026",
+        desc: "Contributor to the flagship connectivity report examining UK fibre and 5G progress, digital readiness and the critical coverage gaps that remain.",
+        cta: "Read Report",
+        href: "https://www.intelligensconsulting.com/post/state-of-the-uk-connectivity-report-2026-uk-connectivity-is-improving-but-critical-gaps-remain" },
+      { cat: "intelligens", tag: "Interactive Data Maps",
+        title: "UK Connectivity, Fibre & 5G Coverage Maps",
+        desc: "Interactive mapping suite visualising UK-wide connectivity, full fibre and 5G coverage in support of the State of UK Connectivity 2026 report.",
+        cta: "Explore Maps",
+        href: "https://www.intelligensconsulting.com/map26" },
+      { cat: "intelligens", tag: "LinkedIn Campaign",
+        title: "Connected Homes & IoT in Social Housing",
+        desc: "Social media content promoting Intelligens Consulting's thought leadership on connected homes and IoT-enabled social housing.",
+        cta: "View Post",
+        href: "https://www.linkedin.com/posts/intelligens-consulting-ltd_socialhousing-connectedhomes-iot-activity-7488610040744980481-OIPr" },
+      { cat: "intelligens", tag: "LinkedIn Campaign",
+        title: "Digital Infrastructure: 5G & Full Fibre",
+        desc: "Campaign post spotlighting UK digital infrastructure insights across 5G and full fibre rollout and investment.",
+        cta: "View Post",
+        href: "https://www.linkedin.com/posts/intelligens-consulting-ltd_digitalinfrastructure-5g-fullfibre-activity-7477738191140106241-96XD" },
+      { cat: "intelligens", tag: "LinkedIn Campaign",
+        title: "IoT & PropTech for Social Housing",
+        desc: "Post exploring how IoT and PropTech are reshaping social housing operating models and tenant outcomes.",
+        cta: "View Post",
+        href: "https://www.linkedin.com/posts/intelligens-consulting-ltd_socialhousing-iot-proptech-activity-7464940099584192512-t9o5" },
+      { cat: "intelligens", tag: "LinkedIn Campaign",
+        title: "AI & Data Analytics for Local Government",
+        desc: "Content highlighting how councils can harness AI and data analytics to transform local services.",
+        cta: "View Post",
+        href: "https://www.linkedin.com/posts/intelligens-consulting-ltd_localgov-ai-dataanalytics-activity-7442141090905784320-5Cgj" },
+      { cat: "intelligens", tag: "LinkedIn Campaign",
+        title: "Smart Cities: Assets & Data",
+        desc: "Campaign post on smart city strategy, public asset utilisation and data-driven place-making.",
+        cta: "View Post",
+        href: "https://www.linkedin.com/posts/intelligens-consulting-ltd_smartcities-assets-data-activity-7452272553412210688-nTfG" },
 
-    // Category Filter function
-    function filterCategory(category) {
-      const cards = document.querySelectorAll('.card');
-      const buttons = document.querySelectorAll('.filter-btn');
+      // ---- Web & Case Studies ----
+      { cat: "web", tag: "Web Redesign", title: "Intelligens Consulting Website",
+        desc: "Full website redesign for a strategic tech consultancy, modernising UX/UI and content structure.",
+        cta: "View Live Site", href: "https://www.intelligensconsulting.com" },
+      { cat: "web", tag: "FES Case Study", title: "FES Assists Charity 'The Yard'",
+        desc: "Corporate news feature spotlighting FES Group's community support and charitable initiative with The Yard.",
+        cta: "Read Case Study", href: "#" },
+      { cat: "web", tag: "FES Case Study", title: "Frameworks Scotland 3 Announcement",
+        desc: "Official FES Group update on appointment and delivery under the Frameworks Scotland 3 healthcare construction framework.",
+        cta: "Read Case Study", href: "#" },
+      { cat: "web", tag: "FES Case Study", title: "PV Solar Installation in East Dunbartonshire",
+        desc: "Sustainability feature detailing FES Group's delivery of solar PV installations for municipal renewables infrastructure.",
+        cta: "Read Case Study", href: "#" },
+      { cat: "web", tag: "FES Case Study", title: "Advanced Computing Facility – University of Edinburgh",
+        desc: "Technical overview highlighting FES Group's engineering contributions to the Edinburgh University ACF supercomputing hub.",
+        cta: "Read Case Study", href: "#" },
+      { cat: "web", tag: "FES Case Study", title: "TECA Energy Centre & District Infrastructure",
+        desc: "Low-carbon energy infrastructure case study for The Event Complex Aberdeen, featuring the UK's largest fuel cell installation.",
+        cta: "Read Case Study", href: "#" },
+      { cat: "web", tag: "FES Case Study", title: "Atlantic Square Project Feature",
+        desc: "Engineering & MEP building services case study detailing modular pre-fabrication for Glasgow's Atlantic Square development.",
+        cta: "Read Case Study", href: "#" },
+      { cat: "web", tag: "FES Case Study", title: "177 Bothwell Street Development",
+        desc: "Feature highlighting offsite modular engineering and full MEP services for Glasgow's landmark Grade A office complex.",
+        cta: "Read Case Study", href: "#" },
+      { cat: "web", tag: "FES Case Study", title: "122 Waterloo Street Commercial Project",
+        desc: "Case study covering prefabricated modular MEP solutions for Morgan Stanley's 155,000 sq. ft office headquarters.",
+        cta: "Read Case Study", href: "#" },
 
-      buttons.forEach(btn => btn.classList.remove('active'));
-      event.target.classList.add('active');
+      // ---- Journalism & Policy ----
+      { cat: "journalism", tag: "Alumni Spotlight", title: "Journalism Alumni Inspire Current Students",
+        desc: "Glasgow Clyde College News — alumni profile on James's progression to BA (Hons) Journalism Studies at Stirling.",
+        cta: "Read Article", href: "#" },
+      { cat: "journalism", tag: "Student Newspaper", title: "'The Clyde Insider' Goes to Print",
+        desc: "Glasgow Clyde College News — feature on student journalists launching the official college newspaper.",
+        cta: "Read Article", href: "#" },
+      { cat: "journalism", tag: "Magazine Production", title: "'Clyde Outside' Magazine Production",
+        desc: "Journalistic contributions and editorial layout for the special magazine edition 'Clyde Outside'.",
+        cta: "Read Article", href: "#" },
+      { cat: "journalism", tag: "Journalism", title: "The Book Nook Opening (Stirling)",
+        desc: "Brig News — feature on Stirling University graduates opening a local bookstore and cafe concept.",
+        cta: "Read Article", href: "#" },
+      { cat: "journalism", tag: "International Politics", title: "Russian Intention in the Black Sea",
+        desc: "Academic essay analysing geopolitical strategies, regional naval posture and international politics in the Black Sea.",
+        cta: "Read Essay", href: "#" },
+      { cat: "journalism", tag: "Policy Analysis", title: "Decentralised Energy & Fuel Poverty",
+        desc: "Mock policy briefing exploring local renewable grids, district heating and strategies for mitigating fuel poverty.",
+        cta: "Read Policy Paper", href: "#" },
 
-      cards.forEach(card => {
-        if (category === 'all' || card.getAttribute('data-category') === category) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
+      // ---- InDesign & Editorial ----
+      { cat: "indesign", tag: "InDesign / Editorial", title: "Tales from Lockdown — May Edition",
+        desc: "Editorial magazine issue showcasing community stories, writing and creative contributions during lockdown.",
+        cta: "View Publication", href: "#" },
+      { cat: "indesign", tag: "InDesign / Editorial", title: "Tales from Lockdown — June Edition",
+        desc: "Mid-summer issue featuring lockdown editorial commentary, graphics and reader stories.",
+        cta: "View Publication", href: "#" },
+      { cat: "indesign", tag: "InDesign / Editorial", title: "Tales from Lockdown — July Edition",
+        desc: "July edition covering local culture, reflections and editorial curation.",
+        cta: "View Publication", href: "#" },
+      { cat: "indesign", tag: "InDesign / Editorial", title: "Tales from Lockdown — August Edition",
+        desc: "Final summer wrap-up issue featuring curated essays and digital layout design.",
+        cta: "View Publication", href: "#" },
+      { cat: "indesign", tag: "InDesign / Publication", title: "V&A Dundee Case Study Brochure",
+        desc: "FES Group & BAM Construction publication showcasing engineering achievements on the V&A Dundee landmark project.",
+        cta: "View PDF Document", href: "#" },
+      { cat: "indesign", tag: "InDesign / Brochure", title: "FES Group Proposal Brochure",
+        desc: "Multi-page commercial proposal brochure highlighting capabilities, achievements and service offerings.",
+        cta: "View PDF Brochure", href: "#" },
+      { cat: "indesign", tag: "InDesign / Graphic Design", title: "FES Group Proposal Flyer",
+        desc: "Single-page marketing flyer for corporate pitching, key service summaries and business development.",
+        cta: "View PDF Flyer", href: "#" },
+
+      // ---- Corporate PR & LinkedIn ----
+      { cat: "pr", tag: "Corporate PR / LinkedIn", title: "District Heat Network Turns Up Heat in Stirling",
+        desc: "Update on FES Group's Stirling District Heating scheme and renewable energy infrastructure rollout.",
+        cta: "View Update", href: "#" },
+      { cat: "pr", tag: "Corporate PR / LinkedIn", title: "Hebridean Housing Partnership Contract Award",
+        desc: "Announcement of FES FM securing the Facilities Management contract for Hebridean Housing Partnership.",
+        cta: "View Update", href: "#" },
+      { cat: "pr", tag: "Corporate PR / LinkedIn", title: "Castleview Contractor Announcement",
+        desc: "Official announcement of FES Group's contractor selection for the Castleview development project.",
+        cta: "View Update", href: "#" },
+      { cat: "pr", tag: "Corporate PR / LinkedIn", title: "Edinburgh Award Win",
+        desc: "Press release celebrating FES Group's major award recognition in Edinburgh.",
+        cta: "View Update", href: "#" },
+      { cat: "pr", tag: "Corporate PR / LinkedIn", title: "Scottish Apprenticeship Day Visit",
+        desc: "Coverage of MP and MSP visits to FES Group facilities during Scottish Apprenticeship Day.",
+        cta: "View Update", href: "#" },
+      { cat: "pr", tag: "Corporate PR / LinkedIn", title: "NHS Louisa Jordan Hospital Support (Part 1)",
+        desc: "Update on FES Group's rapid response engineering delivery for the NHS Louisa Jordan emergency hospital.",
+        cta: "View Update", href: "#" },
+      { cat: "pr", tag: "Corporate PR / LinkedIn", title: "Falkirk Stadium Low Carbon Vehicle Hub",
+        desc: "Milestone feature on the low carbon EV charging infrastructure constructed at Falkirk Stadium.",
+        cta: "View Update", href: "#" },
+      { cat: "pr", tag: "Corporate PR / LinkedIn", title: "NHS Louisa Jordan Project Recognition (Part 2)",
+        desc: "Follow-up post highlighting contractor efforts and completion milestones at NHS Louisa Jordan.",
+        cta: "View Update", href: "#" },
+      { cat: "pr", tag: "Corporate PR / LinkedIn", title: "Atlantic Square Project Update",
+        desc: "Site milestone highlight covering building services and engineering works at Atlantic Square, Glasgow.",
+        cta: "View Update", href: "#" },
+      { cat: "pr", tag: "Corporate PR / LinkedIn", title: "FES Stirling Renewable Heat Project Award",
+        desc: "Award recognition for the pioneering Stirling Renewable Heat initiative delivered by FES.",
+        cta: "View Update", href: "#" },
+      { cat: "pr", tag: "Corporate PR / LinkedIn", title: "Fast Track League Table Recognition",
+        desc: "Update on FES Group's placement in the Sunday Times Fast Track national rankings.",
+        cta: "View Update", href: "#" },
+      { cat: "pr", tag: "Corporate PR / LinkedIn", title: "Audit Scotland 2024/25 Annual Report",
+        desc: "Official update announcing Audit Scotland's Annual Report & Accounts, highlighting public finance oversight.",
+        cta: "View Update", href: "#" },
+      { cat: "pr", tag: "Corporate PR / LinkedIn", title: "Annual Report & Accounts Insights",
+        desc: "LinkedIn feature outlining key metrics, governance outcomes and strategic findings from the annual report.",
+        cta: "View Update", href: "#" },
+
+      // ---- Video Production ----
+      { cat: "video", tag: "Audit Scotland Video", title: "Ferguson Marine Shipyard Audit",
+        desc: "Video overview of the Auditor General for Scotland's 2023/24 governance and financial report on Port Glasgow Shipyard.",
+        cta: "Watch Video", href: "#" },
+      { cat: "video", tag: "Accounts Commission Video", title: "Spring 2025 Reporting Outlook",
+        desc: "Executive update detailing public service audits including council finances, car use reduction and ASL needs.",
+        cta: "Watch Video", href: "#" },
+      { cat: "video", tag: "Accounts Commission Video", title: "Workforce Innovation Report",
+        desc: "Video report examining workforce planning, digital technology adoption and staff retention across councils.",
+        cta: "Watch Video", href: "#" },
+      { cat: "video", tag: "Audit Scotland Video", title: "Audit Scotland Work Outlook 2025",
+        desc: "Summary video outlining major reports on sustainable transport, general medical practice and educational support.",
+        cta: "Watch Video", href: "#" },
+      { cat: "video", tag: "Accounts Commission Video", title: "Update: March 2025",
+        desc: "Briefing covering Argyll and Bute Council reports, DEI strategy planning and Best Value performance themes.",
+        cta: "Watch Video", href: "#" },
+      { cat: "video", tag: "Accounts Commission Video", title: "Update: April 2025",
+        desc: "Meeting summary discussing Highland Council finances, health and social care funding, and service performance.",
+        cta: "Watch Video", href: "#" },
+      { cat: "video", tag: "Accounts Commission Video", title: "Update: May 2025",
+        desc: "Briefing on Renfrewshire Council's Best Value report, local government budget climate and community engagement.",
+        cta: "Watch Video", href: "#" },
+      { cat: "video", tag: "Accounts Commission Video", title: "Update: June 2025",
+        desc: "Coverage of East Lothian Council challenges and nationwide council workforce management strategies.",
+        cta: "Watch Video", href: "#" },
+      { cat: "video", tag: "Accounts Commission Video", title: "Update: December 2024",
+        desc: "Year-end summary reviewing Aberdeen City Council audit findings and upcoming educational support reports.",
+        cta: "Watch Video", href: "#" },
+      { cat: "video", tag: "Accounts Commission Video", title: "Update: October 2024",
+        desc: "Briefing on City of Edinburgh Council performance and local authority digital transformation strategies.",
+        cta: "Watch Video", href: "#" },
+      { cat: "video", tag: "Accounts Commission Video", title: "Update: September 2024",
+        desc: "Report summary on Clackmannanshire Council and urgent public sector transformation initiatives.",
+        cta: "Watch Video", href: "#" }
+    ];
+
+    const grid = document.getElementById("grid");
+    const count = document.getElementById("count");
+    const buttons = document.querySelectorAll("nav button");
+
+    function render(filter) {
+      const shown = filter === "all"
+        ? items
+        : items.filter((i) => i.cat === filter);
+      grid.innerHTML = shown.map((i) => `
+        <article class="card">
+          <span class="tag">${i.tag}</span>
+          <h2>${i.title}</h2>
+          <p>${i.desc}</p>
+          <a href="${i.href}" target="_blank" rel="noopener">${i.cta} &rarr;</a>
+        </article>`).join("");
+      count.textContent = filter === "all"
+        ? `Showing all ${shown.length} items`
+        : `Showing ${shown.length} items`;
     }
-  </script>
 
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        buttons.forEach((b) => b.setAttribute("aria-pressed", "false"));
+        btn.setAttribute("aria-pressed", "true");
+        render(btn.dataset.filter);
+      });
+    });
+
+    render("all");
+  </script>
 </body>
 </html>
