@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>James Greer | Digital Communications & Video Specialist</title>
-  <meta name="description" content="Portfolio of James Greer: digital communications, video production, PR campaigns, web redesigns, and editorial copywriting." />
+  <title>James Greer | Digital and Corporate Communications Specialist</title>
+  <meta name="description" content="Portfolio of James Greer: Digital and Corporate Communications Specialist. Media relations, digital campaigns, stakeholder engagement, and executive video production." />
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -48,12 +48,26 @@
     .card-hover:hover {
       transform: translateY(-3px);
     }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.05);
+      border-radius: 999px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: rgba(15, 98, 254, 0.3);
+      border-radius: 999px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: rgba(15, 98, 254, 0.6);
+    }
   </style>
 </head>
 <body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col transition-colors duration-200">
 
-  <a href="#portfolio-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-brand-600 text-white px-4 py-2 rounded-lg z-50">
-    Skip to portfolio content
+  <a href="#featured-work" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-brand-600 text-white px-4 py-2 rounded-lg z-50">
+    Skip to featured work
   </a>
 
   <header class="bg-slate-900 text-white border-b border-slate-800 relative overflow-hidden">
@@ -68,41 +82,67 @@
           JG
         </div>
 
-        <div class="flex-1 space-y-3">
+        <div class="flex-1 space-y-4">
           <div class="flex flex-wrap items-center justify-center md:justify-start gap-3">
             <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">James Greer</h1>
             <span class="bg-brand-500/20 border border-brand-400/30 text-brand-300 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">
-              Verified Media & Comms
+              Specialist Practitioner
             </span>
           </div>
 
-          <p class="text-lg text-slate-300 font-medium max-w-2xl">
-            Digital Communications Specialist &bull; Executive Video Producer &bull; Content Strategist
+          <p class="text-xl text-brand-400 font-semibold max-w-2xl">
+            Digital and Corporate Communications Specialist
           </p>
 
-          <p class="text-slate-400 text-sm sm:text-base leading-relaxed max-w-3xl">
-            Delivering high-impact digital communications, data analytics reports, corporate PR, site redesigns, and executive video briefings for public sector bodies, engineering leaders, and strategic consultancies.
+          <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-3xl">
+            I deliver clear, evidence-led communications across media relations, digital campaigns, stakeholder engagement and executive video. My work has secured coverage in more than 30 publications, increased LinkedIn clicks by 62%, and supported senior leaders across government, public audit and consultancy.
           </p>
 
-          <!-- Verified External Profiles (Fixes self-referencing links) -->
-          <div class="pt-3 flex flex-wrap gap-2 justify-center md:justify-start">
+          <!-- Primary Action Buttons & Profile Links -->
+          <div class="pt-3 flex flex-wrap gap-3 justify-center md:justify-start">
+            <a href="#featured-work" 
+               class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-500 text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-all shadow-lg shadow-brand-600/30">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+              View Featured Work
+            </a>
+
+            <a href="https://www.linkedin.com/in/james-greer-98-/" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-2 bg-blue-700 hover:bg-blue-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full border border-blue-500 transition-all shadow-md">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.74a1.62 1.62 0 1 0 0 3.24 1.62 1.62 0 0 0 0-3.24z"/></svg>
+              Connect on LinkedIn
+            </a>
+
             <a href="https://muckrack.com/james-greer-5/portfolio" target="_blank" rel="noopener noreferrer" 
-               class="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-slate-100 text-xs sm:text-sm font-semibold px-4 py-2 rounded-full border border-slate-700 transition-all hover:border-brand-500">
+               class="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-slate-100 text-sm font-semibold px-4 py-2.5 rounded-full border border-slate-700 transition-all hover:border-brand-500">
               <svg class="w-4 h-4 text-brand-400" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
               Muck Rack Index
             </a>
 
             <a href="https://jamesjagreer.wordpress.com/" target="_blank" rel="noopener noreferrer"
-               class="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-slate-100 text-xs sm:text-sm font-semibold px-4 py-2 rounded-full border border-slate-700 transition-all hover:border-brand-500">
+               class="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-slate-100 text-sm font-semibold px-4 py-2.5 rounded-full border border-slate-700 transition-all hover:border-brand-500">
               <svg class="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-              Academic &amp; Writing Blog
+              Blog &amp; Publications
             </a>
+          </div>
 
-            <a href="https://www.intelligensconsulting.com/" target="_blank" rel="noopener noreferrer"
-               class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-500 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full transition-all shadow-md shadow-brand-600/30">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-              Featured Client Site
-            </a>
+          <!-- Impact Metrics Bar -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-slate-800/80">
+            <div class="bg-slate-800/50 rounded-xl p-3 border border-slate-700/50">
+              <div class="text-xl sm:text-2xl font-extrabold text-brand-400">30+</div>
+              <div class="text-xs text-slate-400">Publications Covered</div>
+            </div>
+            <div class="bg-slate-800/50 rounded-xl p-3 border border-slate-700/50">
+              <div class="text-xl sm:text-2xl font-extrabold text-emerald-400">+62%</div>
+              <div class="text-xs text-slate-400">LinkedIn CTR Increase</div>
+            </div>
+            <div class="bg-slate-800/50 rounded-xl p-3 border border-slate-700/50">
+              <div class="text-xl sm:text-2xl font-extrabold text-amber-400">+200%</div>
+              <div class="text-xs text-slate-400">Newsletter Clicks</div>
+            </div>
+            <div class="bg-slate-800/50 rounded-xl p-3 border border-slate-700/50">
+              <div class="text-xl sm:text-2xl font-extrabold text-purple-400">3,500+</div>
+              <div class="text-xs text-slate-400">Stakeholder Audience</div>
+            </div>
           </div>
         </div>
       </div>
@@ -115,7 +155,7 @@
         
         <!-- Search Input -->
         <div class="relative w-full md:w-72">
-          <input type="text" id="searchInput" placeholder="Search projects or topics..." 
+          <input type="text" id="searchInput" placeholder="Search case studies or media..." 
                  class="w-full pl-9 pr-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-100 text-xs sm:text-sm rounded-full border border-slate-300 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all" />
           <svg class="w-4 h-4 text-slate-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
@@ -125,32 +165,42 @@
         <!-- Category Filters -->
         <div class="flex items-center gap-1.5 overflow-x-auto w-full md:w-auto pb-1 md:pb-0 scrollbar-none" id="filterContainer">
           <button data-filter="all" class="filter-btn active text-xs sm:text-sm font-semibold px-3.5 py-1.5 rounded-full border transition-all whitespace-nowrap bg-brand-600 text-white border-brand-600">All Work</button>
-          <button data-filter="intelligens" class="filter-btn text-xs sm:text-sm font-medium px-3.5 py-1.5 rounded-full border transition-all whitespace-nowrap bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-brand-500">Intelligens Reports</button>
+          <button data-filter="featured" class="filter-btn text-xs sm:text-sm font-medium px-3.5 py-1.5 rounded-full border transition-all whitespace-nowrap bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-brand-500">★ Featured Case Studies</button>
+          <button data-filter="newsletters" class="filter-btn text-xs sm:text-sm font-medium px-3.5 py-1.5 rounded-full border transition-all whitespace-nowrap bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-brand-500">Stakeholder Newsletters</button>
           <button data-filter="video" class="filter-btn text-xs sm:text-sm font-medium px-3.5 py-1.5 rounded-full border transition-all whitespace-nowrap bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-brand-500">Video Production</button>
+          <button data-filter="pr" class="filter-btn text-xs sm:text-sm font-medium px-3.5 py-1.5 rounded-full border transition-all whitespace-nowrap bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-brand-500">PR &amp; Media Campaigns</button>
+          <button data-filter="intelligens" class="filter-btn text-xs sm:text-sm font-medium px-3.5 py-1.5 rounded-full border transition-all whitespace-nowrap bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-brand-500">Intelligens Consulting</button>
           <button data-filter="web" class="filter-btn text-xs sm:text-sm font-medium px-3.5 py-1.5 rounded-full border transition-all whitespace-nowrap bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-brand-500">Web &amp; Case Studies</button>
-          <button data-filter="pr" class="filter-btn text-xs sm:text-sm font-medium px-3.5 py-1.5 rounded-full border transition-all whitespace-nowrap bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-brand-500">Corporate PR &amp; LinkedIn</button>
           <button data-filter="journalism" class="filter-btn text-xs sm:text-sm font-medium px-3.5 py-1.5 rounded-full border transition-all whitespace-nowrap bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-brand-500">Journalism &amp; Policy</button>
-          <button data-filter="indesign" class="filter-btn text-xs sm:text-sm font-medium px-3.5 py-1.5 rounded-full border transition-all whitespace-nowrap bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-brand-500">InDesign &amp; PDFs</button>
+          <button data-filter="indesign" class="filter-btn text-xs sm:text-sm font-medium px-3.5 py-1.5 rounded-full border transition-all whitespace-nowrap bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-brand-500">InDesign &amp; Publications</button>
         </div>
       </div>
     </div>
   </div>
 
-  <main id="portfolio-content" class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
-    <!-- Status Counter -->
-    <div class="flex items-center justify-between mb-6">
-      <p id="itemCount" class="text-xs sm:text-sm font-semibold text-slate-500 dark:text-slate-400">
-        Loading portfolio records...
-      </p>
-      <span class="text-xs text-slate-400 dark:text-slate-500 hidden sm:inline">
-        Click any item to view authentic target document or video
-      </span>
-    </div>
+  <main id="portfolio-content" class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10">
+    
+    <!-- Featured List Header Anchor -->
+    <section id="featured-work" class="scroll-mt-24">
+      <div class="flex items-center justify-between mb-6 border-b border-slate-200 dark:border-slate-800 pb-4">
+        <div>
+          <h2 class="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+            <span class="text-brand-500">★</span> Featured Case Studies &amp; Campaign Leadership
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
+            Core deliverables across digital campaigns, media releases, stakeholder publishing, and executive video production
+          </p>
+        </div>
+        <p id="itemCount" class="text-xs sm:text-sm font-semibold text-slate-500 dark:text-slate-400 hidden sm:block">
+          Loading portfolio...
+        </p>
+      </div>
 
-    <!-- Portfolio Cards Grid -->
-    <div id="portfolioGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- Dynamic JS Rendering Target -->
-    </div>
+      <!-- Portfolio Cards Grid -->
+      <div id="portfolioGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Dynamic JS Rendering Target -->
+      </div>
+    </section>
   </main>
 
   <div id="videoModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md hidden">
@@ -172,47 +222,149 @@
     </div>
   </div>
 
-  <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-8 text-center text-xs sm:text-sm text-slate-500 dark:text-slate-400">
+  <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-8 text-center text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-12">
     <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p>&copy; <span id="currentYear">2026</span> James Greer. Digital Communications Portfolio.</p>
+      <p>&copy; <span id="currentYear">2026</span> James Greer. Digital and Corporate Communications Specialist.</p>
       <div class="flex gap-4">
-        <a href="https://muckrack.com/james-greer-5/portfolio" target="_blank" rel="noopener noreferrer" class="hover:text-brand-600 dark:hover:text-brand-400">Muck Rack</a>
-        <a href="https://jamesjagreer.wordpress.com/" target="_blank" rel="noopener noreferrer" class="hover:text-brand-600 dark:hover:text-brand-400">Blog</a>
-        <a href="https://www.intelligensconsulting.com" target="_blank" rel="noopener noreferrer" class="hover:text-brand-600 dark:hover:text-brand-400">Intelligens Consulting</a>
+        <a href="https://www.linkedin.com/in/james-greer-98-/" target="_blank" rel="noopener noreferrer" class="hover:text-brand-600 dark:hover:text-brand-400 font-medium">LinkedIn</a>
+        <a href="https://muckrack.com/james-greer-5/portfolio" target="_blank" rel="noopener noreferrer" class="hover:text-brand-600 dark:hover:text-brand-400 font-medium">Muck Rack</a>
+        <a href="https://jamesjagreer.wordpress.com/" target="_blank" rel="noopener noreferrer" class="hover:text-brand-600 dark:hover:text-brand-400 font-medium">Blog</a>
       </div>
     </div>
   </footer>
 
   <script>
     const portfolioItems = [
-      // ---- Intelligens Consulting & Reports ----
+      // ==========================================
+      // FEATURED HIGHLIGHTS & CASE STUDIES
+      // ==========================================
       {
         cat: "intelligens",
-        tag: "Industry Report",
-        title: "State of the UK Fibre Market 2025",
-        desc: "Co-authored industry report analysing altnet growth to ~16m premises, slowing build rates, take-up divergence and the sector's transition to market rationalisation.",
-        cta: "Read Report",
-        href: "https://www.intelligensconsulting.com/post/state-of-the-uk-fibre-market-2025-growth-slowdown-and-a-sector-at-a-crossroads",
-        type: "link"
-      },
-      {
-        cat: "intelligens",
-        tag: "Industry Report",
-        title: "State of the UK Connectivity Report 2026",
-        desc: "Contributor to the flagship connectivity report examining UK fibre and 5G progress, regional digital readiness and critical coverage gaps.",
-        cta: "Read Report",
-        href: "https://www.intelligensconsulting.com/post/state-of-the-uk-connectivity-report-2026-uk-connectivity-is-improving-but-critical-gaps-remain",
-        type: "link"
-      },
-      {
-        cat: "intelligens",
-        tag: "Interactive Data Maps",
-        title: "UK Connectivity, Fibre & 5G Coverage Maps",
-        desc: "Interactive mapping suite visualising UK-wide connectivity, full fibre and 5G rollout in support of the State of UK Connectivity 2026 report.",
-        cta: "Explore Maps",
+        isFeatured: true,
+        tag: "Featured Case Study",
+        title: "UK Connectivity Report & Mapping Campaign",
+        desc: "Developed web, email and interactive mapping content to communicate UK Fibre and 5G connectivity data by local authority. The campaign generated the highest click volume recorded for an Intelligens full-list email campaign.",
+        role: "Content production, email campaign delivery, web publishing & data visualisation",
+        tools: "Wix, Datawrapper, Zoho Campaigns",
+        cta: "Explore Campaign & Maps",
         href: "https://www.intelligensconsulting.com/map26",
-        type: "link"
+        type: "featured_link",
+        extraLinks: [
+          { text: "View Connectivity Report", href: "https://www.intelligensconsulting.com/post/state-of-the-uk-connectivity-report-2026-uk-connectivity-is-improving-but-critical-gaps-remain" },
+          { text: "View Fibre Market 2025 Report", href: "https://www.intelligensconsulting.com/post/state-of-the-uk-fibre-market-2025-growth-slowdown-and-a-sector-at-a-crossroads" }
+        ]
       },
+
+      {
+        cat: "pr",
+        isFeatured: true,
+        tag: "Featured Media Campaign",
+        title: "Funeral Support Payment Media Campaign",
+        desc: "Produced and secured approval for a national statistics release and 32 localised versions within four working days. The campaign included an approved ministerial quote and secured coverage in more than 30 national and local publications.",
+        role: "News development, press release writing, ministerial approvals, statistical checking & media distribution",
+        cta: "View Press Coverage",
+        type: "press_campaign",
+        pressLinks: [
+          { name: "Glasgow Times", title: "Get Funeral Support Payments Glasgow", href: "https://www.glasgowtimes.co.uk/news/scottish-news/23321579.get-funeral-support-payments-glasgow/" },
+          { name: "Paisley.org.uk", title: "Over £1M in Funeral Support Payments Paid", href: "https://paisley.org.uk/news/over-1m-in-funeral-support-payments-paid-since-launch-in-renfrewshire" },
+          { name: "Daily Record", title: "Lanarkshire Families Support Coverage", href: "https://www.dailyrecord.co.uk/in-your-area/lanarkshire/lanarkshire-families-struggling-pay-rising-29221522" },
+          { name: "Renfrewshire Gazette", title: "Vital Help For Funeral Costs Eases Pain", href: "https://www.the-gazette.co.uk/news/23356419.renfrewshire-vital-help-funeral-costs-eases-pain/" },
+          { name: "Airdrie & Coatbridge Advertiser", title: "PressReader National & Local Coverage", href: "https://www.pressreader.com/uk/airdrie-coatbridge-advertiser/20230301/281762748456835" }
+        ]
+      },
+
+      {
+        cat: "newsletters",
+        isFeatured: true,
+        tag: "Featured Case Study",
+        title: "Stakeholder Newsletter Redesign & Content Leadership",
+        desc: "Led the monthly production of a newsletter for more than 3,500 external stakeholders, coordinating policy, operational, statistical and communications colleagues. A redesigned format and stronger signposting contributed to a 7% increase in open rates and more than a 200% increase in clicks during 2023.",
+        role: "Editorial lead, stakeholder coordination, copywriting & Mailchimp production",
+        audience: "Third-sector organisations, NHS staff, journalists, elected representatives & client advisers",
+        cta: "Browse 20 Archive Editions",
+        type: "newsletter_collection",
+        items: [
+          { date: "31/07/2024", title: "Stakeholder Newsletter - July 2024", href: "http://eepurl.com/iU8kow" },
+          { date: "28/06/2024", title: "Stakeholder Newsletter - June 2024", href: "http://eepurl.com/iSRsJc" },
+          { date: "06/06/2024", title: "Stakeholder Newsletter - May 2024", href: "http://eepurl.com/iRtxZU" },
+          { date: "30/04/2024", title: "Stakeholder Newsletter - April 2024", href: "http://eepurl.com/iO6T72" },
+          { date: "27/03/2024", title: "Stakeholder Newsletter - March 2024", href: "http://eepurl.com/iMR_AI" },
+          { date: "28/02/2024", title: "Stakeholder Newsletter - February 2024", href: "http://eepurl.com/iK0quU" },
+          { date: "30/01/2024", title: "Stakeholder Newsletter - January 2024", href: "http://eepurl.com/iI4OrE" },
+          { date: "14/12/2023", title: "Stakeholder Newsletter - December 2023", href: "http://eepurl.com/iGaF9g" },
+          { date: "22/11/2023", title: "Stakeholder Newsletter - November 2023", href: "http://eepurl.com/iEx_D2" },
+          { date: "26/10/2023", title: "Stakeholder Newsletter - October 2023", href: "http://eepurl.com/iCDPIw" },
+          { date: "29/09/2023", title: "Stakeholder Newsletter - September 2023", href: "http://eepurl.com/iAMM4E" },
+          { date: "30/08/2023", title: "Stakeholder Newsletter - August 2023", href: "http://eepurl.com/iyJxdg" },
+          { date: "26/07/2023", title: "Stakeholder Newsletter - July 2023", href: "http://eepurl.com/iws2Ok" },
+          { date: "29/06/2023", title: "Stakeholder Newsletter - June 2023", href: "http://eepurl.com/iuxrEo" },
+          { date: "31/05/2023", title: "Stakeholder Newsletter - May 2023", href: "http://eepurl.com/isp292" },
+          { date: "28/04/2023", title: "Stakeholder Newsletter - April 2023", href: "http://eepurl.com/ip7YfE" },
+          { date: "24/03/2023", title: "Stakeholder Newsletter - March 2023", href: "http://eepurl.com/inD0Mc" },
+          { date: "28/02/2023", title: "Stakeholder Newsletter - February 2023", href: "http://eepurl.com/ilOiss" },
+          { date: "30/01/2023", title: "Stakeholder Newsletter - January 2023", href: "http://eepurl.com/ijyFUH" },
+          { date: "20/12/2022", title: "Stakeholder Newsletter - December 2022", href: "http://eepurl.com/igEz91" }
+        ]
+      },
+
+      {
+        cat: "video",
+        isFeatured: true,
+        tag: "Executive Video Series",
+        title: "Audit Scotland Annual Corporate Videos",
+        desc: "Independently scripted, filmed and edited Audit Scotland’s annual corporate videos, including key governance reporting on Ferguson Marine Shipyard and public audit work outlooks.",
+        role: "Scripting, filming, editing, stakeholder coordination & publication",
+        tools: "Adobe Creative Suite (Premiere Pro, After Effects)",
+        type: "audit_scotland_video_group",
+        videos: [
+          { title: "Ferguson Marine Shipyard Audit", youtubeId: "OFDMasSM9uU", href: "https://www.youtube.com/watch?v=OFDMasSM9uU", desc: "Governance & financial audit summary for Port Glasgow Shipyard." },
+          { title: "Audit Scotland Work Outlook 2025", youtubeId: "MIj_7V-9LOE", href: "https://www.youtube.com/watch?v=MIj_7V-9LOE", desc: "Public sector reporting outlook across transport, healthcare & education." }
+        ]
+      },
+
+      {
+        cat: "video",
+        isFeatured: true,
+        tag: "Executive Video Series",
+        title: "Accounts Commission Annual Corporate Videos",
+        desc: "Assisted in scripting, filming and editing of Accounts Commission corporate videos covering municipal financial outlooks, workforce innovation, and Best Value audit updates.",
+        role: "Scripting, filming, editing, stakeholder coordination & publication",
+        tools: "Adobe Creative Suite",
+        type: "video_collection",
+        items: [
+          { title: "Spring 2025 Reporting Outlook", youtubeId: "Crp00oLZ3EI", href: "https://www.youtube.com/watch?v=Crp00oLZ3EI", desc: "Council finances, car reduction targets & ASL provision." },
+          { title: "Workforce Innovation Report", youtubeId: "mBxElVrUQsc", href: "https://www.youtube.com/watch?v=mBxElVrUQsc", desc: "Council workforce planning, digital tool adoption & retention." },
+          { title: "Accounts Commission Update: March 2025", youtubeId: "gmEc3d6Gi_Q", href: "https://www.youtube.com/watch?v=gmEc3d6Gi_Q", desc: "Argyll & Bute Council, DEI strategy & Best Value standards." },
+          { title: "Accounts Commission Update: April 2025", youtubeId: "dFk4UFSq4hc", href: "https://www.youtube.com/watch?v=dFk4UFSq4hc", desc: "Highland Council finances & social care funding integration." },
+          { title: "Accounts Commission Update: May 2025", youtubeId: "5Pc1Yea5OOI", href: "https://www.youtube.com/watch?v=5Pc1Yea5OOI", desc: "Renfrewshire Council Best Value & budget challenge overview." },
+          { title: "Accounts Commission Update: June 2025", youtubeId: "UwXyo2PGIDI", href: "https://www.youtube.com/watch?v=UwXyo2PGIDI", desc: "East Lothian Council challenges & municipal workforce management." },
+          { title: "Accounts Commission Update: Dec 2024", youtubeId: "RN1DBIdenXg", href: "https://www.youtube.com/watch?v=RN1DBIdenXg", desc: "Aberdeen City Council findings & educational support reports." },
+          { title: "Accounts Commission Update: Oct 2024", youtubeId: "BhCHk3fsN_4", href: "https://www.youtube.com/watch?v=BhCHk3fsN_4", desc: "City of Edinburgh Council performance & digital transformation." },
+          { title: "Accounts Commission Update: Sept 2024", youtubeId: "MpxZL1O2BKM", href: "https://www.youtube.com/watch?v=MpxZL1O2BKM", desc: "Clackmannanshire Council & public sector renewal programs." }
+        ]
+      },
+
+      {
+        cat: "indesign",
+        isFeatured: true,
+        tag: "Award-Winning Publication",
+        title: "Tales from Lockdown Editions",
+        desc: "Led and editorialised four editions of a magazine during the 2020 Covid-19 Lockdown using InDesign to deliver multi-page publications. Winner of Best Newcomer Publication in Scotland 2021 from the Student Publication Association (SPA), and nominated for Best Newcomer Publication in Britain.",
+        role: "Editor-in-Chief, Chief Editor, Chief Designer",
+        tools: "Adobe Creative Suite (InDesign, Photoshop)",
+        accolades: "Winner: Best Newcomer Publication in Scotland 2021 (SPA) • Nominated: Best Newcomer Publication in Britain (SPA)",
+        type: "pdf_collection",
+        items: [
+          { title: "Tales from Lockdown — May Edition", cta: "May Edition (PDF)", href: "https://drive.google.com/file/d/1xjl_Yqp6hPYaYb2_QW4yYntwkQSSGBNF/view?usp=drive_link" },
+          { title: "Tales from Lockdown — June Edition", cta: "June Edition (PDF)", href: "https://drive.google.com/file/d/1gZ4P20851C1bSL7X5Q8TxUVrWq2gagAX/view?usp=sharing" },
+          { title: "Tales from Lockdown — July Edition", cta: "July Edition (PDF)", href: "https://drive.google.com/file/d/1cxI1T3uwixRMPkQ7QpJVrKKMalD3sdUn/view?usp=sharing" },
+          { title: "Tales from Lockdown — August Edition", cta: "August Edition (PDF)", href: "https://drive.google.com/file/d/1gZ4P20851C1bSL7X5Q8TxUVrWq2gagAX/view?usp=sharing" }
+        ]
+      },
+
+      // ==========================================
+      // INTELLIGENS CONSULTING & CAMPAIGNS
+      // ==========================================
       {
         cat: "intelligens",
         tag: "LinkedIn Campaign",
@@ -259,7 +411,9 @@
         type: "link"
       },
 
-      // ---- Web & Case Studies ----
+      // ==========================================
+      // WEB REDESIGNS & ENGINEERING CASE STUDIES
+      // ==========================================
       {
         cat: "web",
         tag: "Web Redesign",
@@ -342,7 +496,9 @@
         type: "link"
       },
 
-      // ---- Journalism & Policy ----
+      // ==========================================
+      // JOURNALISM & POLICY ESSAYS
+      // ==========================================
       {
         cat: "journalism",
         tag: "Alumni Spotlight",
@@ -398,43 +554,9 @@
         type: "link"
       },
 
-      // ---- InDesign & Editorial (PDFs) ----
-      {
-        cat: "indesign",
-        tag: "InDesign / Editorial",
-        title: "Tales from Lockdown — May Edition",
-        desc: "Editorial layout and creative compilation showcasing lockdown stories, digital design, and community writing.",
-        cta: "View PDF Document",
-        href: "https://drive.google.com/file/d/1xjl_Yqp6hPYaYb2_QW4yYntwkQSSGBNF/view?usp=drive_link",
-        type: "pdf"
-      },
-      {
-        cat: "indesign",
-        tag: "InDesign / Editorial",
-        title: "Tales from Lockdown — June Edition",
-        desc: "Mid-summer magazine edition featuring curated editorial commentary, layout typography, and creative writing.",
-        cta: "View PDF Document",
-        href: "https://drive.google.com/file/d/1gZ4P20851C1bSL7X5Q8TxUVrWq2gagAX/view?usp=sharing",
-        type: "pdf"
-      },
-      {
-        cat: "indesign",
-        tag: "InDesign / Editorial",
-        title: "Tales from Lockdown — July Edition",
-        desc: "July publication edition covering local culture, commentary, and custom layout artwork.",
-        cta: "View PDF Document",
-        href: "https://drive.google.com/file/d/1cxI1T3uwixRMPkQ7QpJVrKKMalD3sdUn/view?usp=sharing",
-        type: "pdf"
-      },
-      {
-        cat: "indesign",
-        tag: "InDesign / Editorial",
-        title: "Tales from Lockdown — August Edition",
-        desc: "Final summer wrap-up publication featuring curated essays, typography design, and digital distribution.",
-        cta: "View PDF Document",
-        href: "https://drive.google.com/file/d/1gZ4P20851C1bSL7X5Q8TxUVrWq2gagAX/view?usp=sharing",
-        type: "pdf"
-      },
+      // ==========================================
+      // INDESIGN & PUBLICATIONS
+      // ==========================================
       {
         cat: "indesign",
         tag: "InDesign / Publication",
@@ -463,7 +585,9 @@
         type: "pdf"
       },
 
-      // ---- Corporate PR & LinkedIn ----
+      // ==========================================
+      // CORPORATE PR & LINKEDIN
+      // ==========================================
       {
         cat: "pr",
         tag: "Corporate PR / LinkedIn",
@@ -580,118 +704,6 @@
         cta: "View Update",
         href: "https://www.linkedin.com/posts/audit-scotland_alongside-our-annual-report-and-accounts-activity-7339215979006074883-nc0o",
         type: "link"
-      },
-
-      // ---- Video Production (Audit Scotland & Accounts Commission) ----
-      {
-        cat: "video",
-        tag: "Audit Scotland Video",
-        title: "Ferguson Marine Shipyard Audit",
-        desc: "Executive video summary detailing the Auditor General for Scotland's financial and governance report on Port Glasgow Shipyard.",
-        cta: "Watch Video",
-        youtubeId: "OFDMasSM9uU",
-        href: "https://www.youtube.com/watch?v=OFDMasSM9uU",
-        type: "video"
-      },
-      {
-        cat: "video",
-        tag: "Accounts Commission Video",
-        title: "Spring 2025 Reporting Outlook",
-        desc: "Audit video overview of council finances, car reduction targets, and Additional Support Needs (ASL) provision.",
-        cta: "Watch Video",
-        youtubeId: "Crp00oLZ3EI",
-        href: "https://www.youtube.com/watch?v=Crp00oLZ3EI",
-        type: "video"
-      },
-      {
-        cat: "video",
-        tag: "Accounts Commission Video",
-        title: "Workforce Innovation Report",
-        desc: "Public sector video report examining council workforce planning, digital tool adoption, and staff retention across Scotland.",
-        cta: "Watch Video",
-        youtubeId: "mBxElVrUQsc",
-        href: "https://www.youtube.com/watch?v=mBxElVrUQsc",
-        type: "video"
-      },
-      {
-        cat: "video",
-        tag: "Audit Scotland Video",
-        title: "Audit Scotland Work Outlook 2025",
-        desc: "Executive preview video outlining major upcoming audits across sustainable transport, GP practices, and education.",
-        cta: "Watch Video",
-        youtubeId: "MIj_7V-9LOE",
-        href: "https://www.youtube.com/watch?v=MIj_7V-9LOE",
-        type: "video"
-      },
-      {
-        cat: "video",
-        tag: "Accounts Commission Video",
-        title: "Accounts Commission Update: March 2025",
-        desc: "Briefing video covering Argyll and Bute Council reports, DEI strategy planning, and Best Value audit standards.",
-        cta: "Watch Video",
-        youtubeId: "gmEc3d6Gi_Q",
-        href: "https://www.youtube.com/watch?v=gmEc3d6Gi_Q",
-        type: "video"
-      },
-      {
-        cat: "video",
-        tag: "Accounts Commission Video",
-        title: "Accounts Commission Update: April 2025",
-        desc: "Meeting summary video discussing Highland Council finances, social care funding integration, and service performance.",
-        cta: "Watch Video",
-        youtubeId: "dFk4UFSq4hc",
-        href: "https://www.youtube.com/watch?v=dFk4UFSq4hc",
-        type: "video"
-      },
-      {
-        cat: "video",
-        tag: "Accounts Commission Video",
-        title: "Accounts Commission Update: May 2025",
-        desc: "Briefing video on Renfrewshire Council's Best Value report, budget challenges, and local engagement.",
-        cta: "Watch Video",
-        youtubeId: "5Pc1Yea5OOI",
-        href: "https://www.youtube.com/watch?v=5Pc1Yea5OOI",
-        type: "video"
-      },
-      {
-        cat: "video",
-        tag: "Accounts Commission Video",
-        title: "Accounts Commission Update: June 2025",
-        desc: "Coverage video on East Lothian Council challenges and nation-wide municipal workforce management strategies.",
-        cta: "Watch Video",
-        youtubeId: "UwXyo2PGIDI",
-        href: "https://www.youtube.com/watch?v=UwXyo2PGIDI",
-        type: "video"
-      },
-      {
-        cat: "video",
-        tag: "Accounts Commission Video",
-        title: "Accounts Commission Update: Dec 2024",
-        desc: "Year-end video summary reviewing Aberdeen City Council audit findings and upcoming educational support reports.",
-        cta: "Watch Video",
-        youtubeId: "RN1DBIdenXg",
-        href: "https://www.youtube.com/watch?v=RN1DBIdenXg",
-        type: "video"
-      },
-      {
-        cat: "video",
-        tag: "Accounts Commission Video",
-        title: "Accounts Commission Update: Oct 2024",
-        desc: "Briefing video on City of Edinburgh Council audit performance and public digital transformation initiatives.",
-        cta: "Watch Video",
-        youtubeId: "BhCHk3fsN_4",
-        href: "https://www.youtube.com/watch?v=BhCHk3fsN_4",
-        type: "video"
-      },
-      {
-        cat: "video",
-        tag: "Accounts Commission Video",
-        title: "Accounts Commission Update: Sept 2024",
-        desc: "Report summary video on Clackmannanshire Council and Scottish public sector renewal programs.",
-        cta: "Watch Video",
-        youtubeId: "MpxZL1O2BKM",
-        href: "https://www.youtube.com/watch?v=MpxZL1O2BKM",
-        type: "video"
       }
     ];
 
@@ -727,26 +739,35 @@
       if (e.target === modal) closeVideoModal();
     });
 
-    function getIconForType(type) {
-      if (type === 'video') {
-        return `<svg class="w-4 h-4 text-red-500" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>`;
-      } else if (type === 'pdf') {
-        return `<svg class="w-4 h-4 text-rose-500" fill="currentColor" viewBox="0 0 24 24"><path d="M20 2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8.5 7.5c0 .83-.67 1.5-1.5 1.5H9v2H7.5V7H10c.83 0 1.5.67 1.5 1.5v1zm5 2c0 .83-.67 1.5-1.5 1.5h-2.5V7H15c.83 0 1.5.67 1.5 1.5v3zm4-3H19v1h1.5V11H19v2h-1.5V7h3v1.5z"/></svg>`;
-      }
-      return `<svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>`;
-    }
-
     function renderPortfolio() {
       const filtered = portfolioItems.filter(item => {
-        const matchesCategory = currentCategory === 'all' || item.cat === currentCategory;
-        const matchesSearch = !searchQuery || 
-          item.title.toLowerCase().includes(searchQuery) || 
-          item.desc.toLowerCase().includes(searchQuery) ||
-          item.tag.toLowerCase().includes(searchQuery);
+        const matchesCategory = currentCategory === 'all' || 
+          (currentCategory === 'featured' && item.isFeatured) || 
+          item.cat === currentCategory;
+        
+        let matchesSearch = false;
+        if (!searchQuery) {
+          matchesSearch = true;
+        } else {
+          const mainText = `${item.title} ${item.desc} ${item.tag} ${item.role || ''} ${item.tools || ''}`.toLowerCase();
+          if (mainText.includes(searchQuery)) {
+            matchesSearch = true;
+          } else if (item.items && item.items.length) {
+            matchesSearch = item.items.some(sub => 
+              sub.title.toLowerCase().includes(searchQuery) || 
+              (sub.date && sub.date.toLowerCase().includes(searchQuery)) ||
+              (sub.desc && sub.desc.toLowerCase().includes(searchQuery))
+            );
+          } else if (item.pressLinks && item.pressLinks.length) {
+            matchesSearch = item.pressLinks.some(sub => 
+              sub.name.toLowerCase().includes(searchQuery) || sub.title.toLowerCase().includes(searchQuery)
+            );
+          }
+        }
         return matchesCategory && matchesSearch;
       });
 
-      countEl.textContent = `Showing ${filtered.length} of ${portfolioItems.length} portfolio items`;
+      countEl.textContent = `Showing ${filtered.length} project record${filtered.length === 1 ? '' : 's'}`;
 
       if (filtered.length === 0) {
         gridEl.innerHTML = `
@@ -760,68 +781,320 @@
       }
 
       gridEl.innerHTML = filtered.map(item => {
-        const isVideo = item.type === 'video';
-        
+
+        // Featured Link Card (UK Connectivity Campaign)
+        if (item.type === 'featured_link') {
+          return `
+            <article class="card-hover bg-white dark:bg-slate-900 rounded-2xl p-6 border-2 border-brand-500/40 dark:border-brand-500/30 shadow-md flex flex-col justify-between relative overflow-hidden group col-span-1 md:col-span-2 lg:col-span-1">
+              <div class="absolute top-0 right-0 bg-brand-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider">
+                High Impact
+              </div>
+              <div>
+                <div class="flex items-center gap-2 mb-3">
+                  <span class="inline-block bg-brand-500/10 text-brand-600 dark:text-brand-400 text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md border border-brand-500/20">
+                    ${item.tag}
+                  </span>
+                </div>
+
+                <h2 class="text-lg font-extrabold text-slate-900 dark:text-white mb-2 leading-snug">
+                  ${item.title}
+                </h2>
+
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                  ${item.desc}
+                </p>
+
+                <div class="space-y-2 mb-4 text-xs bg-slate-50 dark:bg-slate-950 p-3 rounded-xl border border-slate-200/80 dark:border-slate-800">
+                  <div><strong class="text-brand-600 dark:text-brand-400">Role:</strong> <span class="text-slate-700 dark:text-slate-300">${item.role}</span></div>
+                  <div><strong class="text-brand-600 dark:text-brand-400">Tools:</strong> <span class="text-slate-700 dark:text-slate-300">${item.tools}</span></div>
+                </div>
+
+                ${item.extraLinks ? `
+                  <div class="space-y-1.5 mb-4">
+                    ${item.extraLinks.map(l => `
+                      <a href="${l.href}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between text-xs text-brand-600 dark:text-brand-400 hover:underline p-1.5 rounded-lg bg-brand-50/50 dark:bg-brand-950/30 border border-brand-200/50 dark:border-brand-800/40 font-medium">
+                        <span>${l.text}</span> &rarr;
+                      </a>
+                    `).join('')}
+                  </div>
+                ` : ''}
+              </div>
+
+              <div class="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                <a href="${item.href}" target="_blank" rel="noopener noreferrer" class="text-xs sm:text-sm font-bold text-white bg-brand-600 hover:bg-brand-500 px-4 py-2 rounded-xl transition-colors shadow-sm inline-flex items-center gap-1.5">
+                  ${item.cta} &rarr;
+                </a>
+              </div>
+            </article>
+          `;
+        }
+
+        // Press Campaign Card (Funeral Support Payment)
+        if (item.type === 'press_campaign') {
+          return `
+            <article class="card-hover bg-white dark:bg-slate-900 rounded-2xl p-6 border-2 border-emerald-500/40 dark:border-emerald-500/30 shadow-md flex flex-col justify-between relative group col-span-1 md:col-span-2 lg:col-span-1">
+              <div class="absolute top-0 right-0 bg-emerald-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider">
+                30+ Media Outlets
+              </div>
+              <div>
+                <div class="flex items-center gap-2 mb-3">
+                  <span class="inline-block bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md border border-emerald-500/20">
+                    ${item.tag}
+                  </span>
+                </div>
+
+                <h2 class="text-lg font-extrabold text-slate-900 dark:text-white mb-2 leading-snug">
+                  ${item.title}
+                </h2>
+
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                  ${item.desc}
+                </p>
+
+                <div class="mb-4 text-xs bg-slate-50 dark:bg-slate-950 p-3 rounded-xl border border-slate-200/80 dark:border-slate-800">
+                  <strong class="text-emerald-600 dark:text-emerald-400">Role:</strong> <span class="text-slate-700 dark:text-slate-300">${item.role}</span>
+                </div>
+
+                <div class="space-y-1.5 max-h-48 overflow-y-auto custom-scrollbar border border-slate-200 dark:border-slate-800 rounded-xl p-2 bg-slate-50/50 dark:bg-slate-950/50 mb-3">
+                  <div class="text-[10px] font-bold uppercase text-slate-400 px-1 mb-1">Selected Publications &amp; Clippings</div>
+                  ${item.pressLinks.map(pl => `
+                    <a href="${pl.href}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-2 rounded-lg bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800/80 hover:border-emerald-500 transition-colors">
+                      <div class="min-w-0 pr-2">
+                        <div class="text-[11px] font-bold text-slate-800 dark:text-slate-200 truncate">${pl.name}</div>
+                        <div class="text-[10px] text-slate-500 truncate">${pl.title}</div>
+                      </div>
+                      <span class="shrink-0 text-[10px] font-semibold text-emerald-600 dark:text-emerald-400">Read &rarr;</span>
+                    </a>
+                  `).join('')}
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-400">
+                <span>National Press Strategy</span>
+                <span class="font-medium text-emerald-600 dark:text-emerald-400">32 Regional Releases</span>
+              </div>
+            </article>
+          `;
+        }
+
+        // Audit Scotland Group Video Card
+        if (item.type === 'audit_scotland_video_group') {
+          return `
+            <article class="card-hover bg-white dark:bg-slate-900 rounded-2xl p-6 border-2 border-purple-500/40 dark:border-purple-500/30 shadow-md flex flex-col justify-between group col-span-1 md:col-span-2 lg:col-span-1">
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-3">
+                  <span class="inline-block bg-purple-500/10 text-purple-600 dark:text-purple-400 text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md border border-purple-500/20">
+                    ${item.tag}
+                  </span>
+                  <svg class="w-5 h-5 text-purple-500" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+
+                <h2 class="text-lg font-extrabold text-slate-900 dark:text-white mb-2 leading-snug">
+                  ${item.title}
+                </h2>
+
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                  ${item.desc}
+                </p>
+
+                <div class="space-y-2 mb-4 text-xs bg-slate-50 dark:bg-slate-950 p-3 rounded-xl border border-slate-200/80 dark:border-slate-800">
+                  <div><strong class="text-purple-600 dark:text-purple-400">Role:</strong> <span class="text-slate-700 dark:text-slate-300">${item.role}</span></div>
+                  <div><strong class="text-purple-600 dark:text-purple-400">Tools:</strong> <span class="text-slate-700 dark:text-slate-300">${item.tools}</span></div>
+                </div>
+
+                <div class="space-y-2 mb-2">
+                  ${item.videos.map(v => `
+                    <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 flex items-center justify-between gap-2">
+                      <div class="min-w-0 flex-1">
+                        <div class="text-xs font-bold text-slate-900 dark:text-white truncate">${v.title}</div>
+                        <div class="text-[11px] text-slate-500 dark:text-slate-400 truncate">${v.desc}</div>
+                      </div>
+                      <button onclick="openVideoModal('${v.youtubeId}', '${v.title.replace(/'/g, "\\'")}', '${v.href}')" class="shrink-0 text-[10px] font-bold text-white bg-purple-600 hover:bg-purple-500 px-3 py-1.5 rounded-lg flex items-center gap-1 shadow-sm transition-colors">
+                        <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Watch
+                      </button>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+              <div class="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-400">
+                <span>Public Audit Governance</span>
+                <span class="font-medium text-purple-500">2 Key Releases</span>
+              </div>
+            </article>
+          `;
+        }
+
+        // Newsletter Collection Card
+        if (item.type === 'newsletter_collection') {
+          return `
+            <article class="card-hover bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between group col-span-1 md:col-span-2 lg:col-span-1">
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-3">
+                  <span class="inline-block bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md border border-emerald-500/20">
+                    ${item.tag}
+                  </span>
+                  <svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                </div>
+
+                <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-2 leading-snug">
+                  ${item.title}
+                </h2>
+
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-3">
+                  ${item.desc}
+                </p>
+
+                ${item.role ? `
+                  <div class="mb-3 text-xs bg-slate-50 dark:bg-slate-950 p-2.5 rounded-xl border border-slate-200/80 dark:border-slate-800">
+                    <strong class="text-emerald-600 dark:text-emerald-400">Role:</strong> <span class="text-slate-700 dark:text-slate-300">${item.role}</span>
+                  </div>
+                ` : ''}
+
+                <div class="mt-2 space-y-1.5 max-h-52 overflow-y-auto custom-scrollbar border border-slate-100 dark:border-slate-800 rounded-xl p-2 bg-slate-50/50 dark:bg-slate-950/50">
+                  ${item.items.map(sub => `
+                    <div class="flex items-center justify-between gap-2 p-2 rounded-lg bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800/80 hover:border-emerald-500/50 transition-colors">
+                      <div class="min-w-0 flex-1">
+                        <div class="text-[10px] font-semibold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">${sub.date}</div>
+                        <div class="text-xs font-medium text-slate-800 dark:text-slate-200 truncate">${sub.title}</div>
+                      </div>
+                      <a href="${sub.href}" target="_blank" rel="noopener noreferrer" class="shrink-0 text-[11px] font-semibold text-brand-600 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-300 bg-brand-50 dark:bg-brand-950/50 px-2.5 py-1 rounded-md border border-brand-200 dark:border-brand-800/50">
+                        Read &rarr;
+                      </a>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+              <div class="pt-3 mt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-400">
+                <span>Mailchimp Publishing</span>
+                <span class="font-medium text-slate-500">${item.items.length} Editions</span>
+              </div>
+            </article>
+          `;
+        }
+
+        // Accounts Commission Video Collection Card
+        if (item.type === 'video_collection') {
+          return `
+            <article class="card-hover bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between group col-span-1 md:col-span-2 lg:col-span-1">
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-3">
+                  <span class="inline-block bg-red-500/10 text-red-600 dark:text-red-400 text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md border border-red-500/20">
+                    ${item.tag}
+                  </span>
+                  <svg class="w-4 h-4 text-red-500" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+
+                <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-2 leading-snug">
+                  ${item.title}
+                </h2>
+
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-3">
+                  ${item.desc}
+                </p>
+
+                <div class="mt-2 space-y-2 max-h-52 overflow-y-auto custom-scrollbar border border-slate-100 dark:border-slate-800 rounded-xl p-2 bg-slate-50/50 dark:bg-slate-950/50">
+                  ${item.items.map(sub => `
+                    <div class="p-2 rounded-lg bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800/80">
+                      <div class="flex items-start justify-between gap-2">
+                        <div>
+                          <div class="text-xs font-bold text-slate-900 dark:text-white">${sub.title}</div>
+                          <div class="text-[11px] text-slate-500 dark:text-slate-400 leading-tight mt-0.5">${sub.desc}</div>
+                        </div>
+                        <button onclick="openVideoModal('${sub.youtubeId}', '${sub.title.replace(/'/g, "\\'")}', '${sub.href}')" class="shrink-0 text-[10px] font-bold text-white bg-red-600 hover:bg-red-500 px-2 py-1 rounded flex items-center gap-1 shadow-sm transition-colors">
+                          <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Play
+                        </button>
+                      </div>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+              <div class="pt-3 mt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-400">
+                <span>YouTube Media Player</span>
+                <span class="font-medium text-slate-500">${item.items.length} Videos</span>
+              </div>
+            </article>
+          `;
+        }
+
+        // Tales from Lockdown PDF Collection Card
+        if (item.type === 'pdf_collection') {
+          return `
+            <article class="card-hover bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between group">
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-3">
+                  <span class="inline-block bg-rose-500/10 text-rose-600 dark:text-rose-400 text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md border border-rose-500/20">
+                    ${item.tag}
+                  </span>
+                  <svg class="w-4 h-4 text-rose-500" fill="currentColor" viewBox="0 0 24 24"><path d="M20 2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8.5 7.5c0 .83-.67 1.5-1.5 1.5H9v2H7.5V7H10c.83 0 1.5.67 1.5 1.5v1zm5 2c0 .83-.67 1.5-1.5 1.5h-2.5V7H15c.83 0 1.5.67 1.5 1.5v3zm4-3H19v1h1.5V11H19v2h-1.5V7h3v1.5z"/></svg>
+                </div>
+
+                <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-2 leading-snug">
+                  ${item.title}
+                </h2>
+
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-3">
+                  ${item.desc}
+                </p>
+
+                ${item.accolades ? `
+                  <div class="mb-3 text-xs bg-amber-50 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 p-2.5 rounded-xl border border-amber-200 dark:border-amber-800/50 font-medium">
+                    🏆 ${item.accolades}
+                  </div>
+                ` : ''}
+
+                <div class="grid grid-cols-2 gap-2 my-3">
+                  ${item.items.map(sub => `
+                    <a href="${sub.href}" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80 hover:border-brand-500 dark:hover:border-brand-400 flex flex-col justify-between group/pdf transition-all text-left">
+                      <span class="text-xs font-bold text-slate-800 dark:text-slate-200 group-hover/pdf:text-brand-600 dark:group-hover/pdf:text-brand-400 transition-colors truncate">${sub.title.replace('Tales from Lockdown — ', '')}</span>
+                      <span class="text-[10px] text-slate-400 mt-1 inline-flex items-center gap-1 font-semibold">
+                        PDF &rarr;
+                      </span>
+                    </a>
+                  `).join('')}
+                </div>
+              </div>
+              <div class="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-400">
+                <span>InDesign Multi-Page Issues</span>
+                <span class="font-medium text-slate-500">4 Issues</span>
+              </div>
+            </article>
+          `;
+        }
+
+        // Standard Single Link Card
         return `
-          <article class="card-hover bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between group">
+          <article class="card-hover bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between group">
             <div>
-              <!-- Category Tag -->
               <div class="flex items-center justify-between gap-2 mb-3">
                 <span class="inline-block bg-slate-100 dark:bg-slate-800 text-brand-600 dark:text-brand-400 text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md border border-slate-200 dark:border-slate-700/60">
                   ${item.tag}
                 </span>
-                <span class="text-slate-400 group-hover:text-brand-500 transition-colors">
-                  ${getIconForType(item.type)}
-                </span>
+                <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
               </div>
 
-              <!-- Title -->
               <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-2 leading-snug group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
                 ${item.title}
               </h2>
 
-              <!-- Description -->
               <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
                 ${item.desc}
               </p>
-
-              ${isVideo ? `
-                <!-- Embedded Video Thumbnail preview button -->
-                <div class="relative rounded-xl overflow-hidden mb-4 group/thumb cursor-pointer aspect-video bg-slate-950 border border-slate-800" onclick="openVideoModal('${item.youtubeId}', '${item.title.replace(/'/g, "\\'")}', '${item.href}')">
-                  <img src="https://img.youtube.com/vi/${item.youtubeId}/hqdefault.jpg" alt="${item.title}" class="w-full h-full object-cover opacity-80 group-hover/thumb:opacity-100 group-hover/thumb:scale-105 transition-all duration-300" loading="lazy" />
-                  <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
-                    <div class="w-12 h-12 rounded-full bg-brand-600/90 text-white flex items-center justify-center shadow-lg group-hover/thumb:scale-110 transition-transform">
-                      <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                    </div>
-                  </div>
-                </div>
-              ` : ''}
             </div>
 
-            <!-- Action Link Button (Direct target, no # self reference) -->
             <div class="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
-              ${isVideo ? `
-                <button onclick="openVideoModal('${item.youtubeId}', '${item.title.replace(/'/g, "\\'")}', '${item.href}')" class="text-xs sm:text-sm font-semibold text-brand-600 dark:text-brand-400 hover:text-brand-700 flex items-center gap-1.5">
-                  ${item.cta} &rarr;
-                </button>
-                <a href="${item.href}" target="_blank" rel="noopener noreferrer" class="text-xs text-slate-400 hover:text-slate-600 dark:hover:text-slate-200" title="Open directly on YouTube">
-                  External Link
-                </a>
-              ` : `
-                <a href="${item.href}" target="_blank" rel="noopener noreferrer" class="text-xs sm:text-sm font-semibold text-brand-600 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-300 flex items-center gap-1.5 group-hover:translate-x-0.5 transition-transform">
-                  ${item.cta} &rarr;
-                </a>
-                <span class="text-[11px] font-medium text-slate-400 uppercase tracking-wider">
-                  ${item.type === 'pdf' ? 'PDF Doc' : 'Live URL'}
-                </span>
-              `}
+              <a href="${item.href}" target="_blank" rel="noopener noreferrer" class="text-xs sm:text-sm font-semibold text-brand-600 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-300 flex items-center gap-1.5 group-hover:translate-x-0.5 transition-transform">
+                ${item.cta} &rarr;
+              </a>
+              <span class="text-[11px] font-medium text-slate-400 uppercase tracking-wider">
+                ${item.type === 'pdf' ? 'PDF Doc' : 'Live Resource'}
+              </span>
             </div>
           </article>
         `;
       }).join('');
     }
 
-    // Attach Event Handlers
+    // Attach Event Handlers for Category Filters
     filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         filterBtns.forEach(b => {
@@ -837,12 +1110,13 @@
       });
     });
 
+    // Real-time Search Handler
     searchInput.addEventListener('input', (e) => {
       searchQuery = e.target.value.toLowerCase().trim();
       renderPortfolio();
     });
 
-    // Set Copyright Year dynamically
+    // Dynamic Year Update
     document.getElementById('currentYear').textContent = new Date().getFullYear();
 
     // Initial render
