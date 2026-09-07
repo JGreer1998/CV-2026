@@ -1,35 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>James Greer | Digital and Corporate Communications Specialist</title>
   <meta name="description" content="Portfolio of James Greer: Digital and Corporate Communications Specialist. Media relations, digital campaigns, stakeholder engagement, and executive video production." />
-
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              50: '#f0f6ff',
-              100: '#e0edff',
-              500: '#0f62fe',
-              600: '#0052cc',
-              700: '#0041a3',
-              900: '#001d66',
-            }
-          },
-          fontFamily: {
-            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-          }
-        }
-      }
-    }
-  </script>
 
   <!-- Google Font: Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,87 +12,777 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    body { font-family: 'Inter', sans-serif; }
-    .glass-nav {
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+    /* ==========================================================================
+       DESIGN SYSTEM & CSS VARIABLES
+       ========================================================================== */
+    :root {
+      --bg-base: #0a0e17;
+      --bg-surface: #111827;
+      --bg-surface-elevated: #162032;
+      --bg-surface-hover: #1c2942;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.16);
+      
+      --brand-primary: #0f62fe;
+      --brand-primary-hover: #0052cc;
+      --brand-light: #60a5fa;
+      --brand-glow: rgba(15, 98, 254, 0.25);
+
+      --emerald: #10b981;
+      --emerald-bg: rgba(16, 185, 129, 0.12);
+      --emerald-border: rgba(16, 185, 129, 0.3);
+
+      --purple: #a855f7;
+      --purple-bg: rgba(168, 85, 247, 0.12);
+      --purple-border: rgba(168, 85, 247, 0.3);
+
+      --amber: #f59e0b;
+      --amber-bg: rgba(245, 158, 11, 0.12);
+      --amber-border: rgba(245, 158, 11, 0.3);
+
+      --rose: #f43f5e;
+      --rose-bg: rgba(244, 63, 94, 0.12);
+      --rose-border: rgba(244, 63, 94, 0.3);
+
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-full: 9999px;
+      --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
     }
-    .card-hover {
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-    .card-hover:hover {
-      transform: translateY(-3px);
+
+    html {
+      scroll-behavior: smooth;
     }
-    .custom-scrollbar::-webkit-scrollbar {
-      width: 6px;
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
-    .custom-scrollbar::-webkit-scrollbar-track {
-      background: rgba(0, 0, 0, 0.05);
-      border-radius: 999px;
+
+    a {
+      color: inherit;
+      text-decoration: none;
     }
-    .custom-scrollbar::-webkit-scrollbar-thumb {
-      background: rgba(15, 98, 254, 0.3);
-      border-radius: 999px;
+
+    /* ==========================================================================
+       LAYOUT HELPERS
+       ========================================================================== */
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
     }
-    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-      background: rgba(15, 98, 254, 0.6);
+
+    /* ==========================================================================
+       HEADER & HERO
+       ========================================================================== */
+    .hero-header {
+      background: linear-gradient(180deg, #0f172a 0%, #0a0e17 100%);
+      border-bottom: 1px solid var(--border-subtle);
+      position: relative;
+      overflow: hidden;
+      padding: 3.5rem 0 3rem;
+    }
+
+    .glow-1 {
+      position: absolute;
+      top: -120px;
+      left: -80px;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(15, 98, 254, 0.28) 0%, transparent 70%);
+      filter: blur(50px);
+      pointer-events: none;
+    }
+
+    .glow-2 {
+      position: absolute;
+      bottom: -150px;
+      right: -80px;
+      width: 450px;
+      height: 450px;
+      background: radial-gradient(circle, rgba(79, 70, 229, 0.2) 0%, transparent 70%);
+      filter: blur(60px);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.75rem;
+    }
+
+    @media (min-width: 768px) {
+      .hero-content {
+        flex-direction: row;
+        align-items: flex-start;
+        text-align: left;
+        gap: 2.25rem;
+      }
+    }
+
+    .avatar-badge {
+      width: 84px;
+      height: 84px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, #0052cc 0%, #38bdf8 100%);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      box-shadow: 0 12px 30px rgba(15, 98, 254, 0.45);
+      border: 3px solid rgba(255, 255, 255, 0.15);
+      flex-shrink: 0;
+    }
+
+    .hero-bio h1 {
+      font-size: 2.25rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      margin-bottom: 0.35rem;
+    }
+
+    .hero-role {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--brand-light);
+      margin-bottom: 0.85rem;
+    }
+
+    .hero-summary {
+      color: #cbd5e1;
+      font-size: 1.05rem;
+      line-height: 1.65;
+      max-width: 820px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+    }
+
+    @media (min-width: 768px) {
+      .hero-actions {
+        justify-content: flex-start;
+      }
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1.25rem;
+      border-radius: var(--radius-full);
+      font-size: 0.875rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: 1px solid transparent;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background-color: var(--brand-primary);
+      color: #ffffff;
+      box-shadow: 0 4px 18px var(--brand-glow);
+    }
+    .btn-primary:hover {
+      background-color: var(--brand-primary-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-linkedin {
+      background-color: #004182;
+      color: #ffffff;
+      border-color: #0a66c2;
+    }
+    .btn-linkedin:hover {
+      background-color: #0a66c2;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background-color: var(--bg-surface);
+      color: #e2e8f0;
+      border-color: var(--border-strong);
+    }
+    .btn-secondary:hover {
+      background-color: var(--bg-surface-hover);
+      border-color: var(--brand-light);
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       PURE CSS INTERACTIVE FILTER BAR
+       ========================================================================== */
+    .filter-engine {
+      display: none; /* Hide real radio inputs */
+    }
+
+    .sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background-color: rgba(10, 14, 23, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 0.85rem 0;
+    }
+
+    .filter-tabs-wrapper {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding-bottom: 0.25rem;
+      scrollbar-width: thin;
+    }
+
+    .filter-tabs-wrapper::-webkit-scrollbar {
+      height: 4px;
+    }
+    .filter-tabs-wrapper::-webkit-scrollbar-thumb {
+      background: var(--border-strong);
+      border-radius: 9999px;
+    }
+
+    .tab-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-full);
+      font-size: 0.825rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+
+    .tab-pill:hover {
+      color: #ffffff;
+      border-color: var(--border-strong);
+      background-color: var(--bg-surface-elevated);
+    }
+
+    /* Radio Checked State Transitions for Filter Tabs */
+    #tab-all:checked ~ .sticky-nav label[for="tab-all"],
+    #tab-featured:checked ~ .sticky-nav label[for="tab-featured"],
+    #tab-newsletters:checked ~ .sticky-nav label[for="tab-newsletters"],
+    #tab-video:checked ~ .sticky-nav label[for="tab-video"],
+    #tab-pr:checked ~ .sticky-nav label[for="tab-pr"],
+    #tab-intelligens:checked ~ .sticky-nav label[for="tab-intelligens"],
+    #tab-web:checked ~ .sticky-nav label[for="tab-web"],
+    #tab-journalism:checked ~ .sticky-nav label[for="tab-journalism"],
+    #tab-indesign:checked ~ .sticky-nav label[for="tab-indesign"] {
+      background-color: var(--brand-primary);
+      color: #ffffff;
+      border-color: var(--brand-primary);
+      box-shadow: 0 4px 15px var(--brand-glow);
+    }
+
+    /* ==========================================================================
+       PORTFOLIO GRID & CARDS
+       ========================================================================== */
+    .main-content {
+      padding: 2.5rem 0 4rem;
+      flex: 1;
+    }
+
+    .section-headline {
+      margin-bottom: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .section-headline h2 {
+      font-size: 1.65rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .section-headline p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 640px) {
+      .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* Card Base */
+    .card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 1.6rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    /* Highlight Accents */
+    .card-featured-blue {
+      border: 1.5px solid rgba(15, 98, 254, 0.45);
+      background: linear-gradient(180deg, #131c30 0%, #101623 100%);
+    }
+    .card-featured-blue:hover {
+      border-color: var(--brand-light);
+    }
+
+    .card-featured-emerald {
+      border: 1.5px solid var(--emerald-border);
+      background: linear-gradient(180deg, #0d1e18 0%, #0d151c 100%);
+    }
+    .card-featured-emerald:hover {
+      border-color: var(--emerald);
+    }
+
+    .card-featured-purple {
+      border: 1.5px solid var(--purple-border);
+      background: linear-gradient(180deg, #1a1426 0%, #101522 100%);
+    }
+    .card-featured-purple:hover {
+      border-color: var(--purple);
+    }
+
+    .card-featured-rose {
+      border: 1.5px solid var(--rose-border);
+      background: linear-gradient(180deg, #211119 0%, #111724 100%);
+    }
+    .card-featured-rose:hover {
+      border-color: var(--rose);
+    }
+
+    .corner-badge {
+      position: absolute;
+      top: 0;
+      right: 0;
+      font-size: 0.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.35rem 0.85rem;
+      border-bottom-left-radius: var(--radius-md);
+      color: #ffffff;
+    }
+    .bg-badge-blue { background-color: var(--brand-primary); }
+    .bg-badge-emerald { background-color: var(--emerald); }
+
+    .tag-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .tag {
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-subtle);
+    }
+    .tag-blue { background-color: var(--brand-glow); color: var(--brand-light); border-color: rgba(96, 165, 250, 0.3); }
+    .tag-emerald { background-color: var(--emerald-bg); color: var(--emerald); border-color: var(--emerald-border); }
+    .tag-purple { background-color: var(--purple-bg); color: var(--purple); border-color: var(--purple-border); }
+    .tag-amber { background-color: var(--amber-bg); color: var(--amber); border-color: var(--amber-border); }
+    .tag-rose { background-color: var(--rose-bg); color: var(--rose); border-color: var(--rose-border); }
+    .tag-default { background-color: var(--bg-surface-elevated); color: #cbd5e1; }
+
+    .card-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.35;
+      margin-bottom: 0.6rem;
+    }
+
+    .card-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 1.1rem;
+    }
+
+    /* Meta Info Box */
+    .meta-box {
+      background-color: rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 0.75rem;
+      font-size: 0.75rem;
+      margin-bottom: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .meta-item strong {
+      color: #e2e8f0;
+    }
+    .meta-item span {
+      color: var(--text-muted);
+    }
+
+    .accolade-box {
+      background: var(--amber-bg);
+      border: 1px solid var(--amber-border);
+      color: #fde68a;
+      padding: 0.6rem 0.85rem;
+      border-radius: var(--radius-md);
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Card Links & Footers */
+    .card-footer {
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 1rem;
+      margin-top: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.8rem;
+    }
+
+    .action-link {
+      font-size: 0.825rem;
+      font-weight: 700;
+      color: var(--brand-light);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: all 0.2s ease;
+    }
+    .action-link:hover {
+      color: #ffffff;
+      transform: translateX(2px);
+    }
+
+    .action-btn-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background-color: var(--brand-primary);
+      color: #ffffff;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.55rem 1rem;
+      border-radius: var(--radius-md);
+      transition: background-color 0.2s ease;
+    }
+    .action-btn-cta:hover {
+      background-color: var(--brand-primary-hover);
+    }
+
+    .meta-pill-text {
+      font-size: 0.725rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    /* ==========================================================================
+       PURE CSS ACCORDIONS (<details> / <summary>)
+       ========================================================================== */
+    details.custom-accordion {
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      background-color: rgba(0, 0, 0, 0.25);
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+
+    details.custom-accordion summary {
+      padding: 0.65rem 0.85rem;
+      cursor: pointer;
+      list-style: none;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      background-color: rgba(255, 255, 255, 0.02);
+      transition: background-color 0.2s ease;
+    }
+
+    details.custom-accordion summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details.custom-accordion summary:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .accordion-chevron {
+      width: 14px;
+      height: 14px;
+      transition: transform 0.25s ease;
+    }
+
+    details[open] .accordion-chevron {
+      transform: rotate(180deg);
+    }
+
+    .accordion-body {
+      padding: 0.5rem;
+      max-height: 240px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .sub-item-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      padding: 0.5rem 0.65rem;
+      background-color: var(--bg-surface-elevated);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      font-size: 0.75rem;
+      transition: all 0.2s ease;
+    }
+    .sub-item-link:hover {
+      border-color: var(--brand-light);
+      background-color: var(--bg-surface-hover);
+    }
+
+    .sub-title {
+      font-weight: 600;
+      color: #f1f5f9;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .sub-meta {
+      font-size: 0.675rem;
+      color: var(--text-dim);
+    }
+
+    .pill-pdf-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .pdf-card-btn {
+      padding: 0.65rem;
+      background-color: var(--bg-surface-elevated);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #e2e8f0;
+      text-align: center;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    .pdf-card-btn:hover {
+      border-color: var(--rose);
+      color: #ffffff;
+      background-color: var(--bg-surface-hover);
+    }
+    .pdf-card-btn span {
+      font-size: 0.65rem;
+      color: var(--rose);
+    }
+
+    /* ==========================================================================
+       PURE CSS FILTERING RULES
+       ========================================================================== */
+    /* When a tab is checked, hide non-matching items */
+    #tab-all:checked ~ main .card-item { display: flex; }
+    
+    #tab-featured:checked ~ main .card-item:not(.type-featured) { display: none !important; }
+    #tab-newsletters:checked ~ main .card-item:not(.type-newsletters) { display: none !important; }
+    #tab-video:checked ~ main .card-item:not(.type-video) { display: none !important; }
+    #tab-pr:checked ~ main .card-item:not(.type-pr) { display: none !important; }
+    #tab-intelligens:checked ~ main .card-item:not(.type-intelligens) { display: none !important; }
+    #tab-web:checked ~ main .card-item:not(.type-web) { display: none !important; }
+    #tab-journalism:checked ~ main .card-item:not(.type-journalism) { display: none !important; }
+    #tab-indesign:checked ~ main .card-item:not(.type-indesign) { display: none !important; }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    footer {
+      background-color: #070a10;
+      border-top: 1px solid var(--border-subtle);
+      padding: 2.25rem 0;
+      margin-top: auto;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 640px) {
+      .footer-inner {
+        flex-direction: row;
+      }
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .footer-links a:hover {
+      color: var(--brand-light);
+    }
+
+    /* Accessibility skip link */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 1rem;
+      background: var(--brand-primary);
+      color: #ffffff;
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-sm);
+      z-index: 100;
+      font-weight: 600;
+    }
+    .skip-link:focus {
+      top: 1rem;
     }
   </style>
 </head>
-<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col transition-colors duration-200">
+<body>
 
-  <a href="#featured-work" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-brand-600 text-white px-4 py-2 rounded-lg z-50">
-    Skip to featured work
-  </a>
+  <a href="#portfolio-cards" class="skip-link">Skip to portfolio</a>
 
-  <header class="bg-slate-900 text-white border-b border-slate-800 relative overflow-hidden">
-    <!-- Subtle Background Glow -->
-    <div class="absolute -top-24 -left-24 w-96 h-96 bg-brand-500/20 rounded-full blur-3xl pointer-events-none"></div>
-    <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-blue-600/15 rounded-full blur-3xl pointer-events-none"></div>
+  <!-- ========================================================================
+       RADIO ENGINE FOR PURE CSS TABS (Hidden inputs)
+       ======================================================================== -->
+  <input type="radio" name="filter-nav" id="tab-all" class="filter-engine" checked>
+  <input type="radio" name="filter-nav" id="tab-featured" class="filter-engine">
+  <input type="radio" name="filter-nav" id="tab-newsletters" class="filter-engine">
+  <input type="radio" name="filter-nav" id="tab-video" class="filter-engine">
+  <input type="radio" name="filter-nav" id="tab-pr" class="filter-engine">
+  <input type="radio" name="filter-nav" id="tab-intelligens" class="filter-engine">
+  <input type="radio" name="filter-nav" id="tab-web" class="filter-engine">
+  <input type="radio" name="filter-nav" id="tab-journalism" class="filter-engine">
+  <input type="radio" name="filter-nav" id="tab-indesign" class="filter-engine">
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 relative z-10">
-      <div class="flex flex-col md:flex-row items-center md:items-start gap-6 text-center md:text-left">
-        <!-- Avatar Badge -->
-        <div class="w-20 h-20 rounded-2xl bg-gradient-to-tr from-brand-600 to-blue-400 text-white flex items-center justify-center font-bold text-2xl shadow-lg shadow-brand-500/30 ring-4 ring-slate-800 flex-shrink-0">
-          JG
-        </div>
+  <!-- ========================================================================
+       HERO HEADER
+       ======================================================================== -->
+  <header class="hero-header">
+    <div class="glow-1"></div>
+    <div class="glow-2"></div>
 
-        <div class="flex-1 space-y-4">
-          <div class="flex flex-wrap items-center justify-center md:justify-start gap-3">
-            <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">James Greer</h1>
-          </div>
+    <div class="container">
+      <div class="hero-content">
+        <!-- Monogram Badge -->
+        <div class="avatar-badge">JG</div>
 
-          <p class="text-xl text-brand-400 font-semibold max-w-2xl">
-            Digital and Corporate Communications Specialist
-          </p>
-
-          <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-3xl">
+        <div class="hero-bio">
+          <h1>James Greer</h1>
+          <p class="hero-role">Digital and Corporate Communications Specialist</p>
+          <p class="hero-summary">
             I deliver clear, evidence-led communications across media relations, digital campaigns, stakeholder engagement and executive video. My work has secured coverage in more than 30 publications, increased LinkedIn clicks by 62%, and supported senior leaders across government, public audit and consultancy.
           </p>
 
-          <!-- Primary Action Buttons & Profile Links -->
-          <div class="pt-3 flex flex-wrap gap-3 justify-center md:justify-start">
-            <a href="#featured-work" 
-               class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-500 text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-all shadow-lg shadow-brand-600/30">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
-              View Featured Work
-            </a>
-
-            <a href="https://www.linkedin.com/in/james-greer-98-/" target="_blank" rel="noopener noreferrer"
-               class="inline-flex items-center gap-2 bg-blue-700 hover:bg-blue-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full border border-blue-500 transition-all shadow-md">
-              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.74a1.62 1.62 0 1 0 0 3.24 1.62 1.62 0 0 0 0-3.24z"/></svg>
+          <div class="hero-actions">
+            <a href="https://www.linkedin.com/in/james-greer-98-/" target="_blank" rel="noopener noreferrer" class="btn btn-linkedin">
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.74a1.62 1.62 0 1 0 0 3.24 1.62 1.62 0 0 0 0-3.24z"/></svg>
               Connect on LinkedIn
             </a>
 
-            <a href="https://muckrack.com/james-greer-5/portfolio" target="_blank" rel="noopener noreferrer" 
-               class="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-slate-100 text-sm font-semibold px-4 py-2.5 rounded-full border border-slate-700 transition-all hover:border-brand-500">
-              <svg class="w-4 h-4 text-brand-400" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+            <a href="https://muckrack.com/james-greer-5/portfolio" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
               Muck Rack Index
             </a>
 
-            <a href="https://jamesjagreer.wordpress.com/" target="_blank" rel="noopener noreferrer"
-               class="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-slate-100 text-sm font-semibold px-4 py-2.5 rounded-full border border-slate-700 transition-all hover:border-brand-500">
-              <svg class="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+            <a href="https://jamesjagreer.wordpress.com/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
               Blog &amp; Publications
             </a>
           </div>
@@ -126,978 +791,748 @@
     </div>
   </header>
 
-  <div class="sticky top-0 z-30 bg-white/90 dark:bg-slate-900/90 glass-nav border-b border-slate-200 dark:border-slate-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-        
-        <!-- Search Input -->
-        <div class="relative w-full md:w-72">
-          <input type="text" id="searchInput" placeholder="Search case studies or media..." 
-                 class="w-full pl-9 pr-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-100 text-xs sm:text-sm rounded-full border border-slate-300 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all" />
-          <svg class="w-4 h-4 text-slate-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-          </svg>
-        </div>
-
-        <!-- Category Filters -->
-        <div class="flex items-center gap-1.5 overflow-x-auto w-full md:w-auto pb-1 md:pb-0 scrollbar-none" id="filterContainer">
-          <button data-filter="all" class="filter-btn active text-xs sm:text-sm font-semibold px-3.5 py-1.5 rounded-full border transition-all whitespace-nowrap bg-brand-600 text-white border-brand-600">All Work</button>
-          <button data-filter="featured" class="filter-btn text-xs sm:text-sm font-medium px-3.5 py-1.5 rounded-full border transition-all whitespace-nowrap bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-brand-500">★ Featured Case Studies</button>
-          <button data-filter="newsletters" class="filter-btn text-xs sm:text-sm font-medium px-3.5 py-1.5 rounded-full border transition-all whitespace-nowrap bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-brand-500">Stakeholder Newsletters</button>
-          <button data-filter="video" class="filter-btn text-xs sm:text-sm font-medium px-3.5 py-1.5 rounded-full border transition-all whitespace-nowrap bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-brand-500">Video Production</button>
-          <button data-filter="pr" class="filter-btn text-xs sm:text-sm font-medium px-3.5 py-1.5 rounded-full border transition-all whitespace-nowrap bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-brand-500">PR &amp; Media Campaigns</button>
-          <button data-filter="intelligens" class="filter-btn text-xs sm:text-sm font-medium px-3.5 py-1.5 rounded-full border transition-all whitespace-nowrap bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-brand-500">Intelligens Consulting</button>
-          <button data-filter="web" class="filter-btn text-xs sm:text-sm font-medium px-3.5 py-1.5 rounded-full border transition-all whitespace-nowrap bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-brand-500">Web &amp; Case Studies</button>
-          <button data-filter="journalism" class="filter-btn text-xs sm:text-sm font-medium px-3.5 py-1.5 rounded-full border transition-all whitespace-nowrap bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-brand-500">Journalism &amp; Policy</button>
-          <button data-filter="indesign" class="filter-btn text-xs sm:text-sm font-medium px-3.5 py-1.5 rounded-full border transition-all whitespace-nowrap bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-brand-500">InDesign &amp; Publications</button>
-        </div>
+  <!-- ========================================================================
+       STICKY FILTER TABS (Labels activating radio inputs via pure CSS)
+       ======================================================================== -->
+  <nav class="sticky-nav">
+    <div class="container">
+      <div class="filter-tabs-wrapper">
+        <label for="tab-all" class="tab-pill">All Work (38)</label>
+        <label for="tab-featured" class="tab-pill">★ Featured Case Studies</label>
+        <label for="tab-newsletters" class="tab-pill">Stakeholder Newsletters</label>
+        <label for="tab-video" class="tab-pill">Video Production</label>
+        <label for="tab-pr" class="tab-pill">PR &amp; Media Campaigns</label>
+        <label for="tab-intelligens" class="tab-pill">Intelligens Consulting</label>
+        <label for="tab-web" class="tab-pill">Web &amp; Case Studies</label>
+        <label for="tab-journalism" class="tab-pill">Journalism &amp; Policy</label>
+        <label for="tab-indesign" class="tab-pill">InDesign &amp; Publications</label>
       </div>
     </div>
-  </div>
+  </nav>
 
-  <main id="portfolio-content" class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10">
-    
-    <!-- Featured List Header Anchor -->
-    <section id="featured-work" class="scroll-mt-24">
-      <div class="flex items-center justify-between mb-6 border-b border-slate-200 dark:border-slate-800 pb-4">
-        <div>
-          <h2 class="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
-            <span class="text-brand-500">★</span> Featured Case Studies &amp; Campaign Leadership
-          </h2>
-          <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
-            Core deliverables across digital campaigns, media releases, stakeholder publishing, and executive video production
-          </p>
-        </div>
-        <p id="itemCount" class="text-xs sm:text-sm font-semibold text-slate-500 dark:text-slate-400 hidden sm:block">
-          Loading portfolio...
-        </p>
+  <!-- ========================================================================
+       MAIN PORTFOLIO GRID
+       ======================================================================== -->
+  <main class="main-content" id="portfolio-cards">
+    <div class="container">
+      
+      <div class="section-headline">
+        <h2>Portfolio &amp; Project Deliverables</h2>
+        <p>Explore case studies, campaigns, video production, publications, and external coverage.</p>
       </div>
 
-      <!-- Portfolio Cards Grid -->
-      <div id="portfolioGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Dynamic JS Rendering Target -->
+      <div class="cards-grid">
+
+        <!-- 1. UK Connectivity Report (Featured + Intelligens) -->
+        <article class="card card-item card-featured-blue type-featured type-intelligens">
+          <span class="corner-badge bg-badge-blue">High Impact</span>
+          <div>
+            <div class="tag-row">
+              <span class="tag tag-blue">Featured Case Study</span>
+            </div>
+            <h3 class="card-title">UK Connectivity Report &amp; Mapping Campaign</h3>
+            <p class="card-desc">
+              Developed web, email and interactive mapping content to communicate UK Fibre and 5G connectivity data by local authority. Generated highest click volume recorded for an Intelligens full-list campaign.
+            </p>
+
+            <div class="meta-box">
+              <div class="meta-item"><strong>Role:</strong> <span>Content production, email campaign delivery, web publishing &amp; data visualisation</span></div>
+              <div class="meta-item"><strong>Tools:</strong> <span>Wix, Datawrapper, Zoho Campaigns</span></div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem;">
+              <a href="https://www.intelligensconsulting.com/post/state-of-the-uk-connectivity-report-2026-uk-connectivity-is-improving-but-critical-gaps-remain" target="_blank" rel="noopener noreferrer" class="sub-item-link">
+                <span class="sub-title">State of UK Connectivity Report 2026</span>
+                <span style="color: var(--brand-light); font-weight: 700;">&rarr;</span>
+              </a>
+              <a href="https://www.intelligensconsulting.com/post/state-of-the-uk-fibre-market-2025-growth-slowdown-and-a-sector-at-a-crossroads" target="_blank" rel="noopener noreferrer" class="sub-item-link">
+                <span class="sub-title">State of UK Fibre Market 2025</span>
+                <span style="color: var(--brand-light); font-weight: 700;">&rarr;</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="card-footer">
+            <a href="https://www.intelligensconsulting.com/map26" target="_blank" rel="noopener noreferrer" class="action-btn-cta">
+              Explore Campaign &amp; Maps &rarr;
+            </a>
+            <span class="meta-pill-text">Data Campaign</span>
+          </div>
+        </article>
+
+        <!-- 2. Funeral Support Payment Media Campaign (Featured + PR) -->
+        <article class="card card-item card-featured-emerald type-featured type-pr">
+          <span class="corner-badge bg-badge-emerald">30+ Outlets</span>
+          <div>
+            <div class="tag-row">
+              <span class="tag tag-emerald">Featured Media Campaign</span>
+            </div>
+            <h3 class="card-title">Funeral Support Payment Media Campaign</h3>
+            <p class="card-desc">
+              Produced national statistics release and 32 localised versions within four working days. Included ministerial approvals and secured coverage across 30+ national and local publications.
+            </p>
+
+            <div class="meta-box">
+              <div class="meta-item"><strong style="color: var(--emerald);">Role:</strong> <span>News development, press releases, ministerial approvals &amp; distribution</span></div>
+            </div>
+
+            <details class="custom-accordion" open>
+              <summary>
+                <span>Selected Press Clippings (5)</span>
+                <svg class="accordion-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+              </summary>
+              <div class="accordion-body">
+                <a href="https://www.glasgowtimes.co.uk/news/scottish-news/23321579.get-funeral-support-payments-glasgow/" target="_blank" rel="noopener noreferrer" class="sub-item-link">
+                  <span class="sub-title">Glasgow Times: Glasgow Support Payments</span>
+                  <span style="color: var(--emerald); font-weight: 600;">Read &rarr;</span>
+                </a>
+                <a href="https://paisley.org.uk/news/over-1m-in-funeral-support-payments-paid-since-launch-in-renfrewshire" target="_blank" rel="noopener noreferrer" class="sub-item-link">
+                  <span class="sub-title">Paisley.org: Over £1M Paid Renfrewshire</span>
+                  <span style="color: var(--emerald); font-weight: 600;">Read &rarr;</span>
+                </a>
+                <a href="https://www.dailyrecord.co.uk/in-your-area/lanarkshire/lanarkshire-families-struggling-pay-rising-29221522" target="_blank" rel="noopener noreferrer" class="sub-item-link">
+                  <span class="sub-title">Daily Record: Lanarkshire Families</span>
+                  <span style="color: var(--emerald); font-weight: 600;">Read &rarr;</span>
+                </a>
+                <a href="https://www.the-gazette.co.uk/news/23356419.renfrewshire-vital-help-funeral-costs-eases-pain/" target="_blank" rel="noopener noreferrer" class="sub-item-link">
+                  <span class="sub-title">Renfrewshire Gazette: Vital Help</span>
+                  <span style="color: var(--emerald); font-weight: 600;">Read &rarr;</span>
+                </a>
+                <a href="https://www.pressreader.com/uk/airdrie-coatbridge-advertiser/20230301/281762748456835" target="_blank" rel="noopener noreferrer" class="sub-item-link">
+                  <span class="sub-title">Airdrie &amp; Coatbridge Advertiser</span>
+                  <span style="color: var(--emerald); font-weight: 600;">Read &rarr;</span>
+                </a>
+              </div>
+            </details>
+          </div>
+
+          <div class="card-footer">
+            <span class="meta-pill-text">National Press Strategy</span>
+            <span style="color: var(--emerald); font-size: 0.8rem; font-weight: 700;">32 Regional Releases</span>
+          </div>
+        </article>
+
+        <!-- 3. Stakeholder Newsletter Redesign (Featured + Newsletters) -->
+        <article class="card card-item card-featured-emerald type-featured type-newsletters">
+          <div>
+            <div class="tag-row">
+              <span class="tag tag-emerald">Featured Case Study</span>
+            </div>
+            <h3 class="card-title">Stakeholder Newsletter Redesign &amp; Editorial Leadership</h3>
+            <p class="card-desc">
+              Led monthly publication for 3,500+ external stakeholders. Redesign resulted in a 7% increase in open rates and &gt;200% increase in clicks during 2023 across third sector, NHS and government partners.
+            </p>
+
+            <div class="meta-box">
+              <div class="meta-item"><strong style="color: var(--emerald);">Role:</strong> <span>Editorial lead, stakeholder coordination, copywriting &amp; Mailchimp</span></div>
+            </div>
+
+            <!-- Pure CSS Expandable Mailchimp Archive -->
+            <details class="custom-accordion">
+              <summary>
+                <span>Browse 20 Archive Editions (2022–2024)</span>
+                <svg class="accordion-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+              </summary>
+              <div class="accordion-body">
+                <a href="http://eepurl.com/iU8kow" target="_blank" rel="noopener noreferrer" class="sub-item-link"><span class="sub-title">July 2024 Newsletter</span><span class="sub-meta">31/07/2024</span></a>
+                <a href="http://eepurl.com/iSRsJc" target="_blank" rel="noopener noreferrer" class="sub-item-link"><span class="sub-title">June 2024 Newsletter</span><span class="sub-meta">28/06/2024</span></a>
+                <a href="http://eepurl.com/iRtxZU" target="_blank" rel="noopener noreferrer" class="sub-item-link"><span class="sub-title">May 2024 Newsletter</span><span class="sub-meta">06/06/2024</span></a>
+                <a href="http://eepurl.com/iO6T72" target="_blank" rel="noopener noreferrer" class="sub-item-link"><span class="sub-title">April 2024 Newsletter</span><span class="sub-meta">30/04/2024</span></a>
+                <a href="http://eepurl.com/iMR_AI" target="_blank" rel="noopener noreferrer" class="sub-item-link"><span class="sub-title">March 2024 Newsletter</span><span class="sub-meta">27/03/2024</span></a>
+                <a href="http://eepurl.com/iK0quU" target="_blank" rel="noopener noreferrer" class="sub-item-link"><span class="sub-title">February 2024 Newsletter</span><span class="sub-meta">28/02/2024</span></a>
+                <a href="http://eepurl.com/iI4OrE" target="_blank" rel="noopener noreferrer" class="sub-item-link"><span class="sub-title">January 2024 Newsletter</span><span class="sub-meta">30/01/2024</span></a>
+                <a href="http://eepurl.com/iGaF9g" target="_blank" rel="noopener noreferrer" class="sub-item-link"><span class="sub-title">December 2023 Newsletter</span><span class="sub-meta">14/12/2023</span></a>
+                <a href="http://eepurl.com/iEx_D2" target="_blank" rel="noopener noreferrer" class="sub-item-link"><span class="sub-title">November 2023 Newsletter</span><span class="sub-meta">22/11/2023</span></a>
+                <a href="http://eepurl.com/iCDPIw" target="_blank" rel="noopener noreferrer" class="sub-item-link"><span class="sub-title">October 2023 Newsletter</span><span class="sub-meta">26/10/2023</span></a>
+                <a href="http://eepurl.com/iAMM4E" target="_blank" rel="noopener noreferrer" class="sub-item-link"><span class="sub-title">September 2023 Newsletter</span><span class="sub-meta">29/09/2023</span></a>
+                <a href="http://eepurl.com/iyJxdg" target="_blank" rel="noopener noreferrer" class="sub-item-link"><span class="sub-title">August 2023 Newsletter</span><span class="sub-meta">30/08/2023</span></a>
+                <a href="http://eepurl.com/iws2Ok" target="_blank" rel="noopener noreferrer" class="sub-item-link"><span class="sub-title">July 2023 Newsletter</span><span class="sub-meta">26/07/2023</span></a>
+                <a href="http://eepurl.com/iuxrEo" target="_blank" rel="noopener noreferrer" class="sub-item-link"><span class="sub-title">June 2023 Newsletter</span><span class="sub-meta">29/06/2023</span></a>
+                <a href="http://eepurl.com/isp292" target="_blank" rel="noopener noreferrer" class="sub-item-link"><span class="sub-title">May 2023 Newsletter</span><span class="sub-meta">31/05/2023</span></a>
+                <a href="http://eepurl.com/ip7YfE" target="_blank" rel="noopener noreferrer" class="sub-item-link"><span class="sub-title">April 2023 Newsletter</span><span class="sub-meta">28/04/2023</span></a>
+                <a href="http://eepurl.com/inD0Mc" target="_blank" rel="noopener noreferrer" class="sub-item-link"><span class="sub-title">March 2023 Newsletter</span><span class="sub-meta">24/03/2023</span></a>
+                <a href="http://eepurl.com/ilOiss" target="_blank" rel="noopener noreferrer" class="sub-item-link"><span class="sub-title">February 2023 Newsletter</span><span class="sub-meta">28/02/2023</span></a>
+                <a href="http://eepurl.com/ijyFUH" target="_blank" rel="noopener noreferrer" class="sub-item-link"><span class="sub-title">January 2023 Newsletter</span><span class="sub-meta">30/01/2023</span></a>
+                <a href="http://eepurl.com/igEz91" target="_blank" rel="noopener noreferrer" class="sub-item-link"><span class="sub-title">December 2022 Newsletter</span><span class="sub-meta">20/12/2022</span></a>
+              </div>
+            </details>
+          </div>
+
+          <div class="card-footer">
+            <span class="meta-pill-text">Mailchimp Publishing</span>
+            <span style="color: var(--emerald); font-size: 0.8rem; font-weight: 700;">20 Editions</span>
+          </div>
+        </article>
+
+        <!-- 4. Audit Scotland Corporate Videos (Featured + Video) -->
+        <article class="card card-item card-featured-purple type-featured type-video">
+          <div>
+            <div class="tag-row">
+              <span class="tag tag-purple">Executive Video Series</span>
+            </div>
+            <h3 class="card-title">Audit Scotland Annual Corporate Videos</h3>
+            <p class="card-desc">
+              Independently scripted, filmed and edited Audit Scotland’s annual corporate videos, including key governance reporting on Ferguson Marine Shipyard and public audit work outlooks.
+            </p>
+
+            <div class="meta-box">
+              <div class="meta-item"><strong style="color: var(--purple);">Role:</strong> <span>Scripting, filming, editing, stakeholder approvals &amp; publication</span></div>
+              <div class="meta-item"><strong style="color: var(--purple);">Tools:</strong> <span>Adobe Premiere Pro, After Effects</span></div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1rem;">
+              <a href="https://www.youtube.com/watch?v=OFDMasSM9uU" target="_blank" rel="noopener noreferrer" class="sub-item-link">
+                <div>
+                  <div class="sub-title">Ferguson Marine Shipyard Audit</div>
+                  <div class="sub-meta">Port Glasgow Shipyard governance summary</div>
+                </div>
+                <span style="color: var(--purple); font-weight: 700; white-space: nowrap;">▶ Watch</span>
+              </a>
+              <a href="https://www.youtube.com/watch?v=MIj_7V-9LOE" target="_blank" rel="noopener noreferrer" class="sub-item-link">
+                <div>
+                  <div class="sub-title">Audit Scotland Work Outlook 2025</div>
+                  <div class="sub-meta">Public sector reporting across transport &amp; NHS</div>
+                </div>
+                <span style="color: var(--purple); font-weight: 700; white-space: nowrap;">▶ Watch</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="card-footer">
+            <span class="meta-pill-text">Public Audit Governance</span>
+            <span style="color: var(--purple); font-size: 0.8rem; font-weight: 700;">2 Key Releases</span>
+          </div>
+        </article>
+
+        <!-- 5. Accounts Commission Videos (Featured + Video) -->
+        <article class="card card-item card-featured-purple type-featured type-video">
+          <div>
+            <div class="tag-row">
+              <span class="tag tag-purple">Executive Video Series</span>
+            </div>
+            <h3 class="card-title">Accounts Commission Annual Corporate Videos</h3>
+            <p class="card-desc">
+              Assisted in scripting, filming and editing of Accounts Commission corporate videos covering municipal financial outlooks, workforce innovation, and local council Best Value updates.
+            </p>
+
+            <div class="meta-box">
+              <div class="meta-item"><strong style="color: var(--purple);">Tools:</strong> <span>Adobe Creative Suite &amp; Corporate Production</span></div>
+            </div>
+
+            <details class="custom-accordion" open>
+              <summary>
+                <span>View Video Series (9 Videos)</span>
+                <svg class="accordion-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+              </summary>
+              <div class="accordion-body">
+                <a href="https://www.youtube.com/watch?v=Crp00oLZ3EI" target="_blank" rel="noopener noreferrer" class="sub-item-link"><span class="sub-title">Spring 2025 Reporting Outlook</span><span style="color: var(--purple); font-weight: 700;">▶ Watch</span></a>
+                <a href="https://www.youtube.com/watch?v=mBxElVrUQsc" target="_blank" rel="noopener noreferrer" class="sub-item-link"><span class="sub-title">Workforce Innovation Report</span><span style="color: var(--purple); font-weight: 700;">▶ Watch</span></a>
+                <a href="https://www.youtube.com/watch?v=gmEc3d6Gi_Q" target="_blank" rel="noopener noreferrer" class="sub-item-link"><span class="sub-title">Accounts Commission Update: March 2025</span><span style="color: var(--purple); font-weight: 700;">▶ Watch</span></a>
+                <a href="https://www.youtube.com/watch?v=dFk4UFSq4hc" target="_blank" rel="noopener noreferrer" class="sub-item-link"><span class="sub-title">Accounts Commission Update: April 2025</span><span style="color: var(--purple); font-weight: 700;">▶ Watch</span></a>
+                <a href="https://www.youtube.com/watch?v=5Pc1Yea5OOI" target="_blank" rel="noopener noreferrer" class="sub-item-link"><span class="sub-title">Accounts Commission Update: May 2025</span><span style="color: var(--purple); font-weight: 700;">▶ Watch</span></a>
+                <a href="https://www.youtube.com/watch?v=UwXyo2PGIDI" target="_blank" rel="noopener noreferrer" class="sub-item-link"><span class="sub-title">Accounts Commission Update: June 2025</span><span style="color: var(--purple); font-weight: 700;">▶ Watch</span></a>
+                <a href="https://www.youtube.com/watch?v=RN1DBIdenXg" target="_blank" rel="noopener noreferrer" class="sub-item-link"><span class="sub-title">Accounts Commission Update: Dec 2024</span><span style="color: var(--purple); font-weight: 700;">▶ Watch</span></a>
+                <a href="https://www.youtube.com/watch?v=BhCHk3fsN_4" target="_blank" rel="noopener noreferrer" class="sub-item-link"><span class="sub-title">Accounts Commission Update: Oct 2024</span><span style="color: var(--purple); font-weight: 700;">▶ Watch</span></a>
+                <a href="https://www.youtube.com/watch?v=MpxZL1O2BKM" target="_blank" rel="noopener noreferrer" class="sub-item-link"><span class="sub-title">Accounts Commission Update: Sept 2024</span><span style="color: var(--purple); font-weight: 700;">▶ Watch</span></a>
+              </div>
+            </details>
+          </div>
+
+          <div class="card-footer">
+            <span class="meta-pill-text">Local Government Oversight</span>
+            <span style="color: var(--purple); font-size: 0.8rem; font-weight: 700;">9 Corporate Videos</span>
+          </div>
+        </article>
+
+        <!-- 6. Tales from Lockdown (Featured + InDesign) -->
+        <article class="card card-item card-featured-rose type-featured type-indesign">
+          <div>
+            <div class="tag-row">
+              <span class="tag tag-rose">Award-Winning Publication</span>
+            </div>
+            <h3 class="card-title">Tales from Lockdown Magazine Editions</h3>
+            <p class="card-desc">
+              Led and editorialised four magazine editions during Covid-19 using InDesign. Winner of Best Newcomer Publication in Scotland 2021 from the Student Publication Association (SPA).
+            </p>
+
+            <div class="accolade-box">
+              🏆 Winner: Best Newcomer Publication in Scotland 2021 (SPA)
+            </div>
+
+            <div class="pill-pdf-grid">
+              <a href="https://drive.google.com/file/d/1xjl_Yqp6hPYaYb2_QW4yYntwkQSSGBNF/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="pdf-card-btn">
+                May Edition <span>Download PDF &rarr;</span>
+              </a>
+              <a href="https://drive.google.com/file/d/1gZ4P20851C1bSL7X5Q8TxUVrWq2gagAX/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="pdf-card-btn">
+                June Edition <span>Download PDF &rarr;</span>
+              </a>
+              <a href="https://drive.google.com/file/d/1cxI1T3uwixRMPkQ7QpJVrKKMalD3sdUn/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="pdf-card-btn">
+                July Edition <span>Download PDF &rarr;</span>
+              </a>
+              <a href="https://drive.google.com/file/d/1gZ4P20851C1bSL7X5Q8TxUVrWq2gagAX/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="pdf-card-btn">
+                August Edition <span>Download PDF &rarr;</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="card-footer">
+            <span class="meta-pill-text">InDesign Publishing</span>
+            <span style="color: var(--rose); font-size: 0.8rem; font-weight: 700;">4 Print Issues</span>
+          </div>
+        </article>
+
+        <!-- ====================================================================
+             INTELLIGENS CONSULTING CAMPAIGNS
+             ==================================================================== -->
+        <article class="card card-item type-intelligens">
+          <div>
+            <div class="tag-row"><span class="tag tag-blue">LinkedIn Campaign</span></div>
+            <h3 class="card-title">Connected Homes &amp; IoT in Social Housing</h3>
+            <p class="card-desc">Thought leadership campaign spotlighting IoT sensor deployment and tenant wellbeing in municipal social housing.</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://www.linkedin.com/posts/intelligens-consulting-ltd_socialhousing-connectedhomes-iot-activity-7488610040744980481-OIPr" target="_blank" rel="noopener noreferrer" class="action-link">View Post &rarr;</a>
+            <span class="meta-pill-text">Social Housing</span>
+          </div>
+        </article>
+
+        <article class="card card-item type-intelligens">
+          <div>
+            <div class="tag-row"><span class="tag tag-blue">LinkedIn Campaign</span></div>
+            <h3 class="card-title">Digital Infrastructure: 5G &amp; Full Fibre</h3>
+            <p class="card-desc">Spotlighting UK digital connectivity infrastructure across 5G altnets and local authority delivery models.</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://www.linkedin.com/posts/intelligens-consulting-ltd_digitalinfrastructure-5g-fullfibre-activity-7477738191140106241-96XD" target="_blank" rel="noopener noreferrer" class="action-link">View Post &rarr;</a>
+            <span class="meta-pill-text">Telecoms</span>
+          </div>
+        </article>
+
+        <article class="card card-item type-intelligens">
+          <div>
+            <div class="tag-row"><span class="tag tag-blue">LinkedIn Campaign</span></div>
+            <h3 class="card-title">IoT &amp; PropTech for Social Housing</h3>
+            <p class="card-desc">Exploring how IoT smart tech and predictive analytics transform repairs and asset management in social housing.</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://www.linkedin.com/posts/intelligens-consulting-ltd_socialhousing-iot-proptech-activity-7464940099584192512-t9o5" target="_blank" rel="noopener noreferrer" class="action-link">View Post &rarr;</a>
+            <span class="meta-pill-text">PropTech</span>
+          </div>
+        </article>
+
+        <article class="card card-item type-intelligens">
+          <div>
+            <div class="tag-row"><span class="tag tag-blue">LinkedIn Campaign</span></div>
+            <h3 class="card-title">AI &amp; Data Analytics for Local Government</h3>
+            <p class="card-desc">Content highlighting strategies for municipal councils to adopt artificial intelligence and automated decision support.</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://www.linkedin.com/posts/intelligens-consulting-ltd_localgov-ai-dataanalytics-activity-7442141090905784320-5Cgj" target="_blank" rel="noopener noreferrer" class="action-link">View Post &rarr;</a>
+            <span class="meta-pill-text">AI Strategy</span>
+          </div>
+        </article>
+
+        <article class="card card-item type-intelligens">
+          <div>
+            <div class="tag-row"><span class="tag tag-blue">LinkedIn Campaign</span></div>
+            <h3 class="card-title">Smart Cities: Assets &amp; Data Strategy</h3>
+            <p class="card-desc">Thought leadership outlining commercialisation and smart sensor frameworks for local council digital assets.</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://www.linkedin.com/posts/intelligens-consulting-ltd_smartcities-assets-data-activity-7452272553412210688-nTfG" target="_blank" rel="noopener noreferrer" class="action-link">View Post &rarr;</a>
+            <span class="meta-pill-text">Smart Cities</span>
+          </div>
+        </article>
+
+        <!-- ====================================================================
+             WEB REDESIGNS & ENGINEERING CASE STUDIES
+             ==================================================================== -->
+        <article class="card card-item type-web">
+          <div>
+            <div class="tag-row"><span class="tag tag-blue">Web Redesign</span></div>
+            <h3 class="card-title">Intelligens Consulting Website</h3>
+            <p class="card-desc">Complete corporate site overhaul modernising UX architecture, brand positioning and consultancy service scope.</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://www.intelligensconsulting.com/" target="_blank" rel="noopener noreferrer" class="action-link">View Live Website &rarr;</a>
+            <span class="meta-pill-text">Live Site</span>
+          </div>
+        </article>
+
+        <article class="card card-item type-web">
+          <div>
+            <div class="tag-row"><span class="tag tag-default">FES Case Study</span></div>
+            <h3 class="card-title">FES Assists Charity 'The Yard'</h3>
+            <p class="card-desc">Corporate news feature detailing charitable partnership and volunteer works supporting children with disabilities.</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://www.fes-group.co.uk/fes-assists-charity-the-yard/" target="_blank" rel="noopener noreferrer" class="action-link">Read Case Study &rarr;</a>
+            <span class="meta-pill-text">CSR Feature</span>
+          </div>
+        </article>
+
+        <article class="card card-item type-web">
+          <div>
+            <div class="tag-row"><span class="tag tag-default">FES Case Study</span></div>
+            <h3 class="card-title">Frameworks Scotland 3 Announcement</h3>
+            <p class="card-desc">Official update detailing appointment to NHS Scotland Frameworks Scotland 3 healthcare construction panel.</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://www.fes-group.co.uk/frameworks-scotland-3/" target="_blank" rel="noopener noreferrer" class="action-link">Read Case Study &rarr;</a>
+            <span class="meta-pill-text">Healthcare</span>
+          </div>
+        </article>
+
+        <article class="card card-item type-web">
+          <div>
+            <div class="tag-row"><span class="tag tag-default">FES Case Study</span></div>
+            <h3 class="card-title">PV Solar Installation in East Dunbartonshire</h3>
+            <p class="card-desc">Renewable energy project feature detailing commercial solar PV delivery for council net-zero objectives.</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://www.fes-group.co.uk/fes-supporting-delivery-of-pv-install-in-east-dunbartonshire/" target="_blank" rel="noopener noreferrer" class="action-link">Read Case Study &rarr;</a>
+            <span class="meta-pill-text">Decarbonisation</span>
+          </div>
+        </article>
+
+        <article class="card card-item type-web">
+          <div>
+            <div class="tag-row"><span class="tag tag-default">FES Case Study</span></div>
+            <h3 class="card-title">Advanced Computing Facility – University of Edinburgh</h3>
+            <p class="card-desc">Technical engineering feature highlighting electrical infrastructure and high-performance supercomputing facilities.</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://www.fes-group.co.uk/project/236447/" target="_blank" rel="noopener noreferrer" class="action-link">Read Case Study &rarr;</a>
+            <span class="meta-pill-text">Supercomputing</span>
+          </div>
+        </article>
+
+        <article class="card card-item type-web">
+          <div>
+            <div class="tag-row"><span class="tag tag-default">FES Case Study</span></div>
+            <h3 class="card-title">TECA Energy Centre &amp; District Infrastructure</h3>
+            <p class="card-desc">Low-carbon energy infrastructure case study for TECA Aberdeen, showcasing the UK's largest fuel cell installation.</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://www.fes-group.co.uk/project/aecc-energy-centre-and-district-infrastructure/" target="_blank" rel="noopener noreferrer" class="action-link">Read Case Study &rarr;</a>
+            <span class="meta-pill-text">District Energy</span>
+          </div>
+        </article>
+
+        <article class="card card-item type-web">
+          <div>
+            <div class="tag-row"><span class="tag tag-default">FES Case Study</span></div>
+            <h3 class="card-title">Atlantic Square Commercial Development</h3>
+            <p class="card-desc">Engineering case study detailing building services and modular offsite pre-fabrication for Glasgow's Atlantic Square.</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://www.fes-group.co.uk/project/atlantic-square/" target="_blank" rel="noopener noreferrer" class="action-link">Read Case Study &rarr;</a>
+            <span class="meta-pill-text">Engineering</span>
+          </div>
+        </article>
+
+        <article class="card card-item type-web">
+          <div>
+            <div class="tag-row"><span class="tag tag-default">FES Case Study</span></div>
+            <h3 class="card-title">177 Bothwell Street Development</h3>
+            <p class="card-desc">Offsite modular building services and high-efficiency MEP engineering for Glasgow's Grade A office development.</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://www.fes-group.co.uk/project/177-bothwell-street/" target="_blank" rel="noopener noreferrer" class="action-link">Read Case Study &rarr;</a>
+            <span class="meta-pill-text">Offices</span>
+          </div>
+        </article>
+
+        <article class="card card-item type-web">
+          <div>
+            <div class="tag-row"><span class="tag tag-default">FES Case Study</span></div>
+            <h3 class="card-title">122 Waterloo Street Commercial Project</h3>
+            <p class="card-desc">Prefabricated modular building services case study for Morgan Stanley’s 155,000 sq. ft Scottish headquarters.</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://www.fes-group.co.uk/project/122-waterloo-street/" target="_blank" rel="noopener noreferrer" class="action-link">Read Case Study &rarr;</a>
+            <span class="meta-pill-text">Commercial</span>
+          </div>
+        </article>
+
+        <!-- ====================================================================
+             JOURNALISM & POLICY ESSAYS
+             ==================================================================== -->
+        <article class="card card-item type-journalism">
+          <div>
+            <div class="tag-row"><span class="tag tag-amber">Alumni Spotlight</span></div>
+            <h3 class="card-title">Journalism Alumni Inspire Current Students</h3>
+            <p class="card-desc">Glasgow Clyde College News feature profiling James’s career progression to BA (Hons) Journalism Studies at Stirling University.</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://www.glasgowclyde.ac.uk/news/620-journalism-alumni-inspire-current-students" target="_blank" rel="noopener noreferrer" class="action-link">Read Profile &rarr;</a>
+            <span class="meta-pill-text">Alumni Profile</span>
+          </div>
+        </article>
+
+        <article class="card card-item type-journalism">
+          <div>
+            <div class="tag-row"><span class="tag tag-amber">Student Newspaper</span></div>
+            <h3 class="card-title">'The Clyde Insider' Goes to Print</h3>
+            <p class="card-desc">Glasgow Clyde College News coverage highlighting student journalism team launching the official printed college newspaper.</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://www.glasgowclyde.ac.uk/news/202-student-newspaper-the-clyde-insider-goes-to-print" target="_blank" rel="noopener noreferrer" class="action-link">Read Article &rarr;</a>
+            <span class="meta-pill-text">Press Feature</span>
+          </div>
+        </article>
+
+        <article class="card card-item type-journalism">
+          <div>
+            <div class="tag-row"><span class="tag tag-amber">Magazine Production</span></div>
+            <h3 class="card-title">'Clyde Outside' Magazine Production</h3>
+            <p class="card-desc">Journalistic writing, news editing and print page layout design for special college feature publication 'Clyde Outside'.</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://www.glasgowclyde.ac.uk/news/39-journalism-students-produce-clyde-outside-magazine" target="_blank" rel="noopener noreferrer" class="action-link">Read Article &rarr;</a>
+            <span class="meta-pill-text">Print Issue</span>
+          </div>
+        </article>
+
+        <article class="card card-item type-journalism">
+          <div>
+            <div class="tag-row"><span class="tag tag-amber">Local Journalism</span></div>
+            <h3 class="card-title">The Book Nook Opening (Stirling)</h3>
+            <p class="card-desc">Brig News feature report covering Stirling University graduates opening an independent community bookshop and cafe.</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://brignews.com/2020/09/19/stirling-graduates-open-bookstore-and-cafe-the-book-nook-in-stirling-city-centre/" target="_blank" rel="noopener noreferrer" class="action-link">Read Article &rarr;</a>
+            <span class="meta-pill-text">Brig News</span>
+          </div>
+        </article>
+
+        <article class="card card-item type-journalism">
+          <div>
+            <div class="tag-row"><span class="tag tag-amber">Geopolitics</span></div>
+            <h3 class="card-title">Russian Intention in the Black Sea</h3>
+            <p class="card-desc">Strategic policy analysis examining geopolitical posture, regional naval balance and defense strategy across the Black Sea basin.</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://jamesjagreer.wordpress.com/2021/07/02/russian-intention-in-the-black-sea/" target="_blank" rel="noopener noreferrer" class="action-link">Read Analysis &rarr;</a>
+            <span class="meta-pill-text">Essay</span>
+          </div>
+        </article>
+
+        <article class="card card-item type-journalism">
+          <div>
+            <div class="tag-row"><span class="tag tag-amber">Energy Policy</span></div>
+            <h3 class="card-title">Decentralised Energy &amp; Fuel Poverty</h3>
+            <p class="card-desc">Policy paper analyzing district heating microgrids, community energy independence and municipal fuel poverty alleviation.</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://jamesjagreer.wordpress.com/2021/07/02/569/" target="_blank" rel="noopener noreferrer" class="action-link">Read Policy Paper &rarr;</a>
+            <span class="meta-pill-text">Briefing</span>
+          </div>
+        </article>
+
+        <!-- ====================================================================
+             INDESIGN & PUBLICATIONS
+             ==================================================================== -->
+        <article class="card card-item type-indesign">
+          <div>
+            <div class="tag-row"><span class="tag tag-rose">InDesign Publication</span></div>
+            <h3 class="card-title">V&amp;A Dundee Case Study Brochure</h3>
+            <p class="card-desc">FES Group &amp; BAM Construction publication highlighting engineering feats on the iconic V&amp;A Dundee landmark.</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://media.muckrack.com/portfolio/items/11030154/case-study-va-dundee.pdf" target="_blank" rel="noopener noreferrer" class="action-link">View PDF Document &rarr;</a>
+            <span class="meta-pill-text">PDF Publication</span>
+          </div>
+        </article>
+
+        <article class="card card-item type-indesign">
+          <div>
+            <div class="tag-row"><span class="tag tag-rose">InDesign Brochure</span></div>
+            <h3 class="card-title">FES Group Commercial Proposal Brochure</h3>
+            <p class="card-desc">Multi-page corporate sales brochure detailing mechanical, electrical and renewable engineering service lines.</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://media.muckrack.com/portfolio/items/11030154/proposalbrochure.pdf" target="_blank" rel="noopener noreferrer" class="action-link">View PDF Brochure &rarr;</a>
+            <span class="meta-pill-text">Commercial PDF</span>
+          </div>
+        </article>
+
+        <article class="card card-item type-indesign">
+          <div>
+            <div class="tag-row"><span class="tag tag-rose">InDesign Flyer</span></div>
+            <h3 class="card-title">FES Group Marketing Flyer</h3>
+            <p class="card-desc">Corporate marketing collateral designed for business development pitches, service summaries and stakeholder outreach.</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://media.muckrack.com/portfolio/items/11030154/flyer.pdf" target="_blank" rel="noopener noreferrer" class="action-link">View PDF Flyer &rarr;</a>
+            <span class="meta-pill-text">Marketing PDF</span>
+          </div>
+        </article>
+
+        <!-- ====================================================================
+             CORPORATE PR & LINKEDIN
+             ==================================================================== -->
+        <article class="card card-item type-pr">
+          <div>
+            <div class="tag-row"><span class="tag tag-default">Corporate PR</span></div>
+            <h3 class="card-title">Audit Scotland 2024/25 Annual Report</h3>
+            <p class="card-desc">Official announcement and digital launch campaign for Audit Scotland’s Annual Report &amp; Accounts.</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://www.linkedin.com/posts/audit-scotland_weve-published-our-202425-annual-report-activity-7338472179409321984-jor1" target="_blank" rel="noopener noreferrer" class="action-link">View Update &rarr;</a>
+            <span class="meta-pill-text">LinkedIn Post</span>
+          </div>
+        </article>
+
+        <article class="card card-item type-pr">
+          <div>
+            <div class="tag-row"><span class="tag tag-default">Corporate PR</span></div>
+            <h3 class="card-title">Audit Scotland Report Key Insights</h3>
+            <p class="card-desc">Accompanied infographic social post breaking down strategic public audit findings and council oversight metrics.</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://www.linkedin.com/posts/audit-scotland_alongside-our-annual-report-and-accounts-activity-7339215979006074883-nc0o" target="_blank" rel="noopener noreferrer" class="action-link">View Update &rarr;</a>
+            <span class="meta-pill-text">LinkedIn Post</span>
+          </div>
+        </article>
+
+        <article class="card card-item type-pr">
+          <div>
+            <div class="tag-row"><span class="tag tag-default">Corporate PR</span></div>
+            <h3 class="card-title">NHS Louisa Jordan Hospital Support</h3>
+            <p class="card-desc">Corporate PR feature highlighting emergency engineering and rapid NHS building services turnaround during the pandemic.</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://www.linkedin.com/feed/update/urn:li:activity:6652939174859030528/" target="_blank" rel="noopener noreferrer" class="action-link">View Update &rarr;</a>
+            <span class="meta-pill-text">LinkedIn Post</span>
+          </div>
+        </article>
+
+        <article class="card card-item type-pr">
+          <div>
+            <div class="tag-row"><span class="tag tag-default">Corporate PR</span></div>
+            <h3 class="card-title">District Heat Network Turns Up Heat in Stirling</h3>
+            <p class="card-desc">Media feature on the Stirling District Heating network and pioneering wastewater heat recovery installation.</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://www.linkedin.com/feed/update/urn:li:activity:6602579867680677888/" target="_blank" rel="noopener noreferrer" class="action-link">View Update &rarr;</a>
+            <span class="meta-pill-text">LinkedIn Post</span>
+          </div>
+        </article>
+
+        <article class="card card-item type-pr">
+          <div>
+            <div class="tag-row"><span class="tag tag-default">Corporate PR</span></div>
+            <h3 class="card-title">Falkirk Stadium Low Carbon Vehicle Hub</h3>
+            <p class="card-desc">PR coverage highlighting regional EV fast-charging canopy and smart electrical infrastructure at Falkirk Stadium.</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://www.linkedin.com/feed/update/urn:li:activity:6676826907511689216/" target="_blank" rel="noopener noreferrer" class="action-link">View Update &rarr;</a>
+            <span class="meta-pill-text">LinkedIn Post</span>
+          </div>
+        </article>
+
+        <article class="card card-item type-pr">
+          <div>
+            <div class="tag-row"><span class="tag tag-default">Corporate PR</span></div>
+            <h3 class="card-title">Scottish Apprenticeship Day MP/MSP Visit</h3>
+            <p class="card-desc">Parliamentary outreach post highlighting cross-party visits to engineering training academies during Apprenticeship Week.</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://www.linkedin.com/feed/update/urn:li:activity:6645345458879242240/" target="_blank" rel="noopener noreferrer" class="action-link">View Update &rarr;</a>
+            <span class="meta-pill-text">LinkedIn Post</span>
+          </div>
+        </article>
+
+        <article class="card card-item type-pr">
+          <div>
+            <div class="tag-row"><span class="tag tag-default">Corporate PR</span></div>
+            <h3 class="card-title">Hebridean Housing Partnership Contract</h3>
+            <p class="card-desc">Press announcement detailing facilities management contract award with Hebridean Housing Partnership.</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://www.linkedin.com/feed/update/urn:li:activity:6612729263416188928/" target="_blank" rel="noopener noreferrer" class="action-link">View Update &rarr;</a>
+            <span class="meta-pill-text">Contract Win</span>
+          </div>
+        </article>
+
+        <article class="card card-item type-pr">
+          <div>
+            <div class="tag-row"><span class="tag tag-default">Corporate PR</span></div>
+            <h3 class="card-title">Castleview Contractor Announcement</h3>
+            <p class="card-desc">Official contractor announcement covering municipal building services delivery for Castleview development projects.</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://www.linkedin.com/feed/update/urn:li:activity:6631560788169498624/" target="_blank" rel="noopener noreferrer" class="action-link">View Update &rarr;</a>
+            <span class="meta-pill-text">LinkedIn Post</span>
+          </div>
+        </article>
+
+        <article class="card card-item type-pr">
+          <div>
+            <div class="tag-row"><span class="tag tag-default">Corporate PR</span></div>
+            <h3 class="card-title">Edinburgh Award Win Celebration</h3>
+            <p class="card-desc">PR update celebrating major industry award recognition and corporate social responsibility milestones in Edinburgh.</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://www.linkedin.com/feed/update/urn:li:activity:6628593117299789824/" target="_blank" rel="noopener noreferrer" class="action-link">View Update &rarr;</a>
+            <span class="meta-pill-text">Industry Award</span>
+          </div>
+        </article>
+
+        <article class="card card-item type-pr">
+          <div>
+            <div class="tag-row"><span class="tag tag-default">Corporate PR</span></div>
+            <h3 class="card-title">Atlantic Square Site Milestone Update</h3>
+            <p class="card-desc">Construction progress PR milestone highlighting mechanical and engineering handovers at Atlantic Square.</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://www.linkedin.com/feed/update/urn:li:activity:6702577395314028545/" target="_blank" rel="noopener noreferrer" class="action-link">View Update &rarr;</a>
+            <span class="meta-pill-text">Milestone</span>
+          </div>
+        </article>
+
+        <article class="card card-item type-pr">
+          <div>
+            <div class="tag-row"><span class="tag tag-default">Corporate PR</span></div>
+            <h3 class="card-title">FES Stirling Renewable Heat Award</h3>
+            <p class="card-desc">Environmental award recognition for low-carbon engineering at the Stirling District Heat Scheme.</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://www.linkedin.com/feed/update/urn:li:activity:6715237951422418944/" target="_blank" rel="noopener noreferrer" class="action-link">View Update &rarr;</a>
+            <span class="meta-pill-text">Renewables Award</span>
+          </div>
+        </article>
+
+        <article class="card card-item type-pr">
+          <div>
+            <div class="tag-row"><span class="tag tag-default">Corporate PR</span></div>
+            <h3 class="card-title">Fast Track League Table Recognition</h3>
+            <p class="card-desc">Press release detailing top business performance recognition in the national Sunday Times Fast Track tables.</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://www.linkedin.com/feed/update/urn:li:activity:6721758704074588160/" target="_blank" rel="noopener noreferrer" class="action-link">View Update &rarr;</a>
+            <span class="meta-pill-text">Fast Track 100</span>
+          </div>
+        </article>
+
       </div>
-    </section>
+    </div>
   </main>
 
-  <div id="videoModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md hidden">
-    <div class="bg-slate-900 border border-slate-800 w-full max-w-4xl rounded-2xl overflow-hidden shadow-2xl relative">
-      <div class="flex items-center justify-between px-6 py-4 border-b border-slate-800">
-        <h3 id="modalVideoTitle" class="text-white font-semibold text-base sm:text-lg truncate">Video Player</h3>
-        <button id="closeModal" class="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800 transition-colors">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-        </button>
-      </div>
-      <div class="aspect-video w-full bg-black">
-        <iframe id="modalIframe" class="w-full h-full" src="" title="Video Player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <div class="p-4 bg-slate-900 flex justify-end">
-        <a id="modalExternalLink" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs text-brand-400 hover:text-brand-300 font-medium">
-          Open on YouTube <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-8 text-center text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-12">
-    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p>&copy; <span id="currentYear">2026</span> James Greer. Digital and Corporate Communications Specialist.</p>
-      <div class="flex gap-4">
-        <a href="https://www.linkedin.com/in/james-greer-98-/" target="_blank" rel="noopener noreferrer" class="hover:text-brand-600 dark:hover:text-brand-400 font-medium">LinkedIn</a>
-        <a href="https://muckrack.com/james-greer-5/portfolio" target="_blank" rel="noopener noreferrer" class="hover:text-brand-600 dark:hover:text-brand-400 font-medium">Muck Rack</a>
-        <a href="https://jamesjagreer.wordpress.com/" target="_blank" rel="noopener noreferrer" class="hover:text-brand-600 dark:hover:text-brand-400 font-medium">Blog</a>
+  <!-- ========================================================================
+       FOOTER
+       ======================================================================== -->
+  <footer>
+    <div class="container footer-inner">
+      <p>&copy; 2026 James Greer. Digital and Corporate Communications Specialist.</p>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/james-greer-98-/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://muckrack.com/james-greer-5/portfolio" target="_blank" rel="noopener noreferrer">Muck Rack</a>
+        <a href="https://jamesjagreer.wordpress.com/" target="_blank" rel="noopener noreferrer">Blog</a>
       </div>
     </div>
   </footer>
 
-  <script>
-    const portfolioItems = [
-      // ==========================================
-      // FEATURED HIGHLIGHTS & CASE STUDIES
-      // ==========================================
-      {
-        cat: "intelligens",
-        isFeatured: true,
-        tag: "Featured Case Study",
-        title: "UK Connectivity Report & Mapping Campaign",
-        desc: "Developed web, email and interactive mapping content to communicate UK Fibre and 5G connectivity data by local authority. The campaign generated the highest click volume recorded for an Intelligens full-list email campaign.",
-        role: "Content production, email campaign delivery, web publishing & data visualisation",
-        tools: "Wix, Datawrapper, Zoho Campaigns",
-        cta: "Explore Campaign & Maps",
-        href: "https://www.intelligensconsulting.com/map26",
-        type: "featured_link",
-        extraLinks: [
-          { text: "View Connectivity Report", href: "https://www.intelligensconsulting.com/post/state-of-the-uk-connectivity-report-2026-uk-connectivity-is-improving-but-critical-gaps-remain" },
-          { text: "View Fibre Market 2025 Report", href: "https://www.intelligensconsulting.com/post/state-of-the-uk-fibre-market-2025-growth-slowdown-and-a-sector-at-a-crossroads" }
-        ]
-      },
-
-      {
-        cat: "pr",
-        isFeatured: true,
-        tag: "Featured Media Campaign",
-        title: "Funeral Support Payment Media Campaign",
-        desc: "Produced and secured approval for a national statistics release and 32 localised versions within four working days. The campaign included an approved ministerial quote and secured coverage in more than 30 national and local publications.",
-        role: "News development, press release writing, ministerial approvals, statistical checking & media distribution",
-        cta: "View Press Coverage",
-        type: "press_campaign",
-        pressLinks: [
-          { name: "Glasgow Times", title: "Get Funeral Support Payments Glasgow", href: "https://www.glasgowtimes.co.uk/news/scottish-news/23321579.get-funeral-support-payments-glasgow/" },
-          { name: "Paisley.org.uk", title: "Over £1M in Funeral Support Payments Paid", href: "https://paisley.org.uk/news/over-1m-in-funeral-support-payments-paid-since-launch-in-renfrewshire" },
-          { name: "Daily Record", title: "Lanarkshire Families Support Coverage", href: "https://www.dailyrecord.co.uk/in-your-area/lanarkshire/lanarkshire-families-struggling-pay-rising-29221522" },
-          { name: "Renfrewshire Gazette", title: "Vital Help For Funeral Costs Eases Pain", href: "https://www.the-gazette.co.uk/news/23356419.renfrewshire-vital-help-funeral-costs-eases-pain/" },
-          { name: "Airdrie & Coatbridge Advertiser", title: "PressReader National & Local Coverage", href: "https://www.pressreader.com/uk/airdrie-coatbridge-advertiser/20230301/281762748456835" }
-        ]
-      },
-
-      {
-        cat: "newsletters",
-        isFeatured: true,
-        tag: "Featured Case Study",
-        title: "Stakeholder Newsletter Redesign & Content Leadership",
-        desc: "Led the monthly production of a newsletter for more than 3,500 external stakeholders, coordinating policy, operational, statistical and communications colleagues. A redesigned format and stronger signposting contributed to a 7% increase in open rates and more than a 200% increase in clicks during 2023.",
-        role: "Editorial lead, stakeholder coordination, copywriting & Mailchimp production",
-        audience: "Third-sector organisations, NHS staff, journalists, elected representatives & client advisers",
-        cta: "Browse 20 Archive Editions",
-        type: "newsletter_collection",
-        items: [
-          { date: "31/07/2024", title: "Stakeholder Newsletter - July 2024", href: "http://eepurl.com/iU8kow" },
-          { date: "28/06/2024", title: "Stakeholder Newsletter - June 2024", href: "http://eepurl.com/iSRsJc" },
-          { date: "06/06/2024", title: "Stakeholder Newsletter - May 2024", href: "http://eepurl.com/iRtxZU" },
-          { date: "30/04/2024", title: "Stakeholder Newsletter - April 2024", href: "http://eepurl.com/iO6T72" },
-          { date: "27/03/2024", title: "Stakeholder Newsletter - March 2024", href: "http://eepurl.com/iMR_AI" },
-          { date: "28/02/2024", title: "Stakeholder Newsletter - February 2024", href: "http://eepurl.com/iK0quU" },
-          { date: "30/01/2024", title: "Stakeholder Newsletter - January 2024", href: "http://eepurl.com/iI4OrE" },
-          { date: "14/12/2023", title: "Stakeholder Newsletter - December 2023", href: "http://eepurl.com/iGaF9g" },
-          { date: "22/11/2023", title: "Stakeholder Newsletter - November 2023", href: "http://eepurl.com/iEx_D2" },
-          { date: "26/10/2023", title: "Stakeholder Newsletter - October 2023", href: "http://eepurl.com/iCDPIw" },
-          { date: "29/09/2023", title: "Stakeholder Newsletter - September 2023", href: "http://eepurl.com/iAMM4E" },
-          { date: "30/08/2023", title: "Stakeholder Newsletter - August 2023", href: "http://eepurl.com/iyJxdg" },
-          { date: "26/07/2023", title: "Stakeholder Newsletter - July 2023", href: "http://eepurl.com/iws2Ok" },
-          { date: "29/06/2023", title: "Stakeholder Newsletter - June 2023", href: "http://eepurl.com/iuxrEo" },
-          { date: "31/05/2023", title: "Stakeholder Newsletter - May 2023", href: "http://eepurl.com/isp292" },
-          { date: "28/04/2023", title: "Stakeholder Newsletter - April 2023", href: "http://eepurl.com/ip7YfE" },
-          { date: "24/03/2023", title: "Stakeholder Newsletter - March 2023", href: "http://eepurl.com/inD0Mc" },
-          { date: "28/02/2023", title: "Stakeholder Newsletter - February 2023", href: "http://eepurl.com/ilOiss" },
-          { date: "30/01/2023", title: "Stakeholder Newsletter - January 2023", href: "http://eepurl.com/ijyFUH" },
-          { date: "20/12/2022", title: "Stakeholder Newsletter - December 2022", href: "http://eepurl.com/igEz91" }
-        ]
-      },
-
-      {
-        cat: "video",
-        isFeatured: true,
-        tag: "Executive Video Series",
-        title: "Audit Scotland Annual Corporate Videos",
-        desc: "Independently scripted, filmed and edited Audit Scotland’s annual corporate videos, including key governance reporting on Ferguson Marine Shipyard and public audit work outlooks.",
-        role: "Scripting, filming, editing, stakeholder coordination & publication",
-        tools: "Adobe Creative Suite (Premiere Pro, After Effects)",
-        type: "audit_scotland_video_group",
-        videos: [
-          { title: "Ferguson Marine Shipyard Audit", youtubeId: "OFDMasSM9uU", href: "https://www.youtube.com/watch?v=OFDMasSM9uU", desc: "Governance & financial audit summary for Port Glasgow Shipyard." },
-          { title: "Audit Scotland Work Outlook 2025", youtubeId: "MIj_7V-9LOE", href: "https://www.youtube.com/watch?v=MIj_7V-9LOE", desc: "Public sector reporting outlook across transport, healthcare & education." }
-        ]
-      },
-
-      {
-        cat: "video",
-        isFeatured: true,
-        tag: "Executive Video Series",
-        title: "Accounts Commission Annual Corporate Videos",
-        desc: "Assisted in scripting, filming and editing of Accounts Commission corporate videos covering municipal financial outlooks, workforce innovation, and Best Value audit updates.",
-        role: "Scripting, filming, editing, stakeholder coordination & publication",
-        tools: "Adobe Creative Suite",
-        type: "video_collection",
-        items: [
-          { title: "Spring 2025 Reporting Outlook", youtubeId: "Crp00oLZ3EI", href: "https://www.youtube.com/watch?v=Crp00oLZ3EI", desc: "Council finances, car reduction targets & ASL provision." },
-          { title: "Workforce Innovation Report", youtubeId: "mBxElVrUQsc", href: "https://www.youtube.com/watch?v=mBxElVrUQsc", desc: "Council workforce planning, digital tool adoption & retention." },
-          { title: "Accounts Commission Update: March 2025", youtubeId: "gmEc3d6Gi_Q", href: "https://www.youtube.com/watch?v=gmEc3d6Gi_Q", desc: "Argyll & Bute Council, DEI strategy & Best Value standards." },
-          { title: "Accounts Commission Update: April 2025", youtubeId: "dFk4UFSq4hc", href: "https://www.youtube.com/watch?v=dFk4UFSq4hc", desc: "Highland Council finances & social care funding integration." },
-          { title: "Accounts Commission Update: May 2025", youtubeId: "5Pc1Yea5OOI", href: "https://www.youtube.com/watch?v=5Pc1Yea5OOI", desc: "Renfrewshire Council Best Value & budget challenge overview." },
-          { title: "Accounts Commission Update: June 2025", youtubeId: "UwXyo2PGIDI", href: "https://www.youtube.com/watch?v=UwXyo2PGIDI", desc: "East Lothian Council challenges & municipal workforce management." },
-          { title: "Accounts Commission Update: Dec 2024", youtubeId: "RN1DBIdenXg", href: "https://www.youtube.com/watch?v=RN1DBIdenXg", desc: "Aberdeen City Council findings & educational support reports." },
-          { title: "Accounts Commission Update: Oct 2024", youtubeId: "BhCHk3fsN_4", href: "https://www.youtube.com/watch?v=BhCHk3fsN_4", desc: "City of Edinburgh Council performance & digital transformation." },
-          { title: "Accounts Commission Update: Sept 2024", youtubeId: "MpxZL1O2BKM", href: "https://www.youtube.com/watch?v=MpxZL1O2BKM", desc: "Clackmannanshire Council & public sector renewal programs." }
-        ]
-      },
-
-      {
-        cat: "indesign",
-        isFeatured: true,
-        tag: "Award-Winning Publication",
-        title: "Tales from Lockdown Editions",
-        desc: "Led and editorialised four editions of a magazine during the 2020 Covid-19 Lockdown using InDesign to deliver multi-page publications. Winner of Best Newcomer Publication in Scotland 2021 from the Student Publication Association (SPA), and nominated for Best Newcomer Publication in Britain.",
-        role: "Editor-in-Chief, Chief Editor, Chief Designer",
-        tools: "Adobe Creative Suite (InDesign, Photoshop)",
-        accolades: "Winner: Best Newcomer Publication in Scotland 2021 (SPA) • Nominated: Best Newcomer Publication in Britain (SPA)",
-        type: "pdf_collection",
-        items: [
-          { title: "Tales from Lockdown — May Edition", cta: "May Edition (PDF)", href: "https://drive.google.com/file/d/1xjl_Yqp6hPYaYb2_QW4yYntwkQSSGBNF/view?usp=drive_link" },
-          { title: "Tales from Lockdown — June Edition", cta: "June Edition (PDF)", href: "https://drive.google.com/file/d/1gZ4P20851C1bSL7X5Q8TxUVrWq2gagAX/view?usp=sharing" },
-          { title: "Tales from Lockdown — July Edition", cta: "July Edition (PDF)", href: "https://drive.google.com/file/d/1cxI1T3uwixRMPkQ7QpJVrKKMalD3sdUn/view?usp=sharing" },
-          { title: "Tales from Lockdown — August Edition", cta: "August Edition (PDF)", href: "https://drive.google.com/file/d/1gZ4P20851C1bSL7X5Q8TxUVrWq2gagAX/view?usp=sharing" }
-        ]
-      },
-
-      // ==========================================
-      // INTELLIGENS CONSULTING & CAMPAIGNS
-      // ==========================================
-      {
-        cat: "intelligens",
-        tag: "LinkedIn Campaign",
-        title: "Connected Homes & IoT in Social Housing",
-        desc: "Social media content promoting Intelligens Consulting's thought leadership on connected homes and IoT-enabled social housing initiatives.",
-        cta: "View Post",
-        href: "https://www.linkedin.com/posts/intelligens-consulting-ltd_socialhousing-connectedhomes-iot-activity-7488610040744980481-OIPr",
-        type: "link"
-      },
-      {
-        cat: "intelligens",
-        tag: "LinkedIn Campaign",
-        title: "Digital Infrastructure: 5G & Full Fibre",
-        desc: "Campaign post spotlighting UK digital infrastructure insights across 5G deployment, altnet investment and local government strategies.",
-        cta: "View Post",
-        href: "https://www.linkedin.com/posts/intelligens-consulting-ltd_digitalinfrastructure-5g-fullfibre-activity-7477738191140106241-96XD",
-        type: "link"
-      },
-      {
-        cat: "intelligens",
-        tag: "LinkedIn Campaign",
-        title: "IoT & PropTech for Social Housing",
-        desc: "Strategic piece exploring how IoT sensor tech and PropTech solutions reshape social housing operational models and tenant outcomes.",
-        cta: "View Post",
-        href: "https://www.linkedin.com/posts/intelligens-consulting-ltd_socialhousing-iot-proptech-activity-7464940099584192512-t9o5",
-        type: "link"
-      },
-      {
-        cat: "intelligens",
-        tag: "LinkedIn Campaign",
-        title: "AI & Data Analytics for Local Government",
-        desc: "Content highlighting practical strategies for local councils to harness artificial intelligence and predictive data analytics.",
-        cta: "View Post",
-        href: "https://www.linkedin.com/posts/intelligens-consulting-ltd_localgov-ai-dataanalytics-activity-7442141090905784320-5Cgj",
-        type: "link"
-      },
-      {
-        cat: "intelligens",
-        tag: "LinkedIn Campaign",
-        title: "Smart Cities: Assets & Data Strategy",
-        desc: "Campaign post on smart city frameworks, public asset monetisation and data-driven civic planning.",
-        cta: "View Post",
-        href: "https://www.linkedin.com/posts/intelligens-consulting-ltd_smartcities-assets-data-activity-7452272553412210688-nTfG",
-        type: "link"
-      },
-
-      // ==========================================
-      // WEB REDESIGNS & ENGINEERING CASE STUDIES
-      // ==========================================
-      {
-        cat: "web",
-        tag: "Web Redesign",
-        title: "Intelligens Consulting Website",
-        desc: "Full website redesign for strategic tech consultancy, modernising user experience, service architecture, and digital branding.",
-        cta: "View Live Site",
-        href: "https://www.intelligensconsulting.com/",
-        type: "link"
-      },
-      {
-        cat: "web",
-        tag: "FES Case Study",
-        title: "FES Assists Charity 'The Yard'",
-        desc: "Corporate news feature spotlighting FES Group's community support and charitable partnership initiative with disabled children's charity The Yard.",
-        cta: "Read Case Study",
-        href: "https://www.fes-group.co.uk/fes-assists-charity-the-yard/",
-        type: "link"
-      },
-      {
-        cat: "web",
-        tag: "FES Case Study",
-        title: "Frameworks Scotland 3 Announcement",
-        desc: "Official FES Group update on appointment and delivery under the NHS Scotland Frameworks Scotland 3 healthcare construction framework.",
-        cta: "Read Case Study",
-        href: "https://www.fes-group.co.uk/frameworks-scotland-3/",
-        type: "link"
-      },
-      {
-        cat: "web",
-        tag: "FES Case Study",
-        title: "PV Solar Installation in East Dunbartonshire",
-        desc: "Sustainability feature detailing FES Group's delivery of solar PV installations for municipal renewables and council decarbonisation.",
-        cta: "Read Case Study",
-        href: "https://www.fes-group.co.uk/fes-supporting-delivery-of-pv-install-in-east-dunbartonshire/",
-        type: "link"
-      },
-      {
-        cat: "web",
-        tag: "FES Case Study",
-        title: "Advanced Computing Facility – University of Edinburgh",
-        desc: "Technical project feature detailing FES Group's specialized engineering contributions to the University of Edinburgh supercomputing hub.",
-        cta: "Read Case Study",
-        href: "https://www.fes-group.co.uk/project/236447/",
-        type: "link"
-      },
-      {
-        cat: "web",
-        tag: "FES Case Study",
-        title: "TECA Energy Centre & District Infrastructure",
-        desc: "Low-carbon energy infrastructure case study for P&J Live / TECA Aberdeen, featuring the UK's largest fuel cell installation.",
-        cta: "Read Case Study",
-        href: "https://www.fes-group.co.uk/project/aecc-energy-centre-and-district-infrastructure/",
-        type: "link"
-      },
-      {
-        cat: "web",
-        tag: "FES Case Study",
-        title: "Atlantic Square Project Feature",
-        desc: "Engineering & MEP building services case study detailing modular pre-fabrication for Glasgow's Atlantic Square development.",
-        cta: "Read Case Study",
-        href: "https://www.fes-group.co.uk/project/atlantic-square/",
-        type: "link"
-      },
-      {
-        cat: "web",
-        tag: "FES Case Study",
-        title: "177 Bothwell Street Development",
-        desc: "Feature highlighting offsite modular engineering and full MEP building services for Glasgow's flagship Grade A office complex.",
-        cta: "Read Case Study",
-        href: "https://www.fes-group.co.uk/project/177-bothwell-street/",
-        type: "link"
-      },
-      {
-        cat: "web",
-        tag: "FES Case Study",
-        title: "122 Waterloo Street Commercial Project",
-        desc: "Case study covering prefabricated modular MEP solutions for Morgan Stanley's 155,000 sq. ft office headquarters in Glasgow.",
-        cta: "Read Case Study",
-        href: "https://www.fes-group.co.uk/project/122-waterloo-street/",
-        type: "link"
-      },
-
-      // ==========================================
-      // JOURNALISM & POLICY ESSAYS
-      // ==========================================
-      {
-        cat: "journalism",
-        tag: "Alumni Spotlight",
-        title: "Journalism Alumni Inspire Current Students",
-        desc: "Glasgow Clyde College News — feature profile on James's career progression to BA (Hons) Journalism Studies at Stirling University.",
-        cta: "Read Article",
-        href: "https://www.glasgowclyde.ac.uk/news/620-journalism-alumni-inspire-current-students",
-        type: "link"
-      },
-      {
-        cat: "journalism",
-        tag: "Student Newspaper",
-        title: "'The Clyde Insider' Goes to Print",
-        desc: "Glasgow Clyde College News — coverage on student journalists launching and printing the official college newspaper edition.",
-        cta: "Read Article",
-        href: "https://www.glasgowclyde.ac.uk/news/202-student-newspaper-the-clyde-insider-goes-to-print",
-        type: "link"
-      },
-      {
-        cat: "journalism",
-        tag: "Magazine Production",
-        title: "'Clyde Outside' Magazine Production",
-        desc: "Journalistic contributions and page layout design for the special print magazine edition 'Clyde Outside'.",
-        cta: "Read Article",
-        href: "https://www.glasgowclyde.ac.uk/news/39-journalism-students-produce-clyde-outside-magazine",
-        type: "link"
-      },
-      {
-        cat: "journalism",
-        tag: "Journalism",
-        title: "The Book Nook Opening (Stirling)",
-        desc: "Brig News — feature report on Stirling University graduates launching a local independent bookstore and cafe concept.",
-        cta: "Read Article",
-        href: "https://brignews.com/2020/09/19/stirling-graduates-open-bookstore-and-cafe-the-book-nook-in-stirling-city-centre/",
-        type: "link"
-      },
-      {
-        cat: "journalism",
-        tag: "International Politics",
-        title: "Russian Intention in the Black Sea",
-        desc: "Analytical essay investigating geopolitical posture, regional naval strategy, and security dynamics across the Black Sea basin.",
-        cta: "Read Essay",
-        href: "https://jamesjagreer.wordpress.com/2021/07/02/russian-intention-in-the-black-sea/",
-        type: "link"
-      },
-      {
-        cat: "journalism",
-        tag: "Policy Analysis",
-        title: "Decentralised Energy & Fuel Poverty",
-        desc: "Policy briefing exploring community renewable microgrids, district heating infrastructure, and local fuel poverty mitigation.",
-        cta: "Read Policy Paper",
-        href: "https://jamesjagreer.wordpress.com/2021/07/02/569/",
-        type: "link"
-      },
-
-      // ==========================================
-      // INDESIGN & PUBLICATIONS
-      // ==========================================
-      {
-        cat: "indesign",
-        tag: "InDesign / Publication",
-        title: "V&A Dundee Case Study Brochure",
-        desc: "FES Group & BAM Construction publication highlighting engineering feats on the iconic V&A Dundee landmark project.",
-        cta: "View PDF Document",
-        href: "https://media.muckrack.com/portfolio/items/11030154/case-study-va-dundee.pdf",
-        type: "pdf"
-      },
-      {
-        cat: "indesign",
-        tag: "InDesign / Brochure",
-        title: "FES Group Commercial Brochure",
-        desc: "Multi-page corporate proposal brochure highlighting company capabilities, engineering projects, and service scope.",
-        cta: "View PDF Brochure",
-        href: "https://media.muckrack.com/portfolio/items/11030154/proposalbrochure.pdf",
-        type: "pdf"
-      },
-      {
-        cat: "indesign",
-        tag: "InDesign / Flyer",
-        title: "FES Group Marketing Flyer",
-        desc: "Single-page corporate marketing flyer for business development pitches, service summaries, and client outreach.",
-        cta: "View PDF Flyer",
-        href: "https://media.muckrack.com/portfolio/items/11030154/flyer.pdf",
-        type: "pdf"
-      },
-
-      // ==========================================
-      // CORPORATE PR & LINKEDIN
-      // ==========================================
-      {
-        cat: "pr",
-        tag: "Corporate PR / LinkedIn",
-        title: "District Heat Network Turns Up Heat in Stirling",
-        desc: "PR feature covering FES Group's Stirling District Heating scheme and low-carbon infrastructure rollout.",
-        cta: "View Update",
-        href: "https://www.linkedin.com/feed/update/urn:li:activity:6602579867680677888/",
-        type: "link"
-      },
-      {
-        cat: "pr",
-        tag: "Corporate PR / LinkedIn",
-        title: "Hebridean Housing Partnership Contract Award",
-        desc: "Announcement detailing FES FM securing the facilities management contract for Hebridean Housing Partnership.",
-        cta: "View Update",
-        href: "https://www.linkedin.com/feed/update/urn:li:activity:6612729263416188928/",
-        type: "link"
-      },
-      {
-        cat: "pr",
-        tag: "Corporate PR / LinkedIn",
-        title: "Castleview Contractor Announcement",
-        desc: "Official announcement detailing FES Group's contractor appointment for Castleview development projects.",
-        cta: "View Update",
-        href: "https://www.linkedin.com/feed/update/urn:li:activity:6631560788169498624/",
-        type: "link"
-      },
-      {
-        cat: "pr",
-        tag: "Corporate PR / LinkedIn",
-        title: "Edinburgh Award Win Celebration",
-        desc: "Press release update celebrating FES Group's major industry award recognition in Edinburgh.",
-        cta: "View Update",
-        href: "https://www.linkedin.com/feed/update/urn:li:activity:6628593117299789824/",
-        type: "link"
-      },
-      {
-        cat: "pr",
-        tag: "Corporate PR / LinkedIn",
-        title: "Scottish Apprenticeship Day MP/MSP Visit",
-        desc: "Media coverage of parliamentary visits to FES Group training facilities during Scottish Apprenticeship Week.",
-        cta: "View Update",
-        href: "https://www.linkedin.com/feed/update/urn:li:activity:6645345458879242240/",
-        type: "link"
-      },
-      {
-        cat: "pr",
-        tag: "Corporate PR / LinkedIn",
-        title: "NHS Louisa Jordan Hospital Support (Part 1)",
-        desc: "Corporate PR post covering FES Group's rapid engineering response for the NHS Louisa Jordan emergency hospital.",
-        cta: "View Update",
-        href: "https://www.linkedin.com/feed/update/urn:li:activity:6652939174859030528/",
-        type: "link"
-      },
-      {
-        cat: "pr",
-        tag: "Corporate PR / LinkedIn",
-        title: "Falkirk Stadium Low Carbon Vehicle Hub",
-        desc: "Project milestone post detailing the EV solar charging canopy and infrastructure delivered at Falkirk Stadium.",
-        cta: "View Update",
-        href: "https://www.linkedin.com/feed/update/urn:li:activity:6676826907511689216/",
-        type: "link"
-      },
-      {
-        cat: "pr",
-        tag: "Corporate PR / LinkedIn",
-        title: "NHS Louisa Jordan Recognition (Part 2)",
-        desc: "Follow-up recognition campaign highlighting contractor contributions to Scotland's pandemic emergency infrastructure.",
-        cta: "View Update",
-        href: "https://www.linkedin.com/feed/update/urn:li:activity:6692381939644588032/",
-        type: "link"
-      },
-      {
-        cat: "pr",
-        tag: "Corporate PR / LinkedIn",
-        title: "Atlantic Square Site Milestone Update",
-        desc: "Engineering milestone coverage for building services delivery at Atlantic Square, Glasgow.",
-        cta: "View Update",
-        href: "https://www.linkedin.com/feed/update/urn:li:activity:6702577395314028545/",
-        type: "link"
-      },
-      {
-        cat: "pr",
-        tag: "Corporate PR / LinkedIn",
-        title: "FES Stirling Renewable Heat Award",
-        desc: "Award spotlight for the pioneering Stirling District Heat Network delivered by FES Group.",
-        cta: "View Update",
-        href: "https://www.linkedin.com/feed/update/urn:li:activity:6715237951422418944/",
-        type: "link"
-      },
-      {
-        cat: "pr",
-        tag: "Corporate PR / LinkedIn",
-        title: "Fast Track League Table Recognition",
-        desc: "Update celebrating FES Group's placement in the national Sunday Times Fast Track league table rankings.",
-        cta: "View Update",
-        href: "https://www.linkedin.com/feed/update/urn:li:activity:6721758704074588160/",
-        type: "link"
-      },
-      {
-        cat: "pr",
-        tag: "Corporate PR / LinkedIn",
-        title: "Audit Scotland 2024/25 Annual Report",
-        desc: "Official announcement launching Audit Scotland's Annual Report & Accounts, detailing public finance oversight.",
-        cta: "View Update",
-        href: "https://www.linkedin.com/posts/audit-scotland_weve-published-our-202425-annual-report-activity-7338472179409321984-jor1",
-        type: "link"
-      },
-      {
-        cat: "pr",
-        tag: "Corporate PR / LinkedIn",
-        title: "Audit Scotland Report Key Insights",
-        desc: "Accompanied social feature breaking down strategic metrics, governance findings, and public audit priorities.",
-        cta: "View Update",
-        href: "https://www.linkedin.com/posts/audit-scotland_alongside-our-annual-report-and-accounts-activity-7339215979006074883-nc0o",
-        type: "link"
-      }
-    ];
-
-    let currentCategory = 'all';
-    let searchQuery = '';
-
-    const gridEl = document.getElementById('portfolioGrid');
-    const countEl = document.getElementById('itemCount');
-    const searchInput = document.getElementById('searchInput');
-    const filterBtns = document.querySelectorAll('.filter-btn');
-
-    // Video Modal Elements
-    const modal = document.getElementById('videoModal');
-    const modalIframe = document.getElementById('modalIframe');
-    const modalTitle = document.getElementById('modalVideoTitle');
-    const modalExtLink = document.getElementById('modalExternalLink');
-    const closeModalBtn = document.getElementById('closeModal');
-
-    function openVideoModal(youtubeId, title, href) {
-      modalIframe.src = `https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1`;
-      modalTitle.textContent = title;
-      modalExtLink.href = href;
-      modal.classList.remove('hidden');
-    }
-
-    function closeVideoModal() {
-      modal.classList.add('hidden');
-      modalIframe.src = '';
-    }
-
-    closeModalBtn.addEventListener('click', closeVideoModal);
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) closeVideoModal();
-    });
-
-    function renderPortfolio() {
-      const filtered = portfolioItems.filter(item => {
-        const matchesCategory = currentCategory === 'all' || 
-          (currentCategory === 'featured' && item.isFeatured) || 
-          item.cat === currentCategory;
-        
-        let matchesSearch = false;
-        if (!searchQuery) {
-          matchesSearch = true;
-        } else {
-          const mainText = `${item.title} ${item.desc} ${item.tag} ${item.role || ''} ${item.tools || ''}`.toLowerCase();
-          if (mainText.includes(searchQuery)) {
-            matchesSearch = true;
-          } else if (item.items && item.items.length) {
-            matchesSearch = item.items.some(sub => 
-              sub.title.toLowerCase().includes(searchQuery) || 
-              (sub.date && sub.date.toLowerCase().includes(searchQuery)) ||
-              (sub.desc && sub.desc.toLowerCase().includes(searchQuery))
-            );
-          } else if (item.pressLinks && item.pressLinks.length) {
-            matchesSearch = item.pressLinks.some(sub => 
-              sub.name.toLowerCase().includes(searchQuery) || sub.title.toLowerCase().includes(searchQuery)
-            );
-          }
-        }
-        return matchesCategory && matchesSearch;
-      });
-
-      countEl.textContent = `Showing ${filtered.length} project record${filtered.length === 1 ? '' : 's'}`;
-
-      if (filtered.length === 0) {
-        gridEl.innerHTML = `
-          <div class="col-span-full py-16 text-center text-slate-500 dark:text-slate-400">
-            <svg class="w-12 h-12 mx-auto mb-3 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 9.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-            <p class="font-medium text-base">No matching items found</p>
-            <p class="text-xs mt-1">Try resetting your search query or selecting another category.</p>
-          </div>
-        `;
-        return;
-      }
-
-      gridEl.innerHTML = filtered.map(item => {
-
-        // Featured Link Card (UK Connectivity Campaign)
-        if (item.type === 'featured_link') {
-          return `
-            <article class="card-hover bg-white dark:bg-slate-900 rounded-2xl p-6 border-2 border-brand-500/40 dark:border-brand-500/30 shadow-md flex flex-col justify-between relative overflow-hidden group col-span-1 md:col-span-2 lg:col-span-1">
-              <div class="absolute top-0 right-0 bg-brand-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider">
-                High Impact
-              </div>
-              <div>
-                <div class="flex items-center gap-2 mb-3">
-                  <span class="inline-block bg-brand-500/10 text-brand-600 dark:text-brand-400 text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md border border-brand-500/20">
-                    ${item.tag}
-                  </span>
-                </div>
-
-                <h2 class="text-lg font-extrabold text-slate-900 dark:text-white mb-2 leading-snug">
-                  ${item.title}
-                </h2>
-
-                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-                  ${item.desc}
-                </p>
-
-                <div class="space-y-2 mb-4 text-xs bg-slate-50 dark:bg-slate-950 p-3 rounded-xl border border-slate-200/80 dark:border-slate-800">
-                  <div><strong class="text-brand-600 dark:text-brand-400">Role:</strong> <span class="text-slate-700 dark:text-slate-300">${item.role}</span></div>
-                  <div><strong class="text-brand-600 dark:text-brand-400">Tools:</strong> <span class="text-slate-700 dark:text-slate-300">${item.tools}</span></div>
-                </div>
-
-                ${item.extraLinks ? `
-                  <div class="space-y-1.5 mb-4">
-                    ${item.extraLinks.map(l => `
-                      <a href="${l.href}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between text-xs text-brand-600 dark:text-brand-400 hover:underline p-1.5 rounded-lg bg-brand-50/50 dark:bg-brand-950/30 border border-brand-200/50 dark:border-brand-800/40 font-medium">
-                        <span>${l.text}</span> &rarr;
-                      </a>
-                    `).join('')}
-                  </div>
-                ` : ''}
-              </div>
-
-              <div class="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
-                <a href="${item.href}" target="_blank" rel="noopener noreferrer" class="text-xs sm:text-sm font-bold text-white bg-brand-600 hover:bg-brand-500 px-4 py-2 rounded-xl transition-colors shadow-sm inline-flex items-center gap-1.5">
-                  ${item.cta} &rarr;
-                </a>
-              </div>
-            </article>
-          `;
-        }
-
-        // Press Campaign Card (Funeral Support Payment)
-        if (item.type === 'press_campaign') {
-          return `
-            <article class="card-hover bg-white dark:bg-slate-900 rounded-2xl p-6 border-2 border-emerald-500/40 dark:border-emerald-500/30 shadow-md flex flex-col justify-between relative group col-span-1 md:col-span-2 lg:col-span-1">
-              <div class="absolute top-0 right-0 bg-emerald-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider">
-                30+ Media Outlets
-              </div>
-              <div>
-                <div class="flex items-center gap-2 mb-3">
-                  <span class="inline-block bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md border border-emerald-500/20">
-                    ${item.tag}
-                  </span>
-                </div>
-
-                <h2 class="text-lg font-extrabold text-slate-900 dark:text-white mb-2 leading-snug">
-                  ${item.title}
-                </h2>
-
-                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-                  ${item.desc}
-                </p>
-
-                <div class="mb-4 text-xs bg-slate-50 dark:bg-slate-950 p-3 rounded-xl border border-slate-200/80 dark:border-slate-800">
-                  <strong class="text-emerald-600 dark:text-emerald-400">Role:</strong> <span class="text-slate-700 dark:text-slate-300">${item.role}</span>
-                </div>
-
-                <div class="space-y-1.5 max-h-48 overflow-y-auto custom-scrollbar border border-slate-200 dark:border-slate-800 rounded-xl p-2 bg-slate-50/50 dark:bg-slate-950/50 mb-3">
-                  <div class="text-[10px] font-bold uppercase text-slate-400 px-1 mb-1">Selected Publications &amp; Clippings</div>
-                  ${item.pressLinks.map(pl => `
-                    <a href="${pl.href}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-2 rounded-lg bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800/80 hover:border-emerald-500 transition-colors">
-                      <div class="min-w-0 pr-2">
-                        <div class="text-[11px] font-bold text-slate-800 dark:text-slate-200 truncate">${pl.name}</div>
-                        <div class="text-[10px] text-slate-500 truncate">${pl.title}</div>
-                      </div>
-                      <span class="shrink-0 text-[10px] font-semibold text-emerald-600 dark:text-emerald-400">Read &rarr;</span>
-                    </a>
-                  `).join('')}
-                </div>
-              </div>
-
-              <div class="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-400">
-                <span>National Press Strategy</span>
-                <span class="font-medium text-emerald-600 dark:text-emerald-400">32 Regional Releases</span>
-              </div>
-            </article>
-          `;
-        }
-
-        // Audit Scotland Group Video Card
-        if (item.type === 'audit_scotland_video_group') {
-          return `
-            <article class="card-hover bg-white dark:bg-slate-900 rounded-2xl p-6 border-2 border-purple-500/40 dark:border-purple-500/30 shadow-md flex flex-col justify-between group col-span-1 md:col-span-2 lg:col-span-1">
-              <div>
-                <div class="flex items-center justify-between gap-2 mb-3">
-                  <span class="inline-block bg-purple-500/10 text-purple-600 dark:text-purple-400 text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md border border-purple-500/20">
-                    ${item.tag}
-                  </span>
-                  <svg class="w-5 h-5 text-purple-500" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                </div>
-
-                <h2 class="text-lg font-extrabold text-slate-900 dark:text-white mb-2 leading-snug">
-                  ${item.title}
-                </h2>
-
-                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-                  ${item.desc}
-                </p>
-
-                <div class="space-y-2 mb-4 text-xs bg-slate-50 dark:bg-slate-950 p-3 rounded-xl border border-slate-200/80 dark:border-slate-800">
-                  <div><strong class="text-purple-600 dark:text-purple-400">Role:</strong> <span class="text-slate-700 dark:text-slate-300">${item.role}</span></div>
-                  <div><strong class="text-purple-600 dark:text-purple-400">Tools:</strong> <span class="text-slate-700 dark:text-slate-300">${item.tools}</span></div>
-                </div>
-
-                <div class="space-y-2 mb-2">
-                  ${item.videos.map(v => `
-                    <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 flex items-center justify-between gap-2">
-                      <div class="min-w-0 flex-1">
-                        <div class="text-xs font-bold text-slate-900 dark:text-white truncate">${v.title}</div>
-                        <div class="text-[11px] text-slate-500 dark:text-slate-400 truncate">${v.desc}</div>
-                      </div>
-                      <button onclick="openVideoModal('${v.youtubeId}', '${v.title.replace(/'/g, "\\'")}', '${v.href}')" class="shrink-0 text-[10px] font-bold text-white bg-purple-600 hover:bg-purple-500 px-3 py-1.5 rounded-lg flex items-center gap-1 shadow-sm transition-colors">
-                        <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Watch
-                      </button>
-                    </div>
-                  `).join('')}
-                </div>
-              </div>
-              <div class="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-400">
-                <span>Public Audit Governance</span>
-                <span class="font-medium text-purple-500">2 Key Releases</span>
-              </div>
-            </article>
-          `;
-        }
-
-        // Newsletter Collection Card
-        if (item.type === 'newsletter_collection') {
-          return `
-            <article class="card-hover bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between group col-span-1 md:col-span-2 lg:col-span-1">
-              <div>
-                <div class="flex items-center justify-between gap-2 mb-3">
-                  <span class="inline-block bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md border border-emerald-500/20">
-                    ${item.tag}
-                  </span>
-                  <svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                </div>
-
-                <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-2 leading-snug">
-                  ${item.title}
-                </h2>
-
-                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-3">
-                  ${item.desc}
-                </p>
-
-                ${item.role ? `
-                  <div class="mb-3 text-xs bg-slate-50 dark:bg-slate-950 p-2.5 rounded-xl border border-slate-200/80 dark:border-slate-800">
-                    <strong class="text-emerald-600 dark:text-emerald-400">Role:</strong> <span class="text-slate-700 dark:text-slate-300">${item.role}</span>
-                  </div>
-                ` : ''}
-
-                <div class="mt-2 space-y-1.5 max-h-52 overflow-y-auto custom-scrollbar border border-slate-100 dark:border-slate-800 rounded-xl p-2 bg-slate-50/50 dark:bg-slate-950/50">
-                  ${item.items.map(sub => `
-                    <div class="flex items-center justify-between gap-2 p-2 rounded-lg bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800/80 hover:border-emerald-500/50 transition-colors">
-                      <div class="min-w-0 flex-1">
-                        <div class="text-[10px] font-semibold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">${sub.date}</div>
-                        <div class="text-xs font-medium text-slate-800 dark:text-slate-200 truncate">${sub.title}</div>
-                      </div>
-                      <a href="${sub.href}" target="_blank" rel="noopener noreferrer" class="shrink-0 text-[11px] font-semibold text-brand-600 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-300 bg-brand-50 dark:bg-brand-950/50 px-2.5 py-1 rounded-md border border-brand-200 dark:border-brand-800/50">
-                        Read &rarr;
-                      </a>
-                    </div>
-                  `).join('')}
-                </div>
-              </div>
-              <div class="pt-3 mt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-400">
-                <span>Mailchimp Publishing</span>
-                <span class="font-medium text-slate-500">${item.items.length} Editions</span>
-              </div>
-            </article>
-          `;
-        }
-
-        // Accounts Commission Video Collection Card
-        if (item.type === 'video_collection') {
-          return `
-            <article class="card-hover bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between group col-span-1 md:col-span-2 lg:col-span-1">
-              <div>
-                <div class="flex items-center justify-between gap-2 mb-3">
-                  <span class="inline-block bg-red-500/10 text-red-600 dark:text-red-400 text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md border border-red-500/20">
-                    ${item.tag}
-                  </span>
-                  <svg class="w-4 h-4 text-red-500" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                </div>
-
-                <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-2 leading-snug">
-                  ${item.title}
-                </h2>
-
-                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-3">
-                  ${item.desc}
-                </p>
-
-                <div class="mt-2 space-y-2 max-h-52 overflow-y-auto custom-scrollbar border border-slate-100 dark:border-slate-800 rounded-xl p-2 bg-slate-50/50 dark:bg-slate-950/50">
-                  ${item.items.map(sub => `
-                    <div class="p-2 rounded-lg bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800/80">
-                      <div class="flex items-start justify-between gap-2">
-                        <div>
-                          <div class="text-xs font-bold text-slate-900 dark:text-white">${sub.title}</div>
-                          <div class="text-[11px] text-slate-500 dark:text-slate-400 leading-tight mt-0.5">${sub.desc}</div>
-                        </div>
-                        <button onclick="openVideoModal('${sub.youtubeId}', '${sub.title.replace(/'/g, "\\'")}', '${sub.href}')" class="shrink-0 text-[10px] font-bold text-white bg-red-600 hover:bg-red-500 px-2 py-1 rounded flex items-center gap-1 shadow-sm transition-colors">
-                          <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Play
-                        </button>
-                      </div>
-                    </div>
-                  `).join('')}
-                </div>
-              </div>
-              <div class="pt-3 mt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-400">
-                <span>YouTube Media Player</span>
-                <span class="font-medium text-slate-500">${item.items.length} Videos</span>
-              </div>
-            </article>
-          `;
-        }
-
-        // Tales from Lockdown PDF Collection Card
-        if (item.type === 'pdf_collection') {
-          return `
-            <article class="card-hover bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between group">
-              <div>
-                <div class="flex items-center justify-between gap-2 mb-3">
-                  <span class="inline-block bg-rose-500/10 text-rose-600 dark:text-rose-400 text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md border border-rose-500/20">
-                    ${item.tag}
-                  </span>
-                  <svg class="w-4 h-4 text-rose-500" fill="currentColor" viewBox="0 0 24 24"><path d="M20 2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8.5 7.5c0 .83-.67 1.5-1.5 1.5H9v2H7.5V7H10c.83 0 1.5.67 1.5 1.5v1zm5 2c0 .83-.67 1.5-1.5 1.5h-2.5V7H15c.83 0 1.5.67 1.5 1.5v3zm4-3H19v1h1.5V11H19v2h-1.5V7h3v1.5z"/></svg>
-                </div>
-
-                <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-2 leading-snug">
-                  ${item.title}
-                </h2>
-
-                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-3">
-                  ${item.desc}
-                </p>
-
-                ${item.accolades ? `
-                  <div class="mb-3 text-xs bg-amber-50 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 p-2.5 rounded-xl border border-amber-200 dark:border-amber-800/50 font-medium">
-                    🏆 ${item.accolades}
-                  </div>
-                ` : ''}
-
-                <div class="grid grid-cols-2 gap-2 my-3">
-                  ${item.items.map(sub => `
-                    <a href="${sub.href}" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80 hover:border-brand-500 dark:hover:border-brand-400 flex flex-col justify-between group/pdf transition-all text-left">
-                      <span class="text-xs font-bold text-slate-800 dark:text-slate-200 group-hover/pdf:text-brand-600 dark:group-hover/pdf:text-brand-400 transition-colors truncate">${sub.title.replace('Tales from Lockdown — ', '')}</span>
-                      <span class="text-[10px] text-slate-400 mt-1 inline-flex items-center gap-1 font-semibold">
-                        PDF &rarr;
-                      </span>
-                    </a>
-                  `).join('')}
-                </div>
-              </div>
-              <div class="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-400">
-                <span>InDesign Multi-Page Issues</span>
-                <span class="font-medium text-slate-500">4 Issues</span>
-              </div>
-            </article>
-          `;
-        }
-
-        // Standard Single Link Card
-        return `
-          <article class="card-hover bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between group">
-            <div>
-              <div class="flex items-center justify-between gap-2 mb-3">
-                <span class="inline-block bg-slate-100 dark:bg-slate-800 text-brand-600 dark:text-brand-400 text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md border border-slate-200 dark:border-slate-700/60">
-                  ${item.tag}
-                </span>
-                <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-              </div>
-
-              <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-2 leading-snug group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
-                ${item.title}
-              </h2>
-
-              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
-                ${item.desc}
-              </p>
-            </div>
-
-            <div class="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
-              <a href="${item.href}" target="_blank" rel="noopener noreferrer" class="text-xs sm:text-sm font-semibold text-brand-600 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-300 flex items-center gap-1.5 group-hover:translate-x-0.5 transition-transform">
-                ${item.cta} &rarr;
-              </a>
-              <span class="text-[11px] font-medium text-slate-400 uppercase tracking-wider">
-                ${item.type === 'pdf' ? 'PDF Doc' : 'Live Resource'}
-              </span>
-            </div>
-          </article>
-        `;
-      }).join('');
-    }
-
-    // Attach Event Handlers for Category Filters
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => {
-          b.classList.remove('active', 'bg-brand-600', 'text-white', 'border-brand-600');
-          b.classList.add('bg-slate-100', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300', 'border-slate-200', 'dark:border-slate-700');
-        });
-
-        btn.classList.add('active', 'bg-brand-600', 'text-white', 'border-brand-600');
-        btn.classList.remove('bg-slate-100', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300', 'border-slate-200', 'dark:border-slate-700');
-
-        currentCategory = btn.dataset.filter;
-        renderPortfolio();
-      });
-    });
-
-    // Real-time Search Handler
-    searchInput.addEventListener('input', (e) => {
-      searchQuery = e.target.value.toLowerCase().trim();
-      renderPortfolio();
-    });
-
-    // Dynamic Year Update
-    document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-    // Initial render
-    renderPortfolio();
-  </script>
 </body>
 </html>
